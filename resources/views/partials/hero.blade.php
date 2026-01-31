@@ -2,7 +2,7 @@
     
     <div class="absolute inset-0 z-0 overflow-hidden bg-stone-900">
         <img
-            src="{{ Vite::asset('resources/images/temple-background.png') }}"
+            src="{{ asset('images/temple-background.png') }}"
             alt="Temple Background"
             class="w-full h-full object-cover object-center animate-slow-zoom opacity-80"
         />

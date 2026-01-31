@@ -79,7 +79,7 @@
               <div class="w-full md:w-1/2">
                 <div class="relative">
                   <img
-                    src="{{ Vite::asset('resources/images/heritage.jpg') }}"
+                    src="{{ asset('images/heritage.jpg') }}"
                     alt="Birnagar Heritage Site"
                     class="rounded-2xl shadow-lg rotate-2 hover:rotate-0 transition-all duration-500 border-4 border-white"
                   />

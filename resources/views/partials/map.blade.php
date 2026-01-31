@@ -21,7 +21,7 @@
           // Kolkata marker
           const kolkataMarker = L.marker([22.5726, 88.3639], {
             icon: L.icon({
-              iconUrl: '{{ Vite::asset("resources/images/airport.png") }}',
+              iconUrl: '{{ asset("images/airport.png") }}',
               iconSize: [50, 50],
               iconAnchor: [25, 25],
               popupAnchor: [0, -25]
@@ -51,7 +51,7 @@
           // Mayapur marker
           const mayapurMarker = L.marker([23.3581, 88.4176], {
             icon: L.icon({
-              iconUrl: '{{ Vite::asset("resources/images/tovp.png") }}',
+              iconUrl: '{{ asset("images/tovp.png") }}',
               iconSize: [50, 50],
               iconAnchor: [25, 25],
               popupAnchor: [0, -25]

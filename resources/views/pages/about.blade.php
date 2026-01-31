@@ -11,7 +11,7 @@
             >
               <img
                 id="about-hero-image"
-                src="{{ Vite::asset('resources/images/sbvt_about.webp') }}"
+                src="{{ asset('images/sbvt_about.webp') }}"
                 alt="Srila Bhaktivinoda Thakur"
                 class="rounded-xl w-full transition-all duration-700"
               />

@@ -91,7 +91,7 @@
     style="font-family: 'Google Sans Flex', sans-serif"
   >
   <div id="page-loader">
-    <img src="{{ Vite::asset('resources/images/loader.gif') }}" class="logo-loader" alt="Loading">
+    <img src="{{ asset('images/loader.gif') }}" class="logo-loader" alt="Loading">
 </div>
 
 

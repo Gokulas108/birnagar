@@ -29,7 +29,7 @@
               <div class="absolute -inset-1.5 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-400/15 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10"></div>
               <div class="relative h-full">
                 <img
-                  src="{{ Vite::asset('resources/images/image_1.jpg') }}"
+                  src="{{ asset('images/image_1.jpg') }}"
                   alt="Temple Construction"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
                 />
@@ -53,7 +53,7 @@
               <div class="absolute -inset-1.5 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-400/15 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10"></div>
               <div class="relative h-full">
                 <img
-                  src="{{ Vite::asset('resources/images/image_2.jpg') }}"
+                  src="{{ asset('images/image_2.jpg') }}"
                   alt="Festival"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -77,7 +77,7 @@
               <div class="absolute -inset-1.5 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-400/15 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10"></div>
               <div class="relative h-full">
                 <img
-                  src="{{ Vite::asset('resources/images/image_5.jpg') }}"
+                  src="{{ asset('images/image_5.jpg') }}"
                   alt="Deity Worship"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-1"
                 />
@@ -101,7 +101,7 @@
               <div class="absolute -inset-1.5 rounded-2xl bg-gradient-to-br from-orange-500/20 to-amber-400/15 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10"></div>
               <div class="relative h-full">
                 <img
-                  src="{{ Vite::asset('resources/images/image_3.jpg') }}"
+                  src="{{ asset('images/image_3.jpg') }}"
                   alt="Community"
                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

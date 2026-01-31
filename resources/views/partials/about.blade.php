@@ -2,7 +2,7 @@
       <section
         id="about"
         class="py-8 sm:py-10 md:py-12 px-4 sm:px-6 md:px-8 bg-cover bg-center bg-no-repeat relative overflow-hidden z-10"
-        style="background-image: url('{{ Vite::asset('resources/images/about_2.png') }}'); will-change: background-position; backface-visibility: hidden; -webkit-font-smoothing: antialiased;"
+        style="background-image: url('{{ asset('images/about_2.png') }}'); will-change: background-position; backface-visibility: hidden; -webkit-font-smoothing: antialiased;"
       >
         <div
           class="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-4 items-center relative z-10 max-w-7xl mx-auto"
