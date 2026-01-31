@@ -394,45 +394,125 @@
                   </div>
                 </div>
 
-                <div
-                  class="bg-stone-50 p-4 rounded-xl border border-stone-200 mb-8"
-                >
-                  <!-- <div class="flex items-center gap-3 mb-2">
-                    <div class="relative flex items-center">
-                      <input
-                        type="checkbox"
-                        id="taxReceipt"
-                        x-model="taxReceipt"
-                        class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-stone-300 bg-white checked:border-saffron-500 checked:bg-saffron-500 transition-all"
-                      />
-                      <i
-                        class="fas fa-check absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs opacity-0 peer-checked:opacity-100 pointer-events-none"
-                      ></i>
-                    </div>
+               
+                  <div  x-show="amount > 25000"
+                  x-collapse class="mt-3 mb-8">
                     <label
-                      for="taxReceipt"
-                      class="text-sm font-bold text-stone-700 cursor-pointer select-none"
+                      class="text-[10px] font-bold text-stone-400 uppercase mb-1 block"
+                      >PAN Card Number</label
                     >
-                      I want 80G Tax Exemption Receipt
-                    </label>
-                  </div> -->
+                    <input
+                      type="text"
+                      class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 uppercase tracking-widest placeholder:normal-case transition"
+                      placeholder="ABCDE1234F"
+                    />
+                    <p class="text-[10px] text-stone-400 mt-1 italic">
+                      Make sure the name matches with the one on your PAN card.
+                    </p>
 
-                  <div x-show="taxReceipt" x-collapse>
-                    <div class="mt-3 pl-8">
-                      <label
-                        class="text-[10px] font-bold text-stone-400 uppercase mb-1 block"
-                        >PAN Card Number</label
-                      >
-                      <input
-                        type="text"
-                        class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 uppercase tracking-widest placeholder:normal-case transition"
-                        placeholder="ABCDE1234F"
-                      />
-                      <p class="text-[10px] text-stone-400 mt-1 italic">
-                        Required by Govt. of India for tax exemption.
-                      </p>
+                    <div class="mt-4 space-y-4">
+                      <div>
+                        <label
+                          class="text-[10px] font-bold text-stone-400 uppercase mb-1 block"
+                          >Complete Address</label
+                        >
+                        <textarea
+                          rows="2"
+                          class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition resize-none"
+                          placeholder="Street Address, Apartment, Building"
+                        ></textarea>
+                      </div>
+
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label
+                            class="text-[10px] font-bold text-stone-400 uppercase mb-1 block"
+                            >City</label
+                          >
+                          <input
+                            type="text"
+                            class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
+                            placeholder="e.g. Kolkata"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            class="text-[10px] font-bold text-stone-400 uppercase mb-1 block"
+                            >State</label
+                          >
+                          <select
+                            class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
+                          >
+                            <option value="">Select State</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Ladakh">Ladakh</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Puducherry">Puducherry</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label
+                          class="text-[10px] font-bold text-stone-400 uppercase mb-1 block"
+                          >PIN Code</label
+                        >
+                        <input
+                          type="text"
+                          maxlength="6"
+                          class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
+                          placeholder="700001"
+                        />
+                      </div>
                     </div>
                   </div>
+
+                <div class="mb-6">
+                  <label class="flex items-start gap-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      class="mt-1 w-4 h-4 rounded border-stone-300 text-saffron-500 focus:ring-saffron-500 focus:ring-2 cursor-pointer"
+                      required
+                    />
+                    <span class="text-xs text-stone-600 leading-relaxed">
+                      I have read and accepted the 
+                      <a href="/terms-and-conditions" target="_blank" class="text-saffron-600 hover:text-saffron-700 font-semibold underline">Terms and Conditions</a> 
+                      and 
+                      <a href="/privacy-policy" target="_blank" class="text-saffron-600 hover:text-saffron-700 font-semibold underline">Privacy Policy</a>
+                    </span>
+                  </label>
                 </div>
 
                 <button
@@ -470,7 +550,7 @@
               </div>
             </div>
 
-            <div class="flex items-center gap-4 mb-6">
+            {{-- <div class="flex items-center gap-4 mb-6">
               <div class="h-px bg-stone-300 flex-1"></div>
               <span
                 class="text-stone-400 text-[10px] font-bold uppercase tracking-widest"
@@ -593,7 +673,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
 

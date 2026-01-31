@@ -30,7 +30,7 @@ Route::get('/songs', function () {
     return view('pages.songs');
 });
 
-Route::get('/donate', function () {
+Route::get('/donation', function () {
     return view('pages.donate');
 });
 

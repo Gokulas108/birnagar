@@ -149,7 +149,7 @@
         <!-- CTA Button -->
         <div class="flex justify-center mt-12">
           <a
-            href="#donate"
+            href="/donation"
             class="group relative overflow-hidden bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 hover:from-cyan-500 hover:via-cyan-400 hover:to-cyan-500 px-10 py-4 rounded-full text-white font-bold text-base uppercase tracking-wider transition-all duration-300 shadow-[0_4px_25px_rgba(34,211,238,0.4)] hover:shadow-[0_8px_35px_rgba(34,211,238,0.6)] transform hover:-translate-y-1 border border-white/20 flex items-center gap-3"
           >
             <i class="fas fa-heart"></i>

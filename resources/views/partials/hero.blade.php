@@ -41,7 +41,7 @@
 
         <div class="animate-fade-in-up opacity-0 flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 w-full sm:w-auto px-2" style="animation-delay: 0.7s; animation-fill-mode: forwards;">
             
-            <a href="#donate" class="relative group bg-gradient-to-r from-saffron-600 via-amber-500 to-orange-600 hover:from-saffron-500 hover:via-yellow-400 hover:to-amber-500 text-white px-6 sm:px-8 md:px-12 py-3 sm:py-3.5 md:py-4 rounded-full font-bold transition-all shadow-[0_4px_25px_rgba(245,158,11,0.5)] hover:shadow-[0_8px_35px_rgba(245,158,11,0.7)] transform hover:-translate-y-1.5 uppercase tracking-wider text-xs sm:text-sm md:text-base flex items-center justify-center gap-2 sm:gap-3 border border-white/20 backdrop-blur-sm">
+            <a href="/donation" class="relative group bg-gradient-to-r from-saffron-600 via-amber-500 to-orange-600 hover:from-saffron-500 hover:via-yellow-400 hover:to-amber-500 text-white px-6 sm:px-8 md:px-12 py-3 sm:py-3.5 md:py-4 rounded-full font-bold transition-all shadow-[0_4px_25px_rgba(245,158,11,0.5)] hover:shadow-[0_8px_35px_rgba(245,158,11,0.7)] transform hover:-translate-y-1.5 uppercase tracking-wider text-xs sm:text-sm md:text-base flex items-center justify-center gap-2 sm:gap-3 border border-white/20 backdrop-blur-sm">
                 <i class="fa-solid fa-hands-praying group-hover:scale-125 transition-transform duration-300 text-sm sm:text-base"></i>
                 <span class="drop-shadow-sm font-semibold">Help Build the Temple</span> 
             </a>

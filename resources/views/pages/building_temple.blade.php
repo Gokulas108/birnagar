@@ -181,7 +181,7 @@
               class="flex flex-col sm:flex-row gap-6 justify-center items-center"
             >
               <a
-                href="./donate.html"
+                href="/donation"
                 class="bg-saffron-500 text-white px-10 py-4 rounded-xl font-bold hover:bg-saffron-600 transition shadow-lg transform hover:scale-105 uppercase tracking-wider text-sm"
               >
                 Make Your Offering

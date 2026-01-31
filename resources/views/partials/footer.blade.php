@@ -6,7 +6,7 @@
           <div class="md:col-span-1 text-center md:text-left">
             <div class="mb-5 sm:mb-6 flex flex-col items-center md:items-start">
               <h4 class="text-white text-xl sm:text-2xl font-bold mb-2">
-                Birnagar Temple
+               Kirtan Seva Trust
               </h4>
               <div class="h-1 w-12 bg-gradient-to-r from-saffron-500 to-orange-500 rounded"></div>
             </div>
@@ -16,14 +16,17 @@
             </p>
             <!-- Social Links -->
             <div class="flex space-x-3 sm:space-x-4 justify-center md:justify-start">
-              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"
-                ><i class="fab fa-facebook-f text-sm"></i
+              <a href="https://www.youtube.co/@JanmasthanTempleProject" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"
+                ><i class="fab fa-youtube text-lg"></i
               ></a>
-              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"
-                ><i class="fab fa-instagram text-sm"></i
+              <a href="https://whatsapp.com/channel/0029VbCQ6J989inlavZeQA33" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"
+                ><i class="fab fa-whatsapp text-lg"></i
               ></a>
-              <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"
-                ><i class="fab fa-youtube text-sm"></i
+              <a href="https://www.instagram.com/janmasthantempleproject/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"
+                ><i class="fab fa-instagram text-lg"></i
+              ></a>
+              <a href="https://www.facebook.com/share/1AXrpzXWQp/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"
+                ><i class="fab fa-facebook-f text-lg"></i
               ></a>
             </div>
           </div>
@@ -52,7 +55,7 @@
                 >
               </li>
               <li>
-                <a href="#donate" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block"
+                <a href="/donation" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block"
                   >Donate</a
                 >
               </li>
@@ -68,16 +71,16 @@
             </h4>
             <ul class="space-y-3 sm:space-y-4 flex flex-col items-center md:items-start max-w-xs mx-auto md:mx-0 md:max-w-none">
               <li class="flex items-start group w-full">
-                <i class="fas fa-map-marker-alt w-5 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                <span class="text-stone-400 text-sm group-hover:text-stone-300 transition-colors text-left">Birnagar, Nadia<br>West Bengal, India</span>
+                <i class="fas fa-map-marker-alt w-7 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
+                <span class="text-stone-400 text-sm group-hover:text-stone-300 transition-colors text-left">Kirtan Seva Trust</span>
               </li>
               <li class="flex items-start group w-full">
-                <i class="fas fa-phone w-5 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                <a href="tel:+919876543210" class="text-stone-400 text-sm hover:text-saffron-500 transition-colors text-left">+91 98765 43210</a>
+                <i class="fas fa-phone w-7 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
+                <a href="tel:+918167562119" class="text-stone-400 text-sm hover:text-saffron-500 transition-colors text-left">+91 81675 62119</a>
               </li>
               <li class="flex items-start group w-full">
-                <i class="fas fa-envelope w-5 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                <a href="mailto:info@iskconbirnagar.com" class="text-stone-400 text-sm hover:text-saffron-500 transition-colors break-all text-left">info@birnagar.org</a>
+                <i class="fas fa-envelope w-7 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
+                <a href="mailto:sbvt.jsp@gmail.com" class="text-stone-400 text-sm hover:text-saffron-500 transition-colors break-all text-left">sbvt.jsp@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -113,10 +116,7 @@
         <!-- Bottom Footer -->
         <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-3 sm:gap-4">
           <p class="text-xs text-stone-500">
-            &copy; 2023 Birnagar Temple Project. All rights reserved.
-          </p>
-          <p class="text-xs text-stone-500">
-            <span class="text-saffron-500">♡</span> Built with Devotion <span class="text-saffron-500">♡</span>
+            &copy; 2026 Kirtan Seva Trust. All rights reserved.
           </p>
           <div class="flex gap-4 sm:gap-6">
             <a href="/privacy-policy" class="text-xs text-stone-500 hover:text-saffron-500 transition-colors">Privacy Policy</a>

@@ -165,7 +165,7 @@
             </ul>
             <div class="mt-8">
               <a
-                href="#donate"
+                href="/donation"
                 class="block w-full text-center bg-stone-900 text-white py-3 rounded-lg text-xs font-bold uppercase tracking-wider hover:bg-stone-800 transition"
               >
                 Support the Vision

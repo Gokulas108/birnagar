@@ -138,7 +138,7 @@
         <!-- CTA Button -->
         <div class="flex-none w-full md:w-auto">
           <a
-            href="#donate"
+            href="/donation"
             class="group relative overflow-hidden bg-gradient-to-r from-saffron-500 via-saffron-400 to-orange-400 hover:from-saffron-400 hover:via-orange-400 hover:to-yellow-300 text-stone-950 px-7 sm:px-8 md:px-10 py-4 sm:py-4.5 md:py-5 rounded-xl font-bold uppercase tracking-wider transition-all transform hover:-translate-y-1 shadow-xl shadow-saffron-500/30 hover:shadow-saffron-500/50 block text-center border border-white/10 text-sm md:text-base"
           >
             <span class="relative z-10 flex items-center justify-center gap-2">
