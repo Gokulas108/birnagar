@@ -1,0 +1,492 @@
+@extends('layouts.common_page')
+@section('page-content')
+
+ <style>
+      /* Saffron 500 Background */
+      body {
+        color: #0c0a09;
+      }
+      .text-heading {
+        color: oklch(37.4% 0.01 67.558);
+      }
+      .bg-stone-card {
+        background-color: #ffffff;
+      }
+      /* Custom Audio Range Slider styling */
+      input[type="range"] {
+        -webkit-appearance: none;
+        background: transparent;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        background: #d97706; /* Saffron 600 */
+        cursor: pointer;
+        margin-top: -5px;
+      }
+      input[type="range"]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 2px;
+        cursor: pointer;
+        background: #e7e5e4;
+        border-radius: 1px;
+      }
+    </style>
+
+        <div class="flex flex-col md:flex-row items-center gap-12 mb-16">
+          <div class="w-full md:w-1/2">
+            <h2
+              class="text-saffron-600 text-sm font-bold tracking-[0.3em] uppercase mb-4"
+            >
+              The Songbook of the Soul
+            </h2>
+            <h1
+              class="text-5xl md:text-6xl  text-heading mb-6 leading-tight"
+            >
+              Songs of<br />
+              <span class="text-amber-900">Śrīla Bhaktivinoda Ṭhākura.</span>
+            </h1>
+            <p
+              class="text-lg text-stone-600 font-light leading-relaxed max-w-lg"
+            >
+              Known as the "Seventh Goswami," his songs are not merely poetry
+              but the very heartbeat of Gaudiya Vaishnava philosophy, guiding
+              the soul from surrender to spiritual perfection.
+            </p>
+          </div>
+
+          <div class="w-full md:w-1/2">
+            <div
+              class="bg-stone-900 text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden"
+            >
+              <div class="absolute right-0 top-0 opacity-10 text-9xl">
+                <i class="fas fa-music"></i>
+              </div>
+
+              <div class="relative z-10">
+                <div class="flex gap-6 items-center mb-6">
+                  <div
+                    class="w-24 h-24 bg-stone-800 rounded-xl overflow-hidden shadow-lg border border-stone-700"
+                  >
+                    <img
+                      src="https://placehold.co/200x200/B45309/FFF?text=Saranagati"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <span
+                      class="bg-saffron-500 text-[10px] font-bold px-2 py-1 rounded text-stone-900 uppercase"
+                      >Featured Song</span
+                    >
+                    <h3 class="text-2xl  mt-2">Gopinath</h3>
+                    <p class="text-stone-400 text-sm">
+                      Album: Kalyana Kalpataru
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <input
+                    type="range"
+                    class="w-full h-1 bg-stone-700 rounded-lg appearance-none cursor-pointer"
+                    min="0"
+                    max="100"
+                    value="30"
+                  />
+                  <div
+                    class="flex justify-between text-[10px] text-stone-500 mt-2 font-mono"
+                  >
+                    <span>01:45</span>
+                    <span>05:30</span>
+                  </div>
+                </div>
+
+                <div class="flex justify-between items-center">
+                  <div class="flex gap-4 text-stone-400">
+                    <button class="hover:text-white transition">
+                      <i class="fas fa-random"></i>
+                    </button>
+                    <button class="hover:text-white transition">
+                      <i class="fas fa-redo"></i>
+                    </button>
+                  </div>
+                  <div class="flex gap-6 items-center">
+                    <button
+                      class="text-stone-300 hover:text-white transition text-xl"
+                    >
+                      <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button
+                      class="w-12 h-12 bg-saffron-500 rounded-full text-stone-900 flex items-center justify-center hover:scale-110 transition shadow-lg shadow-saffron-500/20"
+                    >
+                      <i class="fas fa-play ml-1"></i>
+                    </button>
+                    <button
+                      class="text-stone-300 hover:text-white transition text-xl"
+                    >
+                      <i class="fas fa-step-forward"></i>
+                    </button>
+                  </div>
+                  <div class="flex gap-2 text-stone-400 items-center">
+                    <i class="fas fa-volume-up text-xs"></i>
+                    <div class="w-16 h-1 bg-stone-700 rounded-full">
+                      <div class="w-2/3 h-full bg-stone-400 rounded-full"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-16">
+          <h3
+            class="text-stone-500 text-xs font-bold uppercase tracking-widest mb-6 border-b border-stone-300 pb-2"
+          >
+            Major Works
+          </h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <a
+              href="#"
+              class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:border-saffron-400 hover:shadow-lg transition group text-center"
+            >
+              <i
+                class="fas fa-book-open text-3xl text-saffron-500 mb-4 group-hover:scale-110 transition-transform"
+              ></i>
+              <h4 class=" font-bold text-stone-800">Saranagati</h4>
+              <p class="text-[10px] text-stone-500 uppercase mt-1">50 Songs</p>
+            </a>
+            <a
+              href="#"
+              class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:border-saffron-400 hover:shadow-lg transition group text-center"
+            >
+              <i
+                class="fas fa-drum text-3xl text-saffron-500 mb-4 group-hover:scale-110 transition-transform"
+              ></i>
+              <h4 class=" font-bold text-stone-800">Gitavali</h4>
+              <p class="text-[10px] text-stone-500 uppercase mt-1">42 Songs</p>
+            </a>
+            <a
+              href="#"
+              class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:border-saffron-400 hover:shadow-lg transition group text-center"
+            >
+              <i
+                class="fas fa-tree text-3xl text-saffron-500 mb-4 group-hover:scale-110 transition-transform"
+              ></i>
+              <h4 class=" font-bold text-stone-800">
+                Kalyana Kalpataru
+              </h4>
+              <p class="text-[10px] text-stone-500 uppercase mt-1">63 Songs</p>
+            </a>
+            <a
+              href="#"
+              class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 hover:border-saffron-400 hover:shadow-lg transition group text-center"
+            >
+              <i
+                class="fas fa-feather-alt text-3xl text-saffron-500 mb-4 group-hover:scale-110 transition-transform"
+              ></i>
+              <h4 class=" font-bold text-stone-800">Baul Sangit</h4>
+              <p class="text-[10px] text-stone-500 uppercase mt-1">12 Songs</p>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="bg-stone-card rounded-3xl shadow-xl border border-stone-200 overflow-hidden"
+          x-data="{ expandedSong: null }"
+        >
+          <div
+            class="bg-stone-100 p-6 flex justify-between items-center border-b border-stone-200"
+          >
+            <h3 class="text-xl  text-stone-800">All Songs</h3>
+            <div class="relative">
+              <i
+                class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-xs"
+              ></i>
+              <input
+                type="text"
+                placeholder="Find a song..."
+                class="pl-8 pr-4 py-2 rounded-full bg-white border border-stone-300 text-xs focus:ring-1 focus:ring-saffron-500 focus:outline-none w-48 md:w-64"
+              />
+            </div>
+          </div>
+
+          <div class="divide-y divide-stone-100">
+            <div class="group transition bg-white hover:bg-orange-50/50">
+              <div
+                class="p-4 md:p-6 flex items-center justify-between cursor-pointer"
+                @click="expandedSong === 1 ? expandedSong = null : expandedSong = 1"
+              >
+                <div class="flex items-center gap-4 md:gap-6 flex-1">
+                  <button
+                    class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-saffron-500 hover:text-white transition group-hover:scale-110"
+                  >
+                    <i class="fas fa-play text-xs"></i>
+                  </button>
+                  <div>
+                    <h4
+                      class="font-bold text-stone-800 text-lg group-hover:text-saffron-700 transition"
+                    >
+                      Amar Jivan
+                    </h4>
+                    <p class="text-xs text-stone-500 italic">
+                      "My Life" — Saranagati
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-xs text-stone-400 hidden md:block"
+                    >04:32</span
+                  >
+                  <button
+                    class="text-sm font-bold uppercase tracking-wider text-saffron-600 border border-saffron-200 px-4 py-1 rounded-full hover:bg-saffron-50 transition"
+                  >
+                    <span
+                      x-text="expandedSong === 1 ? 'Close Lyrics' : 'Lyrics'"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+
+              <div
+                x-show="expandedSong === 1"
+                x-collapse
+                class="bg-stone-50 border-t border-stone-100 px-4 md:px-20 py-8"
+              >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  <div>
+                    <h5 class="text-xs font-bold uppercase text-stone-400 mb-4">
+                      Bengali
+                    </h5>
+                    <p class=" leading-loose text-stone-700 italic">
+                      (1)<br />
+                      āmāra jīvana, sadā pāpe rata,<br />
+                      nāhiko puṇyera leśa<br />
+                      parere udvega, diyāchi ye kata,<br />
+                      diyāchi jīvere kleśa<br /><br />
+                      (2)<br />
+                      nija sukha lāgi’, pāpe nāhi ḍari,<br />
+                      dayā-hīna svārtha-paro<br />
+                      para-sukhe duḥkhī, sadā mithya-bhāṣī,<br />
+                      para-duḥkha sukha-karo
+                    </p>
+                  </div>
+                  <div>
+                    <h5 class="text-xs font-bold uppercase text-stone-400 mb-4">
+                      Translation
+                    </h5>
+                    <p class="font-sans leading-relaxed text-stone-600">
+                      1) My life is ever given to sin; in it there is not a
+                      particle of good work. I have caused others great anxiety
+                      and have given trouble to all souls.<br /><br />
+                      2) For the sake of my own enjoyment I have never feared
+                      sin. I am devoid of pity and full of selfishness. I am
+                      sorry at others’ happiness, I am an eternal liar, and I
+                      delight in others’ misery.
+                    </p>
+                    <div class="mt-6 flex gap-3">
+                      <button
+                        class="bg-stone-200 hover:bg-stone-300 text-stone-700 px-4 py-2 rounded text-xs font-bold"
+                      >
+                        <i class="fas fa-download mr-1"></i> PDF
+                      </button>
+                      <button
+                        class="bg-stone-200 hover:bg-stone-300 text-stone-700 px-4 py-2 rounded text-xs font-bold"
+                      >
+                        <i class="fas fa-download mr-1"></i> Audio
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="group transition bg-white hover:bg-orange-50/50">
+              <div
+                class="p-4 md:p-6 flex items-center justify-between cursor-pointer"
+                @click="expandedSong === 2 ? expandedSong = null : expandedSong = 2"
+              >
+                <div class="flex items-center gap-4 md:gap-6 flex-1">
+                  <button
+                    class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-saffron-500 hover:text-white transition group-hover:scale-110"
+                  >
+                    <i class="fas fa-play text-xs"></i>
+                  </button>
+                  <div>
+                    <h4
+                      class="font-bold text-stone-800 text-lg group-hover:text-saffron-700 transition"
+                    >
+                      Gopinath
+                    </h4>
+                    <p class="text-xs text-stone-500 italic">
+                      "O Lord of the Gopis" — Kalyana Kalpataru
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-xs text-stone-400 hidden md:block"
+                    >05:15</span
+                  >
+                  <button
+                    class="text-sm font-bold uppercase tracking-wider text-saffron-600 border border-saffron-200 px-4 py-1 rounded-full hover:bg-saffron-50 transition"
+                  >
+                    <span
+                      x-text="expandedSong === 2 ? 'Close Lyrics' : 'Lyrics'"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+              <div
+                x-show="expandedSong === 2"
+                x-collapse
+                class="bg-stone-50 border-t border-stone-100 px-4 md:px-20 py-8"
+              >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  <div>
+                    <h5 class="text-xs font-bold uppercase text-stone-400 mb-4">
+                      Bengali
+                    </h5>
+                    <p class=" leading-loose text-stone-700 italic">
+                      (1)<br />
+                      gopīnāth, mama nivedana śuno<br />
+                      viṣayī durjana, sadā kāma-rata,<br />
+                      kichu nāhi mora guṇa<br /><br />
+                      (2)<br />
+                      gopīnāth, āmāra bharasā tumi<br />
+                      tomāra caraṇe, loinu śaraṇa,<br />
+                      tomāra kiṅkoro āmi
+                    </p>
+                  </div>
+                  <div>
+                    <h5 class="text-xs font-bold uppercase text-stone-400 mb-4">
+                      Translation
+                    </h5>
+                    <p class="font-sans leading-relaxed text-stone-600">
+                      1) O Gopinatha, Lord of the gopis, please hear my request.
+                      I am a wicked materialist, always addicted to worldly
+                      desires, and no good qualities do I possess.<br /><br />
+                      2) O Gopinatha, You are my only hope, and therefore I have
+                      taken shelter at Your lotus feet. I am now Your eternal
+                      servant.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="group transition bg-white hover:bg-orange-50/50">
+              <div
+                class="p-4 md:p-6 flex items-center justify-between cursor-pointer"
+                @click="expandedSong === 3 ? expandedSong = null : expandedSong = 3"
+              >
+                <div class="flex items-center gap-4 md:gap-6 flex-1">
+                  <button
+                    class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-saffron-500 hover:text-white transition group-hover:scale-110"
+                  >
+                    <i class="fas fa-play text-xs"></i>
+                  </button>
+                  <div>
+                    <h4
+                      class="font-bold text-stone-800 text-lg group-hover:text-saffron-700 transition"
+                    >
+                      Vibhavari Sesa
+                    </h4>
+                    <p class="text-xs text-stone-500 italic">
+                      "The Night is Over" — Gitavali
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-xs text-stone-400 hidden md:block"
+                    >03:45</span
+                  >
+                  <button
+                    class="text-sm font-bold uppercase tracking-wider text-saffron-600 border border-saffron-200 px-4 py-1 rounded-full hover:bg-saffron-50 transition"
+                  >
+                    <span
+                      x-text="expandedSong === 3 ? 'Close Lyrics' : 'Lyrics'"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+              <div
+                x-show="expandedSong === 3"
+                x-collapse
+                class="bg-stone-50 border-t border-stone-100 px-4 md:px-20 py-8"
+              >
+                <p class="text-stone-500 italic">Lyrics content...</p>
+              </div>
+            </div>
+
+            <div class="group transition bg-white hover:bg-orange-50/50">
+              <div
+                class="p-4 md:p-6 flex items-center justify-between cursor-pointer"
+                @click="expandedSong === 4 ? expandedSong = null : expandedSong = 4"
+              >
+                <div class="flex items-center gap-4 md:gap-6 flex-1">
+                  <button
+                    class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center hover:bg-saffron-500 hover:text-white transition group-hover:scale-110"
+                  >
+                    <i class="fas fa-play text-xs"></i>
+                  </button>
+                  <div>
+                    <h4
+                      class="font-bold text-stone-800 text-lg group-hover:text-saffron-700 transition"
+                    >
+                      Yasomati Nandana
+                    </h4>
+                    <p class="text-xs text-stone-500 italic">
+                      "Son of Mother Yasoda" — Gitavali
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <span class="text-xs text-stone-400 hidden md:block"
+                    >06:20</span
+                  >
+                  <button
+                    class="text-sm font-bold uppercase tracking-wider text-saffron-600 border border-saffron-200 px-4 py-1 rounded-full hover:bg-saffron-50 transition"
+                  >
+                    <span
+                      x-text="expandedSong === 4 ? 'Close Lyrics' : 'Lyrics'"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex justify-center">
+          <div class="flex gap-2">
+            <button
+              class="w-10 h-10 rounded-full border border-stone-300 text-stone-500 hover:bg-saffron-500 hover:text-white hover:border-saffron-500 transition"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              class="w-10 h-10 rounded-full bg-saffron-500 text-white font-bold shadow-lg"
+            >
+              1
+            </button>
+            <button
+              class="w-10 h-10 rounded-full border border-stone-300 text-stone-500 hover:bg-saffron-500 hover:text-white hover:border-saffron-500 transition"
+            >
+              2
+            </button>
+            <button
+              class="w-10 h-10 rounded-full border border-stone-300 text-stone-500 hover:bg-saffron-500 hover:text-white hover:border-saffron-500 transition"
+            >
+              3
+            </button>
+            <button
+              class="w-10 h-10 rounded-full border border-stone-300 text-stone-500 hover:bg-saffron-500 hover:text-white hover:border-saffron-500 transition"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+@endsection
