@@ -13,5 +13,11 @@
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true
+  },
+  "resources/js/main.js": {
+    "file": "assets/main-CvTAp7_1.js",
+    "name": "main",
+    "src": "resources/js/main.js",
+    "isEntry": true
   }
 }
