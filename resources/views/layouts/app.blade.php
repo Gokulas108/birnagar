@@ -9,13 +9,17 @@
       name="description"
       content="Official website of Birnagar Temple Project. Join us in rebuilding the holy birthplace of Srila Bhaktivinoda Thakur. Donate, learn, and chant."
     />
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script
+    {{-- <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
+    ></script> --}}
+
+    <script src="//unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="//unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js" defer></script>
+
     {{-- <script src="assets/js/main.js"></script> --}}
     @vite(['resources/js/main.js'])
 

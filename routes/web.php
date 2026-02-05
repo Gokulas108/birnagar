@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () {
     return view('pages.home');
@@ -41,3 +42,17 @@ Route::get('/terms-and-conditions', function () {
 Route::get('/privacy-policy', function () {
     return view('pages.privacy_policy');
 });
+
+
+Route::post('/payment/initiate', [PaymentController::class, 'initiateSale'])
+    ->name('payment.initiate');
+
+Route::post('payment-result', [PaymentController::class, 'handleCallback'])
+    ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class])
+    ->name('payment.advice');
+
+Route::post('/payment/status', [PaymentController::class, 'checkStatus'])
+    ->name('payment.status');
+
+Route::post('/payment/refund', [PaymentController::class, 'refund'])
+    ->name('payment.refund');

@@ -15,14 +15,10 @@ export default defineConfig({
         tailwindcss(),
     ],
     server: {
-        host: "0.0.0.0",
+        host: "127.0.0.1",
         port: 5173,
+        cors: true,
         strictPort: true,
-        cors: true, // This enables the 'Access-Control-Allow-Origin' header
-        origin: "http://192.168.1.60:5173",
-        hmr: {
-            host: "192.168.1.60", // Replace with your laptop's actual IP
-        },
         watch: {
             ignored: ["**/storage/framework/views/**"],
         },

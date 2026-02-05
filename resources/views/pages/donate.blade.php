@@ -195,7 +195,8 @@
                 </div>
               </div>
 
-              <div class="p-6 md:p-8">
+              <form method="POST" action="{{ route('payment.initiate') }}" class="p-6 md:p-8">
+                @csrf
                 <p
                   class="text-[10px] font-bold text-stone-400 uppercase tracking-wider mb-3"
                 >
@@ -349,6 +350,7 @@
                     <input
                       x-ref="customInput"
                       type="number"
+                      name="amount"
                       x-model="amount"
                       class="w-full bg-stone-50 border border-stone-200 rounded-xl py-4 pl-10 pr-4 text-2xl font-bold text-stone-800 focus:ring-2 focus:ring-saffron-500 outline-none transition shadow-inner"
                       placeholder="Enter Amount"
@@ -365,6 +367,7 @@
                       >
                       <input
                         type="text"
+                        name="name"
                         class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
                         placeholder="e.g. Rahul Kumar"
                       />
@@ -376,6 +379,7 @@
                       >
                       <input
                         type="email"
+                        name="email"
                         class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
                         placeholder="name@example.com"
                       />
@@ -388,6 +392,7 @@
                     >
                     <input
                       type="tel"
+                      name="mobile"
                       class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
                       placeholder="+91 98765 43210"
                     />
@@ -403,6 +408,7 @@
                     >
                     <input
                       type="text"
+                      name="pan"
                       class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 uppercase tracking-widest placeholder:normal-case transition"
                       placeholder="ABCDE1234F"
                     />
@@ -417,6 +423,7 @@
                           >Complete Address</label
                         >
                         <textarea
+                          name="address"
                           rows="2"
                           class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition resize-none"
                           placeholder="Street Address, Apartment, Building"
@@ -431,6 +438,7 @@
                           >
                           <input
                             type="text"
+                            name="city"
                             class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
                             placeholder="e.g. Kolkata"
                           />
@@ -441,6 +449,7 @@
                             >State</label
                           >
                           <select
+                            name="state"
                             class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
                           >
                             <option value="">Select State</option>
@@ -491,6 +500,7 @@
                         >
                         <input
                           type="text"
+                          name="pincode"
                           maxlength="6"
                           class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
                           placeholder="700001"
@@ -516,6 +526,7 @@
                 </div>
 
                 <button
+                  type="submit"
                   class="w-full bg-gradient-to-r from-saffron-500 to-orange-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:shadow-saffron-500/30 transform hover:-translate-y-0.5 transition uppercase tracking-widest text-sm flex justify-center items-center gap-2 animate-pulse-custom"
                 >
                   <span>Proceed to Pay</span>
@@ -547,7 +558,7 @@
                     class="h-5"
                   />
                 </div>
-              </div>
+              </form>
             </div>
 
             {{-- <div class="flex items-center gap-4 mb-6">
