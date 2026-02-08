@@ -9,7 +9,7 @@
             Divine Glimpses
           </h2>
           <p class="text-stone-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed px-4">
-            Witness the journey, the festivals, and the growing community of believers.
+            Witness the journey, the festivals, and the growing community of devotees.
           </p>
         </div>
 
@@ -31,14 +31,14 @@
                 <img
                   src="{{ asset('images/image_1.jpg') }}"
                   alt="Temple Construction"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300 rounded-2xl"></div>
                 <!-- Accent line -->
                 <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 p-6 md:p-8">
-                  <h3 class="text-white font-bold text-xl md:text-2xl drop-shadow-lg group-hover:translate-y-1 transition-transform duration-300">
-                    The Foundation Stone
+                  <h3 class="text-white font-bold text-sm md:text-lg drop-shadow-lg group-hover:translate-y-1 transition-transform duration-300">
+                    Land Registration
                   </h3>
                 </div>
               </div>
@@ -61,8 +61,8 @@
                 <!-- Accent line -->
                 <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 p-6 md:p-8">
-                  <h3 class="text-white font-bold text-lg md:text-xl drop-shadow-lg group-hover:translate-y-1 transition-transform duration-300">
-                    Ratha Yatra 2024
+                  <h3 class="text-white font-bold text-sm md:text-lg drop-shadow-lg group-hover:translate-y-1 transition-transform duration-300">
+                    Nagara Sankirtan
                   </h3>
                 </div>
               </div>
@@ -79,14 +79,14 @@
                 <img
                   src="{{ asset('images/image_5.jpg') }}"
                   alt="Deity Worship"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-1"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300 rounded-2xl"></div>
                 <!-- Accent line -->
                 <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 p-6 md:p-8">
-                  <h3 class="text-white font-bold text-xl md:text-2xl drop-shadow-lg group-hover:translate-y-1 transition-transform duration-300">
-                    Daily Arati Seva
+                  <h3 class="text-white font-bold text-sm md:text-lg drop-shadow-lg group-hover:translate-y-1 transition-transform duration-300">
+                    Pandal Program
                   </h3>
                 </div>
               </div>
@@ -109,8 +109,8 @@
                 <!-- Accent line -->
                 <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 p-6 md:p-8">
-                  <h3 class="text-white font-bold text-lg md:text-xl drop-shadow-lg group-hover:translate-y-1 transition-transform duration-300">
-                    Community Feast
+                  <h3 class="text-white font-bold text-sm md:text-lg drop-shadow-lg group-hover:translate-y-1 transition-transform duration-300">
+                    Bhumi puja
                   </h3>
                 </div>
               </div>

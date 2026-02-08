@@ -20,21 +20,21 @@
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-saffron-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-saffron-500"></span>
                 </span>
-                <span class="text-white/90 text-[9px] sm:text-[10px] md:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em]">Birthplace of Srila Bhaktivinoda Thakur</span>
+                <span class="text-white/90 text-[9px] sm:text-[10px] md:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em]">SRI SRI RADHA KRISHNA TEMPLE</span>
             </div>
         </div>
 
-        <h1 class="animate-fade-in-up opacity-0 text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight drop-shadow-2xl px-2" 
+        <h1 class="animate-fade-in-up opacity-0 text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold mb-6 sm:mb-8 leading-tight drop-shadow-2xl px-2" 
             style="animation-delay: 0.3s; animation-fill-mode: forwards;">
-            <span class="text-white block mb-1 sm:mb-2">Restoring</span>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-200 to-yellow-400 drop-shadow-lg filter">Spiritual Heritage</span>
+            <span class="text-white block mb-1 sm:mb-2">Manifesting a</span>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-200 to-yellow-400 drop-shadow-lg filter">Sacred Vision</span>
         </h1>
 
         <div class="animate-fade-in-up opacity-0 relative group mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto" style="animation-delay: 0.5s; animation-fill-mode: forwards;">
             <div class="absolute -inset-1 bg-gradient-to-r from-saffron-500/20 to-amber-500/20 rounded-2xl blur opacity-75 transition duration-1000 group-hover:opacity-100"></div>
             <div class="relative px-5 sm:px-6 md:px-8 py-5 sm:py-6 md:py-7 bg-stone-900/40 backdrop-blur-md rounded-xl border border-white/20 transition-all duration-300 group-hover:border-white/40 group-hover:bg-stone-900/50">
                 <p class="text-base sm:text-lg md:text-xl text-stone-100 font-light leading-relaxed">
-                    Join us in honoring the legacy of the Seventh Goswami. Your support builds more than walls—it builds <span class="text-saffron-400 font-medium italic">devotion</span>.
+                    Join us in fulfilling the long‑standing desire of Srila Prabhupada. Your support for the <span style="font-weight:600;">Birnagar Temple Project </span> builds more than walls, it builds devotion.
                 </p>
             </div>
         </div>

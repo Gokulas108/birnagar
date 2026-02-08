@@ -91,7 +91,7 @@
 
   </head>
     <body
-    class="bg-stone-50 text-stone-800 antialiased"
+    class="bg-orange-50 text-stone-800 antialiased"
     style="font-family: 'Google Sans Flex', sans-serif"
   >
   <div id="page-loader">

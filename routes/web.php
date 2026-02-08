@@ -43,6 +43,10 @@ Route::get('/privacy-policy', function () {
     return view('pages.privacy_policy');
 });
 
+Route::get('/srila-prabhupad-vision', function () {
+    return view('pages.vision_sp');
+});
+
 
 Route::post('/payment/initiate', [PaymentController::class, 'initiateSale'])
     ->name('payment.initiate');

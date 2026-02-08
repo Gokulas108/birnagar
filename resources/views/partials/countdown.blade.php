@@ -129,11 +129,11 @@
         <!-- Quote Section -->
         <div class="relative">
           <div class="absolute -inset-3 bg-gradient-to-r from-orange-400/20 to-orange-600/20 rounded-2xl blur-xl opacity-75"></div>
-          <div class="relative bg-orange-100/20 backdrop-blur-md border border-orange-300/30 rounded-2xl p-8">
-            <div class="space-y-6">
-              <p class="text-lg md:text-2xl text-orange-900 leading-relaxed font-light italic">
+          <div class="relative bg-orange-100/20 backdrop-blur-md border border-orange-300/30 rounded-2xl p-6">
+            <div class="space-y-4">
+              <p class="text-lg md:text-xl text-orange-900 leading-relaxed font-light italic">
                 <span class="text-3xl text-orange-500 mr-2">"</span>
-                Srila Bhaktivinoda Thakura is the pioneer of the Krsna consciousness movement. He is the original spiritual master in the sense that he first introduced the movement in the western countries. So we are simply following his footsteps.
+                The mission of a devotee is to preach. That is our business, to give Krishna consciousness to the whole world.
                 <span class="text-3xl text-orange-500 ml-2">"</span>
               </p>
               <div class="flex items-center gap-3 pt-4 border-t border-orange-300/30">
