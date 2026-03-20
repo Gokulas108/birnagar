@@ -47,6 +47,10 @@ Route::get('/srila-prabhupad-vision', function () {
     return view('pages.vision_sp');
 });
 
+Route::get('/campaign', function () {
+    return view('pages.campaign');
+});
+
 
 Route::post('/payment/initiate', [PaymentController::class, 'initiateSale'])
     ->name('payment.initiate');
