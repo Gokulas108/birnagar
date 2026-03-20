@@ -17,10 +17,10 @@ class PaymentController extends Controller
 
     public function __construct()
     {
-        $this->merchantId     = env('ICICI_MERCHANT_ID');
-        $this->aggregatorId   = env('ICICI_AGGREGATOR_ID');
-        $this->secretKey      = env('ICICI_SECRET_KEY');
-        $this->initiateSaleUrl = env('ICICI_INITIATE_SALE_URL');
+        $this->merchantId     = config('services.icici.merchant_id');
+        $this->aggregatorId   = config('services.icici.aggregator_id');
+        $this->secretKey      = config('services.icici.secret_key');
+        $this->initiateSaleUrl = config('services.icici.initiate_sale_url');
     }
 
     // Show donation form
@@ -32,6 +32,8 @@ class PaymentController extends Controller
     // Initiate sale
     public function initiateSale(Request $request)
     {
+        Log::info('Initiating Sale', ['request' => $request->all()]);
+
         $request->validate([
             'name'     => 'required|string|max:255',
             'email'    => 'required|email|max:255',
@@ -48,19 +50,29 @@ class PaymentController extends Controller
         $amount  = number_format($request->amount, 2, '.', '');
         $txnDate = now()->format('YmdHis');
 
-        $donation = Donation::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'mobile' => $request->mobile,
-            'amount' => $amount,
-            'merchant_txn_no' => $merchantTxnNo,
-            'status' => 'initiated',
-            'pan' => $request->pan,
-            'address' => $request->address,
-            'city' => $request->city,
-            'state' => $request->state,
-            'pincode' => $request->pincode
-        ]);
+        Log::info('Creating Donation Record', ['merchantTxnNo' => $merchantTxnNo, 'amount' => $amount]);
+
+        try {
+            $donation = Donation::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'mobile' => $request->mobile,
+                'amount' => $amount,
+                'merchant_txn_no' => $merchantTxnNo,
+                'status' => 'initiated',
+                'pan' => $request->pan,
+                'address' => $request->address,
+                'city' => $request->city,
+                'state' => $request->state,
+                'pincode' => $request->pincode
+            ]);
+            Log::info('Donation Record Created', ['id' => $donation->id]);
+        } catch (\Exception $e) {
+            Log::error('Error Creating Donation Record', ['error' => $e->getMessage()]);
+            // Still throw or handle error? The original code didn't wrap it in try-catch, so it would have 500'd.
+            // If we catch it and return, we avoid the 500 but user won't know why.
+            throw $e;
+        }
 
         $hashText = ($request->addlParam1 ?? '') .
                     ($request->addlParam2 ?? '') .
@@ -76,6 +88,8 @@ class PaymentController extends Controller
                     route('payment.advice') .
                     'SALE' .
                     $txnDate;
+
+        Log::info("Generating Hash with text: " . $hashText);
 
         $secureHash = $this->generateSecureHash($hashText);
 
@@ -97,9 +111,14 @@ class PaymentController extends Controller
             "secureHash"      => $secureHash
         ];
 
+        Log::info('Sending Payload to Gateway', ['url' => $this->initiateSaleUrl, 'payload' => $payload]);
+
         $response = $this->curlPost($this->initiateSaleUrl, $payload);
 
+        Log::info('Gateway Response', ['response' => $response]);
+
         if (!$response || !isset($response['redirectURI'])) {
+            Log::error('Invalid Gateway Response', ['response' => $response]);
             return back()->withErrors(['msg' => 'Payment gateway error.']);
         }
 
@@ -109,6 +128,7 @@ class PaymentController extends Controller
     // ICICI callback
     public function handleCallback(Request $request)
     {
+        Log::info('Payment Callback Received', ['request' => $request->all()]);
         
         // ICICI uses responseCode instead of txnStatus
         // 0000 = Success, others = Failed
@@ -118,6 +138,7 @@ class PaymentController extends Controller
         $donation = Donation::where('merchant_txn_no', $request->merchantTxnNo)->first();
 
         if ($donation) {
+            Log::info('Updating Donation Status', ['merchant_txn_no' => $request->merchantTxnNo, 'status' => $txnStatus]);
             $donation->status = strtolower($txnStatus);
             $donation->txn_id = $request->txnID ?? null;
             $donation->payment_id = $request->paymentID ?? null;
@@ -127,6 +148,8 @@ class PaymentController extends Controller
             $donation->response_description = $request->respDescription ?? null;
             $donation->payment_datetime = $request->paymentDateTime ?? null;
             $donation->save();
+        } else {
+            Log::error('Callback received for unknown transaction', ['merchant_txn_no' => $request->merchantTxnNo]);
         }
 
         return view('donation.callback', ['status' => $txnStatus, 'txnID' => $request->txnID ?? null, 'amount' => $donation->amount ?? null, 'respDescription' => $request->respDescription ?? null]);
@@ -172,13 +195,20 @@ class PaymentController extends Controller
     // Helper: curl POST
     private function curlPost($url, $payload)
     {
+        Log::info("Executing curlPost", ['url' => $url]);
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
         $response = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+             Log::error('Curl Error', ['error' => curl_error($ch)]);
+        }
+
         curl_close($ch);
+        Log::info("Curl Raw Response: " . $response);
         return json_decode($response, true);
     }
 }

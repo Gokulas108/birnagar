@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'icici' => [
+        'merchant_id' => env('ICICI_MERCHANT_ID'),
+        'aggregator_id' => env('ICICI_AGGREGATOR_ID'),
+        'secret_key' => env('ICICI_SECRET_KEY'),
+        'initiate_sale_url' => env('ICICI_INITIATE_SALE_URL'),
+    ],
+
 ];
