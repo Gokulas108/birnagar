@@ -17,10 +17,10 @@ class PaymentController extends Controller
 
     public function __construct()
     {
-        $this->merchantId     = env('ICICI_MERCHANT_ID');
-        $this->aggregatorId   = env('ICICI_AGGREGATOR_ID');
-        $this->secretKey      = env('ICICI_SECRET_KEY');
-        $this->initiateSaleUrl = env('ICICI_INITIATE_SALE_URL');
+        $this->merchantId     = config('services.icici.merchant_id');
+        $this->aggregatorId   = config('services.icici.aggregator_id');
+        $this->secretKey      = config('services.icici.secret_key');
+        $this->initiateSaleUrl = config('services.icici.initiate_sale_url');
     }
 
     // Show donation form
