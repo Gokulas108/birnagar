@@ -188,7 +188,7 @@
                         </div>
                     </div>
 
-                    <a href="/gallery" 
+                    <!-- <a href="/gallery" 
                        class="text-sm font-semibold transition-colors uppercase
                         @if(request()->is('gallery'))
                             text-saffron-600 hover:text-saffron-600 border-b-2 border-saffron-600
@@ -196,8 +196,8 @@
                             text-stone-300 hover:text-saffron-400
                         @else
                             text-amber-950 hover:text-saffron-600
-                        @endif">Gallery</a>
-                    <a href="/songs" 
+                        @endif">Gallery</a> -->
+                    <!-- <a href="/songs" 
                        class="text-sm font-semibold transition-colors uppercase
                         @if(request()->is('songs'))
                             text-saffron-600 hover:text-saffron-600 border-b-2 border-saffron-600
@@ -205,7 +205,17 @@
                             text-stone-300 hover:text-saffron-400
                         @else
                             text-amber-950 hover:text-saffron-600
-                        @endif">Songs</a>
+                        @endif">Songs</a> -->
+
+                        <a href="/campaign" 
+                       class="text-sm font-semibold transition-colors uppercase
+                        @if(request()->is('campaign'))
+                            text-saffron-600 hover:text-saffron-600 border-b-2 border-saffron-600
+                        @elseif(request()->path() === '/')
+                            text-stone-300 hover:text-saffron-400
+                        @else
+                            text-amber-950 hover:text-saffron-600
+                        @endif">Campaign</a>
                     
                     <a href="/donation" 
                        class="relative overflow-hidden group text-white text-xs font-bold px-6 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 border border-white/10
@@ -305,7 +315,7 @@
                             </div>
                         </div>
 
-                        <a href="/gallery" class="py-3 px-4 rounded-lg transition-colors
+                        <!-- <a href="/gallery" class="py-3 px-4 rounded-lg transition-colors
                             @if(request()->is('gallery'))
                                 text-saffron-400 bg-saffron-500/10
                             @elseif(request()->path() === '/')
@@ -321,7 +331,16 @@
                                 text-stone-300 hover:bg-saffron-500/10 hover:text-saffron-300
                             @else
                                 text-amber-950 hover:bg-orange-100
-                            @endif">Songs</a>
+                            @endif">Songs</a>  -->
+
+                        <a href="/campaign" class="py-3 px-4 rounded-lg transition-colors
+                            @if(request()->is('campaign'))
+                                text-saffron-400 bg-saffron-500/10
+                            @elseif(request()->path() === '/')
+                                text-stone-300 hover:bg-saffron-500/10 hover:text-saffron-300
+                            @else
+                                text-amber-950 hover:bg-orange-100
+                            @endif">Campaign</a> 
                         
                         <a href="/donation" class="mt-2 text-white font-bold bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-red-600 hover:to-red-500 px-6 py-3 rounded-full text-center transition-all transform hover:scale-105 shadow-lg text-sm uppercase tracking-wider">Donate Now</a>
                     </div>

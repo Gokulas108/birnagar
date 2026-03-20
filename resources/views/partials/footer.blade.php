@@ -82,6 +82,12 @@
                 </span>
               </li>
               <li class="flex items-start group w-full">
+                <i class="fas fa-home w-7 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
+                <span class="text-stone-400 text-sm group-hover:text-stone-300 transition-colors text-left">
+                  Sree Mayapur PS-Nabadwip, Nadia, West Bengal, India, 741313
+                </span>
+              </li>
+              <li class="flex items-start group w-full">
                 <i class="fas fa-phone w-7 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
                 <a href="tel:+918167562119" class="text-stone-400 text-sm hover:text-saffron-500 transition-colors text-left">+91 81675 62119</a>
               </li>
