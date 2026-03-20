@@ -27,7 +27,7 @@
                 <div class="absolute -inset-1 bg-gradient-to-r from-orange-400/20 to-saffron-500/20 rounded-xl blur opacity-75"></div>
                 <div class="relative bg-stone-900/50 border border-white/20 rounded-lg p-5 sm:p-6 md:p-8 space-y-4 sm:space-y-5 md:space-y-6" style="will-change: transform; backface-visibility: hidden; -webkit-font-smoothing: antialiased;">
                   <p class="text-sm sm:text-base text-stone-100 leading-relaxed font-light">
-                    This project, a humble yet monumental offering to our ācāryas, is being undertaken in Bir Nagar, the sacred birthplace of <span class="font-semibold text-orange-300">Śrīla Bhaktivinoda Ṭhākura.</span>
+                    This project, a humble yet monumental offering to our ācāryas, is being undertaken in Birnagar, close to the sacred birthplace of <span class="font-semibold text-orange-300">Śrīla Bhaktivinoda Ṭhākura.</span>
                   </p>
 
                   <p class="text-sm sm:text-base text-stone-100 leading-relaxed font-light">
