@@ -110,15 +110,10 @@
                   class="space-y-4 text-stone-700 leading-relaxed font-light"
                 >
                   <p>
-                    Birnagar holds immense spiritual potency. It is not just a
-                    location on a map, but a tirtha—a crossing place where the
-                    spiritual world meets the material.
+                    Birnagar, the sacred appearance place of Śrīla Bhaktivinoda Ṭhākura, is imbued with profound spiritual significance. It is here that this great ācārya, who re-established the teachings of Śrī Caitanya Mahāprabhu for the modern world, took birth. This land is not merely a point on the map, but a tīrtha—a divine crossing place where the spiritual and material realms meet.
                   </p>
                   <p>
-                    Yet today, it requires our immediate attention. The new
-                    temple complex will restore the sanctity and serenity of
-                    this holy land and create a devotional hub for pilgrims,
-                    scholars, and seekers.
+                    In close proximity to this holy site, a new temple complex is being developed to honor and serve this sacred heritage. This initiative seeks to create a serene and spiritually vibrant center for pilgrims, scholars, and seekers, preserving the devotional atmosphere of Birnagar while facilitating deeper connection and engagement.
                   </p>
                 </div>
                 <ul class="mt-8 space-y-2">

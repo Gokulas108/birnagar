@@ -149,6 +149,8 @@
 
     @include("partials.hero-slider")
 
+    @include("partials.prabhupad_quote")
+
     @include("partials.about")
 
     @include("partials.countdown")

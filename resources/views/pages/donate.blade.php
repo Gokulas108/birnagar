@@ -107,11 +107,7 @@
                 >
                   <p>Dear Devotees,</p>
                   <p>
-                    We stand at a pivotal moment as Birnagar, the sacred
-                    birthplace of Srila Bhaktivinoda Thakur, calls out for
-                    restoration. It is our collective privilege to re-establish
-                    the glory of this holy land and preserve it for future
-                    generations.
+                    “We stand at a pivotal moment as Birnagar, the sacred birthplace of Srila Bhaktivinoda Thakur, inspires a new beginning. It is our collective privilege to develop this holy land into a place that will preserve its significance and inspire generations to come.”
                   </p>
                   <p>
                     I personally invite you to join this divine mission. Whether
@@ -143,29 +139,28 @@
 
           <div
             class="w-full lg:w-7/12"
-            x-data="{ 
-                frequency: 'One-Time',
-                amount: '1001',
-                selectedSeva: 'brick',
-                customAmount: false,
-                taxReceipt: false,
-                
-                setSeva(id, cost) {
-                    this.selectedSeva = id;
-                    this.amount = cost;
-                    this.customAmount = false;
-                },
-                setCustom() {
-                    this.selectedSeva = 'custom';
-                    this.amount = '';
-                    this.customAmount = true;
-                    this.$nextTick(() => { $refs.customInput.focus(); });
-                },
-                copyToClipboard(text) {
-                    navigator.clipboard.writeText(text);
-                    alert('Copied details to clipboard!');
-                }
-            }"
+           x-data="{ 
+    frequency: 'One-Time',
+    amount: '',
+    selectedSeva: '',
+    customAmount: false,
+
+    setSeva(id, cost) {
+        this.selectedSeva = id;
+        this.amount = cost;
+        this.customAmount = false;
+    },
+    setCustom() {
+        this.selectedSeva = 'custom';
+        this.amount = '';
+        this.customAmount = true;
+        this.$nextTick(() => { $refs.customInput.focus(); });
+    },
+    copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+        alert('Copied details to clipboard!');
+    }
+}"
           >
             <div
               class="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-stone-100 mb-8"
@@ -180,18 +175,8 @@
                 </h3>
 
                 <div class="relative">
-                  <i
-                    class="fas fa-calendar-alt absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-xs z-10"
-                  ></i>
-                  <select
-                    x-model="frequency"
-                    class="pl-8 pr-10 py-2 rounded-full border border-stone-300 bg-white text-xs font-bold uppercase tracking-wider text-stone-700 hover:border-saffron-400 focus:outline-none focus:ring-2 focus:ring-saffron-400 transition cursor-pointer shadow-sm"
-                  >
-                    <option value="One-Time">One-Time Seva</option>
-                    <option value="Monthly">Monthly Seva</option>
-                    <option value="Quarterly">Quarterly Seva</option>
-                    <option value="Yearly">Yearly Seva</option>
-                  </select>
+                  
+                  
                 </div>
               </div>
 
@@ -205,9 +190,9 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                   <div
-                    @click="setSeva('brick', '1001')"
+                    @click="setSeva('sqft', '7501')"
                     class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
-                    :class="selectedSeva === 'brick' ? 'selected' : 'border-stone-200'"
+                    :class="selectedSeva === 'sqft' ? 'selected' : 'border-stone-200'"
                   >
                     <div class="flex items-start justify-between mb-2">
                       <div class="flex items-center gap-3">
@@ -218,76 +203,10 @@
                         </div>
                         <div>
                           <span class="block text-stone-800 font-bold text-sm"
-                            >Sponsor a Brick</span
+                            >Pādapadma</span
                           >
                           <span class="block text-saffron-600 font-bold text-xs"
-                            >₹1,001</span
-                          >
-                        </div>
-                      </div>
-                      <div
-                        x-show="selectedSeva === 'brick'"
-                        class="text-saffron-500"
-                      >
-                        <i class="fas fa-check-circle"></i>
-                      </div>
-                    </div>
-                    <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
-                      Etch your name in the foundation of the temple forever.
-                    </p>
-                  </div>
-
-                  <div
-                    @click="setSeva('meal', '3500')"
-                    class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
-                    :class="selectedSeva === 'meal' ? 'selected' : 'border-stone-200'"
-                  >
-                    <div class="flex items-start justify-between mb-2">
-                      <div class="flex items-center gap-3">
-                        <div
-                          class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center"
-                        >
-                          <i class="fas fa-utensils"></i>
-                        </div>
-                        <div>
-                          <span class="block text-stone-800 font-bold text-sm"
-                            >Annadanam Seva</span
-                          >
-                          <span class="block text-saffron-600 font-bold text-xs"
-                            >₹3,500</span
-                          >
-                        </div>
-                      </div>
-                      <div
-                        x-show="selectedSeva === 'meal'"
-                        class="text-saffron-500"
-                      >
-                        <i class="fas fa-check-circle"></i>
-                      </div>
-                    </div>
-                    <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
-                      Satisfy the hunger of 50 pilgrims visiting the Dham.
-                    </p>
-                  </div>
-
-                  <div
-                    @click="setSeva('sqft', '5000')"
-                    class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
-                    :class="selectedSeva === 'sqft' ? 'selected' : 'border-stone-200'"
-                  >
-                    <div class="flex items-start justify-between mb-2">
-                      <div class="flex items-center gap-3">
-                        <div
-                          class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center"
-                        >
-                          <i class="fas fa-ruler-combined"></i>
-                        </div>
-                        <div>
-                          <span class="block text-stone-800 font-bold text-sm"
-                            >1 Sq. Ft. Construction</span
-                          >
-                          <span class="block text-saffron-600 font-bold text-xs"
-                            >₹5,000</span
+                            >₹7,501</span
                           >
                         </div>
                       </div>
@@ -299,14 +218,80 @@
                       </div>
                     </div>
                     <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
-                      Help construct the main prayer hall of the temple.
+                      Sponsor one square foot of sacred ground to build the foundation.
                     </p>
                   </div>
 
                   <div
-                    @click="setCustom()"
+                    @click="setSeva('land', '25001')"
                     class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
-                    :class="selectedSeva === 'custom' ? 'selected' : 'border-stone-200'"
+                    :class="selectedSeva === 'land' ? 'selected' : 'border-stone-200'"
+                  >
+                    <div class="flex items-start justify-between mb-2">
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center"
+                        >
+                          <i class="fas fa-utensils"></i>
+                        </div>
+                        <div>
+                          <span class="block text-stone-800 font-bold text-sm"
+                            >Bhūmi-Dāna</span
+                          >
+                          <span class="block text-saffron-600 font-bold text-xs"
+                            >₹25,001</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        x-show="selectedSeva === 'land'"
+                        class="text-saffron-500"
+                      >
+                        <i class="fas fa-check-circle"></i>
+                      </div>
+                    </div>
+                    <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
+                      Help prepare and sanctify the sacred soil for the temple manifestation.
+                    </p>
+                  </div>
+
+                  <div
+                    @click="setSeva('foundation', '50001')"
+                    class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
+                    :class="selectedSeva === 'foundation' ? 'selected' : 'border-stone-200'"
+                  >
+                    <div class="flex items-start justify-between mb-2">
+                      <div class="flex items-center gap-3">
+                        <div
+                          class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center"
+                        >
+                          <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <div>
+                          <span class="block text-stone-800 font-bold text-sm"
+                            >Sthāpana</span
+                          >
+                          <span class="block text-saffron-600 font-bold text-xs"
+                            >₹50,001</span
+                          >
+                        </div>
+                      </div>
+                      <div
+                        x-show="selectedSeva === 'foundation'"
+                        class="text-saffron-500"
+                      >
+                        <i class="fas fa-check-circle"></i>
+                      </div>
+                    </div>
+                    <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
+                      Establish the spiritual roots of the library and memorial hall.
+                    </p>
+                  </div>
+
+                  <div
+                    @click="setSeva('temple','100001')"
+                    class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
+                    :class="selectedSeva === 'temple' ? 'selected' : 'border-stone-200'"
                   >
                     <div class="flex items-start justify-between mb-2">
                       <div class="flex items-center gap-3">
@@ -317,24 +302,49 @@
                         </div>
                         <div>
                           <span class="block text-stone-800 font-bold text-sm"
-                            >General Donation</span
+                            >Pratiṣṭhā</span
                           >
                           <span class="block text-saffron-600 font-bold text-xs"
-                            >Any Amount</span
+                            >₹1,00,001</span
                           >
                         </div>
                       </div>
                       <div
-                        x-show="selectedSeva === 'custom'"
+                        x-show="selectedSeva === 'temple'"
                         class="text-saffron-500"
                       >
                         <i class="fas fa-check-circle"></i>
                       </div>
                     </div>
                     <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
-                      Contribute any amount according to your capacity.
+                      A transformative vow to fulfill the vision of the Ācāryas for future generations.
                     </p>
                   </div>
+                </div>
+
+                {{-- 5th option — full width --}}
+                <div
+                    @click="setCustom()"
+                    class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white mb-6"
+                    :class="selectedSeva === 'custom' ? 'selected' : 'border-stone-200'"
+                >
+                    <div class="flex items-start justify-between mb-2">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <div>
+                                <span class="block text-stone-800 font-bold text-sm">General Donation</span>
+                                <span class="block text-saffron-600 font-bold text-xs">Any Amount</span>
+                            </div>
+                        </div>
+                        <div x-show="selectedSeva === 'custom'" class="text-saffron-500">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
+                        Contribute any amount of your choice towards the sacred Birnagar Temple Project. Every rupee counts.
+                    </p>
                 </div>
 
                 <div class="relative mb-6">
@@ -400,7 +410,7 @@
                 </div>
 
                
-                  <div  x-show="amount > 25000"
+                  <div  x-show="amount > 10000"
                   x-collapse class="mt-3 mb-8">
                     <label
                       class="text-[10px] font-bold text-stone-400 uppercase mb-1 block"

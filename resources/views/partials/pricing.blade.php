@@ -78,8 +78,8 @@
                 
                 <div class="relative z-10 mb-4">
                     <div class="inline-block px-2 py-0.5 rounded bg-black/20 backdrop-blur-md text-[8px] font-bold text-white uppercase tracking-[0.2em] mb-3 border border-white/20 shadow-sm">Legacy Tier</div>
-                    <h3 class="text-xl font-bold text-white mb-1 drop-shadow-sm">Saṅkalpa</h3>
-                    <p class="text-[10px] text-amber-100 uppercase tracking-widest font-bold mb-4 opacity-90">Visionary Patron</p>
+                    <h3 class="text-xl font-bold text-white mb-1 drop-shadow-sm">Pratiṣṭhā</h3>
+                    <p class="text-[10px] text-amber-100 uppercase tracking-widest font-bold mb-4 opacity-90">Temple Establishment Patron</p>
                     
                     <div class="flex items-baseline gap-1 text-white">
                         <span class="text-3xl font-bold tracking-tight drop-shadow-md">₹1,00,001</span>

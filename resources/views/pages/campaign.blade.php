@@ -1,12 +1,19 @@
 @extends('layouts.common_page')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Wall of Legacy — Birnagar Temple Project</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Dancing+Script:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+@section('page-content')
 <style>
+  /* Break out of layout container */
+.hero, .counter-strip, section,
+.wall-section, .stall-section,
+.whatsapp-strip, .footer-cta {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+}
+
+.hero {
+    margin-top: calc(-3rem - 8rem);
+}
+i
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --gold:#C8972A;
@@ -186,14 +193,27 @@ section{padding:80px 20px;}
 
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
-  .step-item:not(:last-child){border-right:none;border-bottom:1px solid rgba(200,120,30,0.12);}
-  section{padding:60px 20px;}
-  .hero-inner{width:100%;margin-right:auto;padding:100px 24px 60px;text-align:center;align-items:center;}
+    .hero-inner{width:100%;margin-right:auto;padding:100px 24px 60px;text-align:center;align-items:center;}
+    section{padding:48px 16px;}
+    .step-item:not(:last-child){border-right:none;border-bottom:1px solid rgba(200,120,30,0.12);}
+
+    .counter-strip{padding:28px 16px;}
+    .counter-inner{width:100%;}
+    .counter-label{gap:6px;}
+    .counter-label-text{font-size:9px;letter-spacing:1.5px;text-align:center;}
+    .counter-digits{gap:3px;}
+    .digit-box{width:34px;height:44px;font-size:22px;border-radius:6px;}
+    .digit-comma{font-size:16px;padding-bottom:5px;}
+
+    .counter-progress-row{max-width:100%;padding:0 8px;gap:8px;flex-wrap:nowrap;box-sizing:border-box;}
+    .counter-bar-bg{flex:1;min-width:0;}
+    .counter-bar-fill{min-width:0;}
+    .counter-pct{font-size:10px;white-space:nowrap;flex-shrink:0;}
 }
 
+
 </style>
-</head>
-<body>
+
 
 <!-- ══════════════════════════════════════════
      HERO
@@ -209,17 +229,17 @@ section{padding:80px 20px;}
   <div class="hero-inner .hero-inner { position: relative; z-index: 1; }">
     <p class="hero-cursive">Srila Bhaktivinoda Thakur's</p>
     <h1 class="hero-title">Wall of Legacy</h1>
-    <p class="hero-sub">My temple, my offering &nbsp;·&nbsp; 3-Month Fundraising Campaign 2026</p>
+    <p class="hero-sub">3-Month Fundraising Campaign 2026</p>
     <div class="hero-dates">
       <span class="hero-dates-dot"></span>
       <span class="hero-dates-text">March 29 — June 30, 2026</span>
     </div>
     <p class="hero-desc">
       Join the <strong>100,000 devotee mission</strong> and become the first to get your name permanently etched on the
-      <strong>Srila Bhaktivinoda Thakur Wall of Legacy.</strong>
+      <strong>Srila Bhaktivinoda Thakur's Wall of Legacy.</strong>
     </p>
     <div class="hero-btns">
-      <a href="http://192.168.8.17:5000" class="btn-primary">
+      <a href="https://wall.birnagar.org/web-app" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
         Claim your spot!
       </a>
@@ -239,7 +259,7 @@ section{padding:80px 20px;}
     <div class="counter-digits" id="pageDevDigits"></div>
     <div class="counter-progress-row">
       <div class="counter-bar-bg"><div class="counter-bar-fill" id="pageDevBar"></div></div>
-      <span class="counter-pct"><strong id="pageDevPct">0%</strong> of 1,00,000</span>
+      <span class="counter-pct"><strong id="pageDevPct">0%</strong> of 100,000</span>
     </div>
   </div>
 </div>
@@ -288,6 +308,84 @@ section{padding:80px 20px;}
 </section>
 
 <!-- ══════════════════════════════════════════
+     CHAIRMAN'S MESSAGE
+══════════════════════════════════════════ -->
+<section style="background: #6B2D0E; padding: 80px 20px;">
+    <div style="max-width: 900px; margin: 0 auto;">
+
+        {{-- Section tag --}}
+        <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,150,60,0.15); border:1px solid rgba(255,150,60,0.3); border-radius:6px; padding:5px 14px; margin-bottom:20px;">
+            <div style="width:20px; height:1.5px; background:#C8590A;"></div>
+            <span style="font-size:10px; text-transform:uppercase; letter-spacing:3px; color:#FFB870; font-weight:700;">A Message from the Chairman</span>
+        </div>
+
+        {{-- Title --}}
+        <h2 style="font-family:'Cinzel',serif; font-size:clamp(24px,4vw,40px); font-weight:700; color:#FFD580;; margin-bottom:40px; line-height:1.2;">
+            Why This Temple <span style="color:#FFA040;">Must Be Built</span>
+        </h2>
+
+        {{-- Two column layout: photo left, text right --}}
+        <div style="display:flex; gap:48px; align-items:flex-start; flex-wrap:wrap;">
+
+            {{-- Photo column --}}
+            <div style="flex-shrink:0; text-align:center; width:220px;">
+                <div style="width:200px; height:240px; border-radius:16px; overflow:hidden; border:3px solid #C8590A; box-shadow:0 8px 32px rgba(200,90,10,0.2); margin:0 auto 16px;">
+                    <img
+                        src="{{ asset('images/chairman.jpeg') }}"
+                        alt="Chairman"
+                        style="width:100%; height:100%; object-fit:cover; object-position:top;"
+                    />
+                </div>
+                <p style="font-family:'Cinzel',serif; font-size:14px; font-weight:700; color:#FFD580; margin-bottom:4px;">
+                    Vaikuntapathy das
+                </p>
+                <p style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:#FFA040;">
+                    Chairman, Birnagar Temple Project
+                </p>
+            </div>
+
+            {{-- Write-up column --}}
+            <div style="flex:1; min-width:260px;">
+
+                {{-- Opening quote --}}
+                <div style="border-left:3px solid #FFA040; padding-left:20px; margin-bottom:24px;">
+                    <p style="font-family:'Georgia',serif; font-size:clamp(16px,2vw,20px); color:rgba(255,235,200,0.95); font-style:italic; line-height:1.7; margin:0;">
+                        "This is not merely a construction project. It is a sacred debt we owe to Srila Bhaktivinoda Thakur — a saint who gave his entire life so that the holy name could reach every corner of the world."
+                    </p>
+                </div>
+
+                {{-- Body paragraphs --}}
+                <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:16px;">
+                    Birnagar is the birthplace of one of the greatest Vaishnava saints of the modern era. For decades, devotees have dreamed of building a temple there worthy of his legacy — a place where pilgrims from around the world can come to pay their respects, learn his teachings, and feel his presence.
+                </p>
+
+                <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:16px;">
+                    The Wall of Legacy campaign is our answer to that dream. We are not asking a handful of wealthy donors to fund this alone. We are inviting <strong style="color:#FFD580;">one lakh devoted hearts</strong> to each contribute one spiritual share — so that when this temple stands, every one of them can say: <em>"I helped build this."</em>
+                </p>
+
+                <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:28px;">
+                    The campaign closes on June 30, 2026. The window is short and the wall has limited space. I urge every devotee who feels the call of Srila Bhaktivinoda Thakur's mercy to come forward now and claim their place in this eternal legacy.
+                </p>
+
+                {{-- Signature --}}
+                <div style="display:flex; align-items:center; gap:16px; padding-top:20px; border-top:1px solid rgba(200,120,30,0.2);">
+                    <div>
+                        <p style="font-family:'Dancing Script',cursive; font-size:22px; color:#FFA040; margin:0 0 2px;">
+                            Vaikuntapathy das
+                        </p>
+                        <p style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:rgba(255,200,140,0.7); margin:0;">
+                            Chairman &nbsp;·&nbsp; Birnagar Temple Project
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
      SECTION 3 — WALL TIERS
 ══════════════════════════════════════════ -->
 <section class="wall-section">
@@ -305,27 +403,28 @@ section{padding:80px 20px;}
         <div class="wall-tier-appearances"><strong>1 time</strong> your name appears</div>
       </div>
       <div class="wall-tier">
-        <div class="wall-tier-amount">₹2,000</div>
-        <div class="wall-tier-label">Double</div>
-        <div class="wall-tier-appearances"><strong>2 times</strong> your name appears</div>
+        <div class="wall-tier-amount">₹50,000</div>
+        <div class="wall-tier-label">Fifty-Fold</div>
+        <div class="wall-tier-appearances"><strong>50 times</strong> your name appears</div>
       </div>
       <div class="wall-tier">
-        <div class="wall-tier-amount">₹5,000</div>
-        <div class="wall-tier-label">Five-Fold</div>
-        <div class="wall-tier-appearances"><strong>5 times</strong> your name appears</div>
+        <div class="wall-tier-amount">₹100,000</div>
+        <div class="wall-tier-label">One-Hundred-Fold</div>
+        <div class="wall-tier-appearances"><strong>100 times</strong> your name appears</div>
       </div>
       <div class="wall-tier">
-        <div class="wall-tier-amount">₹10,000</div>
-        <div class="wall-tier-label">Ten-Fold</div>
-        <div class="wall-tier-appearances"><strong>10 times</strong> your name appears</div>
+        <div class="wall-tier-amount">₹1,00,00,000</div>
+        <div class="wall-tier-label">Ten-Thousand-Fold</div>
+        <div class="wall-tier-appearances"><strong>1000 times</strong> your name appears</div>
       </div>
     </div>
     <div class="wall-cta-row">
-      <a href="http://192.168.8.17:5000" class="btn-primary">Claim My Spot Now</a>
+      <a href="https://wall.birnagar.org/web-app" class="btn-primary">Claim My Spot Now</a>
     
     </div>
   </div>
 </section>
+
 
 <!-- ══════════════════════════════════════════
      SECTION 4 — HOW PARTICIPATION WORKS
@@ -414,7 +513,7 @@ section{padding:80px 20px;}
       <div class="perk-card">
         <div class="perk-icon-wrap">🔭</div>
         <div class="perk-title">Telescope Experience</div>
-        <div class="perk-text">When visiting the museum, use the <strong>viewing telescope</strong> placed in front of the wall to find your own name among the 1,00,000 devoted hearts.</div>
+        <div class="perk-text">When visiting the museum, use the <strong>viewing telescope</strong> placed in front of the wall to find your own name among the 100,000 devoted hearts.</div>
       </div>
       <div class="perk-card">
         <div class="perk-icon-wrap">🌸</div>
@@ -497,15 +596,6 @@ section{padding:80px 20px;}
 <!-- ══════════════════════════════════════════
      FOOTER CTA
 ══════════════════════════════════════════ -->
-<section class="footer-cta">
-  <div class="footer-cta-title">Your Name. His Temple. For Eternity.</div>
-  <p class="footer-cta-text">The Wall of Legacy closes on June 30, 2026. Secure your place today.</p>
-  <div class="footer-cta-btns">
-    <a href="#donate" class="btn-white">Donate Now</a>
-    <a href="#pledge" class="btn-white-ghost">Pledge &amp; Donate Later</a>
-  </div>
-</section>
-
 <script>
 (function(){
   var CURRENT=28460, TARGET=100000;
@@ -550,5 +640,5 @@ section{padding:80px 20px;}
   });
 })();
 </script>
-</body>
-</html>
+@endsection
+
