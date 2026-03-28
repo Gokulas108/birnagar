@@ -23,6 +23,10 @@ Route::get('/about/team', function () {
     return view('pages.team');
 });
 
+Route::get('/about/gbc', function () {
+    return view('pages.gbc_resolution');
+});
+
 Route::get('/gallery', function () {
     return view('pages.gallery');
 });

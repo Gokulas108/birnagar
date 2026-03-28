@@ -163,6 +163,7 @@ section{padding:80px 20px;}
 .wall-tier-appearances strong{color:#4eff8a;font-weight:700;}
 .wall-cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
 
+
 /* ── WHATSAPP ── */
 .whatsapp-strip{background:#25D366;padding:24px 20px;}
 .whatsapp-inner{max-width:700px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;text-align:center;}
@@ -210,7 +211,6 @@ section{padding:80px 20px;}
     .counter-bar-fill{min-width:0;}
     .counter-pct{font-size:10px;white-space:nowrap;flex-shrink:0;}
 }
-
 
 </style>
 
@@ -403,6 +403,16 @@ section{padding:80px 20px;}
         <div class="wall-tier-appearances"><strong>1 time</strong> your name appears</div>
       </div>
       <div class="wall-tier">
+        <div class="wall-tier-amount">₹5,000</div>
+        <div class="wall-tier-label">Five-Fold</div>
+        <div class="wall-tier-appearances"><strong>5 times</strong> your name appears</div>
+      </div>
+      <div class="wall-tier">
+        <div class="wall-tier-amount">₹10,000</div>
+        <div class="wall-tier-label">Ten-Fold</div>
+        <div class="wall-tier-appearances"><strong>10 times</strong> your name appears</div>
+      </div>
+      <div class="wall-tier">
         <div class="wall-tier-amount">₹50,000</div>
         <div class="wall-tier-label">Fifty-Fold</div>
         <div class="wall-tier-appearances"><strong>50 times</strong> your name appears</div>
@@ -412,15 +422,9 @@ section{padding:80px 20px;}
         <div class="wall-tier-label">One-Hundred-Fold</div>
         <div class="wall-tier-appearances"><strong>100 times</strong> your name appears</div>
       </div>
-      <div class="wall-tier">
-        <div class="wall-tier-amount">₹1,00,00,000</div>
-        <div class="wall-tier-label">Ten-Thousand-Fold</div>
-        <div class="wall-tier-appearances"><strong>1000 times</strong> your name appears</div>
-      </div>
     </div>
     <div class="wall-cta-row">
       <a href="https://wall.birnagar.org/web-app" class="btn-primary">Claim My Spot Now</a>
-    
     </div>
   </div>
 </section>

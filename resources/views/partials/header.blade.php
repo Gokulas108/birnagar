@@ -146,48 +146,28 @@
                                    text-amber-950 hover:bg-saffron-500/10 hover:text-saffron-700
                                @endif">
                                Meet the Team</a>
+                               <a href="/about/gbc"
+                               class="block px-6 py-3 text-xs transition
+                               @if(request()->is('about/gbc'))
+                                   font-bold bg-saffron-500/20 text-saffron-700 hover:bg-saffron-500/30 hover:text-saffron-800
+                               @elseif(request()->path() === '/' || request()->path() === 'campaign')
+                                   text-stone-400 hover:bg-saffron-500/10 hover:text-saffron-300
+                               @else
+                                   text-amber-950 hover:bg-saffron-500/10 hover:text-saffron-700
+                               @endif">
+                               GBC Resolution</a>
                         </div>
                     </div>
 
-                    <div class="relative group" x-data="{ openVision: false }">
-                        <button @mouseenter="openVision = true" @mouseleave="openVision = false"
-                                class="text-sm font-semibold transition-colors flex items-center gap-1 uppercase tracking-wide py-2
-                                @if(request()->path() === '/' || request()->path() === 'campaign')
-                                    text-stone-300 hover:text-saffron-400
-                                @else
-                                    text-amber-950 hover:text-saffron-600
-                                @endif">
-                            Vision <i class="fas fa-chevron-down text-[9px] transition-transform duration-300" :class="{ 'rotate-180': openVision @if(request()->path() === '/' || request()->path() === 'campaign'), 'text-saffron-500': true @else, 'text-saffron-600': true @endif }"></i>
-                        </button>
-                        <div x-show="openVision" @mouseenter="openVision = true" @mouseleave="openVision = false" x-transition.opacity
-                             @if(request()->path() === '/' || request()->path() === 'campaign')
-                                class="absolute left-0 mt-0 w-64 backdrop-blur-xl border border-saffron-500/30 rounded-lg shadow-2xl py-2 bg-stone-900/95"
-                             @else
-                                class="absolute left-0 mt-0 w-64 backdrop-blur-xl border border-amber-600/30 rounded-lg shadow-2xl py-2 bg-orange-100/95"
-                             @endif>
-                            <a href="#"
-                               class="block px-6 py-3 text-xs transition
-                               @if(request()->path() === '/' || request()->path() === 'campaign')
-                                   text-stone-400 hover:bg-saffron-500/10 hover:text-saffron-300
-                               @else
-                                   text-amber-950 hover:bg-saffron-500/10 hover:text-saffron-700
-                               @endif">Srila Prabhupada's Vision</a>
-                            <a href="#"
-                               class="block px-6 py-3 text-xs transition
-                               @if(request()->path() === '/' || request()->path() === 'campaign')
-                                   text-stone-400 hover:bg-saffron-500/10 hover:text-saffron-300
-                               @else
-                                   text-amber-950 hover:bg-saffron-500/10 hover:text-saffron-700
-                               @endif">JPS Vision</a>
-                            <a href="#"
-                               class="block px-6 py-3 text-xs transition
-                               @if(request()->path() === '/' || request()->path() === 'campaign')
-                                   text-stone-400 hover:bg-saffron-500/10 hover:text-saffron-300
-                               @else
-                                   text-amber-950 hover:bg-saffron-500/10 hover:text-saffron-700
-                               @endif">Founders Vision</a>
-                        </div>
-                    </div>
+                    <a href="/srila-prabhupad-vision"
+                    class="text-sm font-semibold transition-colors uppercase tracking-wide py-2
+                        @if(request()->path() === '/' || request()->path() === 'campaign')
+                            text-stone-300 hover:text-saffron-400
+                        @else
+                            text-amber-950 hover:text-saffron-600
+                        @endif">
+                        Vision
+                    </a>
 
                     <a href="/campaign"
                        class="text-sm font-semibold transition-colors uppercase
@@ -283,7 +263,7 @@
                                 <span>Vision</span>
                                 <i class="fas fa-chevron-down text-xs transition-transform duration-300" :class="{ 'rotate-180': visionOpen }"></i>
                             </button>
-                            <div x-show="visionOpen" x-transition class="pl-4 space-y-1 mt-1">
+                            <!-- <div x-show="visionOpen" x-transition class="pl-4 space-y-1 mt-1">
                                 <a href="#" class="block py-2.5 px-4 rounded-lg text-sm transition-colors
                                     @if(request()->path() === '/' || request()->path() === 'campaign')
                                         text-stone-400 hover:bg-saffron-500/10 hover:text-saffron-300
@@ -302,7 +282,7 @@
                                     @else
                                         text-amber-900 hover:bg-orange-100
                                     @endif">Founders Vision</a>
-                            </div>
+                            </div> -->
                         </div>
 
                         <a href="/campaign" class="py-3 px-4 rounded-lg transition-colors
