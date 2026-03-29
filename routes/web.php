@@ -23,6 +23,10 @@ Route::get('/about/team', function () {
     return view('pages.team');
 });
 
+Route::get('/about/gbc', function () {
+    return view('pages.gbc_resolution');
+});
+
 Route::get('/gallery', function () {
     return view('pages.gallery');
 });
@@ -53,6 +57,7 @@ Route::get('/campaign', function () {
 
 
 Route::post('/payment/initiate', [PaymentController::class, 'initiateSale'])
+    ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class])
     ->name('payment.initiate');
 
 Route::post('payment-result', [PaymentController::class, 'handleCallback'])

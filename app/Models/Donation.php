@@ -25,7 +25,8 @@ class Donation extends Model
         'address',
         'city',
         'state',
-        'pincode'
+        'pincode',
+        'source'
     ];
 
 }
