@@ -32,7 +32,9 @@ class PaymentController extends Controller
     // Initiate sale
     public function initiateSale(Request $request)
     {
-        Log::info('Initiating Sale', ['request' => $request->all()]);
+        $isApi = $request->boolean('api', false);
+
+        Log::info('Initiating Sale', ['request' => $request->all(), 'is_api' => $isApi]);
 
         $request->validate([
             'name'     => 'required|string|max:255',
@@ -50,29 +52,19 @@ class PaymentController extends Controller
         $amount  = number_format($request->amount, 2, '.', '');
         $txnDate = now()->format('YmdHis');
 
-        Log::info('Creating Donation Record', ['merchantTxnNo' => $merchantTxnNo, 'amount' => $amount]);
-
-        try {
-            $donation = Donation::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'mobile' => $request->mobile,
-                'amount' => $amount,
-                'merchant_txn_no' => $merchantTxnNo,
-                'status' => 'initiated',
-                'pan' => $request->pan,
-                'address' => $request->address,
-                'city' => $request->city,
-                'state' => $request->state,
-                'pincode' => $request->pincode
-            ]);
-            Log::info('Donation Record Created', ['id' => $donation->id]);
-        } catch (\Exception $e) {
-            Log::error('Error Creating Donation Record', ['error' => $e->getMessage()]);
-            // Still throw or handle error? The original code didn't wrap it in try-catch, so it would have 500'd.
-            // If we catch it and return, we avoid the 500 but user won't know why.
-            throw $e;
-        }
+        $donation = Donation::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'amount' => $amount,
+            'merchant_txn_no' => $merchantTxnNo,
+            'status' => 'initiated',
+            'pan' => $request->pan,
+            'address' => $request->address,
+            'city' => $request->city,
+            'state' => $request->state,
+            'pincode' => $request->pincode
+        ]);
 
         $hashText = ($request->addlParam1 ?? '') .
                     ($request->addlParam2 ?? '') .
@@ -88,8 +80,6 @@ class PaymentController extends Controller
                     route('payment.advice') .
                     'SALE' .
                     $txnDate;
-
-        Log::info("Generating Hash with text: " . $hashText);
 
         $secureHash = $this->generateSecureHash($hashText);
 
@@ -111,34 +101,45 @@ class PaymentController extends Controller
             "secureHash"      => $secureHash
         ];
 
-        Log::info('Sending Payload to Gateway', ['url' => $this->initiateSaleUrl, 'payload' => $payload]);
-
         $response = $this->curlPost($this->initiateSaleUrl, $payload);
-
-        Log::info('Gateway Response', ['response' => $response]);
 
         if (!$response || !isset($response['redirectURI'])) {
             Log::error('Invalid Gateway Response', ['response' => $response]);
+
+            if ($isApi) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Payment gateway error'
+                ], 500);
+            }
+
             return back()->withErrors(['msg' => 'Payment gateway error.']);
         }
 
-        return redirect($response['redirectURI'] . '?tranCtx=' . $response['tranCtx']);
+        $redirectUrl = $response['redirectURI'] . '?tranCtx=' . $response['tranCtx'];
+
+        if ($isApi) {
+            return response()->json([
+                'success' => true,
+                'redirect_url' => $redirectUrl,
+                'merchant_txn_no' => $merchantTxnNo
+            ]);
+        }
+
+        return redirect($redirectUrl);
     }
 
     // ICICI callback
     public function handleCallback(Request $request)
     {
         Log::info('Payment Callback Received', ['request' => $request->all()]);
-        
-        // ICICI uses responseCode instead of txnStatus
-        // 0000 = Success, others = Failed
+
         $responseCode = $request->responseCode ?? '';
         $txnStatus = ($responseCode === '0000') ? 'SUCCESS' : 'FAILED';
-        
+
         $donation = Donation::where('merchant_txn_no', $request->merchantTxnNo)->first();
 
         if ($donation) {
-            Log::info('Updating Donation Status', ['merchant_txn_no' => $request->merchantTxnNo, 'status' => $txnStatus]);
             $donation->status = strtolower($txnStatus);
             $donation->txn_id = $request->txnID ?? null;
             $donation->payment_id = $request->paymentID ?? null;
@@ -147,12 +148,32 @@ class PaymentController extends Controller
             $donation->response_code = $responseCode;
             $donation->response_description = $request->respDescription ?? null;
             $donation->payment_datetime = $request->paymentDateTime ?? null;
+            $donation->gateway_response = json_encode($request->all());
             $donation->save();
         } else {
-            Log::error('Callback received for unknown transaction', ['merchant_txn_no' => $request->merchantTxnNo]);
+            Log::error('Callback for unknown transaction', ['merchant_txn_no' => $request->merchantTxnNo]);
         }
 
-        return view('donation.callback', ['status' => $txnStatus, 'txnID' => $request->txnID ?? null, 'amount' => $donation->amount ?? null, 'respDescription' => $request->respDescription ?? null]);
+        // Detect API flow via query param (we'll pass this)
+        $isApi = $request->query('api') === '1';
+
+        if ($isApi) {
+            return redirect()->away(
+                'https://wall.birnagar.org/payment/result?' . http_build_query([
+                    'status' => strtolower($txnStatus),
+                    'txnID' => $request->txnID ?? null,
+                    'amount' => $donation->amount ?? null,
+                    'message' => $request->respDescription ?? null,
+                ])
+            );
+        }
+
+        return view('donation.callback', [
+            'status' => $txnStatus,
+            'txnID' => $request->txnID ?? null,
+            'amount' => $donation->amount ?? null,
+            'respDescription' => $request->respDescription ?? null
+        ]);
     }
 
     // // Status Check API
