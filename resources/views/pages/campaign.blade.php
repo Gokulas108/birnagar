@@ -1,29 +1,6 @@
-@extends('layouts.common_page')
-@section('page-content')
+@extends('layouts.app')
+@section('content')
 <style>
-  /* Break out of layout container */
-  .hero,
-  .counter-strip,
-  section,
-  .wall-section,
-  .stall-section,
-  .whatsapp-strip,
-  .footer-cta {
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    width: 100vw;
-  }
-
-  .hero {
-    margin-top: calc(-3rem - 8rem);
-  }
-
-  i * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
   :root {
     --gold: #C8972A;
     --gold-light: #FFD580;
@@ -61,17 +38,19 @@
     background: #0a0500;
   }
 
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background: url('https://images.unsplash.com/photo-1545126530-0f4ec3834f9b?w=1600&q=80') center/cover no-repeat;
-    opacity: 0.2;
-  }
-
   .hero-grad {
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, rgba(10, 5, 0, 0.95) 0%, rgba(10, 5, 0, 0.7) 50%, rgba(20, 8, 0, 0.92) 100%);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url('/images/campaign-background.png');
+    background-size: cover;
+    background-position: center 70%;
   }
 
   .hero-inner {
@@ -1044,122 +1023,130 @@
   }
 
   /* ── RESPONSIVE ── */
-  @media(max-width:768px) {
+  @media (max-width: 768px) {
     .hero-inner {
       width: 100%;
-      margin-right: auto;
-      padding: 100px 24px 60px;
-      text-align: center;
-      align-items: center;
-    }
-
-    section {
-      padding: 48px 16px;
-    }
-
-    .step-item:not(:last-child) {
-      border-right: none;
-      border-bottom: 1px solid rgba(200, 120, 30, 0.12);
-    }
-
-    .counter-strip {
-      padding: 28px 16px;
-    }
-
-    .counter-inner {
-      width: 100%;
-    }
-
-    .counter-label {
-      gap: 6px;
-    }
-
-    .counter-label-text {
-      font-size: 9px;
-      letter-spacing: 1.5px;
-      text-align: center;
-    }
-
-    .counter-digits {
-      gap: 3px;
-    }
-
-    .digit-box {
-      width: 34px;
-      height: 44px;
-      font-size: 22px;
-      border-radius: 6px;
-    }
-
-    .digit-comma {
-      font-size: 16px;
-      padding-bottom: 5px;
-    }
-
-    .counter-progress-row {
       max-width: 100%;
-      padding: 0 8px;
-      gap: 8px;
-      flex-wrap: nowrap;
-      box-sizing: border-box;
-    }
+      margin: 0 auto;
 
-    .counter-bar-bg {
-      flex: 1;
-      min-width: 0;
-    }
+      padding: 80px 16px 40px;
 
-    .counter-bar-fill {
-      min-width: 0;
-    }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-    .counter-pct {
-      font-size: 10px;
-      white-space: nowrap;
-      flex-shrink: 0;
+      text-align: center;
     }
+  }
+
+  section {
+    padding: 48px 16px;
+  }
+
+  .step-item:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid rgba(200, 120, 30, 0.12);
+  }
+
+  .counter-strip {
+    padding: 28px 16px;
+  }
+
+  .counter-inner {
+    width: 100%;
+  }
+
+  .counter-label {
+    gap: 6px;
+  }
+
+  .counter-label-text {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-align: center;
+  }
+
+  .counter-digits {
+    gap: 3px;
+  }
+
+  .digit-box {
+    width: 34px;
+    height: 44px;
+    font-size: 22px;
+    border-radius: 6px;
+  }
+
+  .digit-comma {
+    font-size: 16px;
+    padding-bottom: 5px;
+  }
+
+  .counter-progress-row {
+    max-width: 100%;
+    padding: 0 8px;
+    gap: 8px;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+  }
+
+  .counter-bar-bg {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .counter-bar-fill {
+    min-width: 0;
+  }
+
+  .counter-pct {
+    font-size: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   }
 </style>
 
+<body class="bg-stone-50 text-stone-800 antialiased" style="font-family: 'Google Sans Flex', sans-serif" x-data="{ scrolled: false }" @scroll.window="scrolled = (window.pageYOffset > 40)">
 
-<!-- ══════════════════════════════════════════
+
+  {{-- ✅ Header at page level: fixed nav stays visible across ALL sections --}}
+  @include("partials.header")
+
+  <!-- ══════════════════════════════════════════
      HERO
 ══════════════════════════════════════════ -->
-<section class="hero">
-  <div style="position:absolute; inset:0; z-index:0;
-            background-image: url('{{ asset('images/campaign-background.png') }}');
-            background-size: cover;
-            background-position: center;
-            opacity: 1;">
+  <section class="hero">
+    <div class="hero-bg">
 
-  </div>
-  <div class="hero-inner .hero-inner { position: relative; z-index: 1; }">
-    <p class="hero-cursive">Srila Bhaktivinoda Thakur's</p>
-    <h1 class="hero-title">Wall of Legacy</h1>
-    <p class="hero-sub">3-Month Fundraising Campaign 2026</p>
-    <div class="hero-dates">
-      <span class="hero-dates-dot"></span>
-      <span class="hero-dates-text">March 29 — June 30, 2026</span>
     </div>
-    <p class="hero-desc">
-      Join the <strong>100,000 devotee mission</strong> and become the first to get your name permanently etched on the
-      <strong>Srila Bhaktivinoda Thakur's Wall of Legacy.</strong>
-    </p>
-    <div class="hero-btns">
-      <a href="https://wall.birnagar.org/web-app" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 5v14M5 12h14" />
-        </svg>
-        Claim your spot!
-      </a>
+    <div class="hero-inner">
+      <p class="hero-cursive">Srila Bhaktivinoda Thakur's</p>
+      <h1 class="hero-title">Wall of Legacy</h1>
+      <p class="hero-sub">3-Month Fundraising Campaign 2026</p>
+      <div class="hero-dates">
+        <span class="hero-dates-dot"></span>
+        <span class="hero-dates-text">March 29 — June 30, 2026</span>
+      </div>
+      <p class="hero-desc">
+        Join the <strong>100,000 devotee mission</strong> and become the first to get your name permanently etched on the
+        <strong>Srila Bhaktivinoda Thakur's Wall of Legacy.</strong>
+      </p>
+      <div class="hero-btns">
+        <a href="https://wall.birnagar.org/web-app" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          Claim your spot!
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      LIVE COUNTER STRIP
 ══════════════════════════════════════════ -->
-<div class="counter-strip">
+  <!-- <div class="counter-strip">
   <div class="counter-inner">
     <div class="counter-label">
       <span class="live-dot"></span>
@@ -1173,236 +1160,237 @@
       <span class="counter-pct"><strong id="pageDevPct">0%</strong> of 100,000</span>
     </div>
   </div>
-</div>
+</div> -->
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      SECTION 1 — ABOUT THE CAMPAIGN
 ══════════════════════════════════════════ -->
-<section class="about-section">
-  <div class="section-inner">
-    <div class="section-tag">
-      <div class="section-tag-line"></div><span class="section-tag-text">About the Campaign</span>
+  <section class="about-section">
+    <div class="section-inner">
+      <div class="section-tag">
+        <div class="section-tag-line"></div><span class="section-tag-text">About the Campaign</span>
+      </div>
+      <h2 class="section-title">What is the <span>Wall of Legacy?</span></h2>
+      <p class="section-lead">A sacred initiative to build temple in Birnagar dedicated to Srila Bhaktivinoda Thakur funded by 100,000 devoted hearts.</p>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-card-icon">🏛️</div>
+          <div class="about-card-title">The Mission</div>
+          <div class="about-card-text">We are raising <strong>₹10 Crore</strong> to build a temple in Birnagar for honouring Srila Bhaktivinoda Thakur — one of the greatest Vaishnava saints of the modern age.</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🪨</div>
+          <div class="about-card-title">The Wall of Legacy</div>
+          <div class="about-card-text">A permanent mosaic wall inside the temple museum where the names of all <strong>100,000 donors</strong> will be etched — forming a living tribute that will stand for generations.</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🙏</div>
+          <div class="about-card-title">Why 100,000 Devotees?</div>
+          <div class="about-card-text">Rather than relying on a few large donors, this campaign invites <strong>100,000 devotees</strong> to each contribute a minimum of ₹1,000 — making every devotee a true founding supporter.</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">📅</div>
+          <div class="about-card-title">Campaign Timeline</div>
+          <div class="about-card-text">The campaign runs for <strong>3 months only</strong> — from March 29 to June 30th, 2026. After this date, the Wall of Legacy will be closed and no new names can be added.</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">📍</div>
+          <div class="about-card-title">Where is Birnagar?</div>
+          <div class="about-card-text">Birnagar is the birthplace of Srila Bhaktivinoda Thakur, located in West Bengal, India. This temple will serve as a pilgrimage site and cultural museum for devotees worldwide.</div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🌍</div>
+          <div class="about-card-title">Open to All</div>
+          <div class="about-card-text">This campaign is open to everyone <strong>worldwide</strong>. Whether you are in India or abroad, you can participate online and secure your name on the Wall of Legacy.</div>
+        </div>
+      </div>
     </div>
-    <h2 class="section-title">What is the <span>Wall of Legacy?</span></h2>
-    <p class="section-lead">A sacred initiative to build temple in Birnagar dedicated to Srila Bhaktivinoda Thakur funded by 100,000 devoted hearts.</p>
-    <div class="about-grid">
-      <div class="about-card">
-        <div class="about-card-icon">🏛️</div>
-        <div class="about-card-title">The Mission</div>
-        <div class="about-card-text">We are raising <strong>₹10 Crore</strong> to build a temple in Birnagar for honouring Srila Bhaktivinoda Thakur — one of the greatest Vaishnava saints of the modern age.</div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">🪨</div>
-        <div class="about-card-title">The Wall of Legacy</div>
-        <div class="about-card-text">A permanent mosaic wall inside the temple museum where the names of all <strong>100,000 donors</strong> will be etched — forming a living tribute that will stand for generations.</div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">🙏</div>
-        <div class="about-card-title">Why 100,000 Devotees?</div>
-        <div class="about-card-text">Rather than relying on a few large donors, this campaign invites <strong>100,000 devotees</strong> to each contribute a minimum of ₹1,000 — making every devotee a true founding supporter.</div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">📅</div>
-        <div class="about-card-title">Campaign Timeline</div>
-        <div class="about-card-text">The campaign runs for <strong>3 months only</strong> — from March 29 to June 30th, 2026. After this date, the Wall of Legacy will be closed and no new names can be added.</div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">📍</div>
-        <div class="about-card-title">Where is Birnagar?</div>
-        <div class="about-card-text">Birnagar is the birthplace of Srila Bhaktivinoda Thakur, located in West Bengal, India. This temple will serve as a pilgrimage site and cultural museum for devotees worldwide.</div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">🌍</div>
-        <div class="about-card-title">Open to All</div>
-        <div class="about-card-text">This campaign is open to everyone <strong>worldwide</strong>. Whether you are in India or abroad, you can participate online and secure your name on the Wall of Legacy.</div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      CHAIRMAN'S MESSAGE
 ══════════════════════════════════════════ -->
-<section style="background: #6B2D0E; padding: 80px 20px;">
-  <div style="max-width: 900px; margin: 0 auto;">
+  <section style="background: #6B2D0E; padding: 80px 20px;">
+    <div style="max-width: 900px; margin: 0 auto;">
 
-    {{-- Section tag --}}
-    <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,150,60,0.15); border:1px solid rgba(255,150,60,0.3); border-radius:6px; padding:5px 14px; margin-bottom:20px;">
-      <div style="width:20px; height:1.5px; background:#C8590A;"></div>
-      <span style="font-size:10px; text-transform:uppercase; letter-spacing:3px; color:#FFB870; font-weight:700;">A Message from the Project Coordinator</span>
-    </div>
-
-    {{-- Title --}}
-    <h2 style="font-family:'Cinzel',serif; font-size:clamp(24px,4vw,40px); font-weight:700; color:#FFD580;; margin-bottom:40px; line-height:1.2;">
-      Why This Temple <span style="color:#FFA040;">Must Be Built</span>
-    </h2>
-
-    {{-- Two column layout: photo left, text right --}}
-    <div style="display:flex; gap:48px; align-items:flex-start; flex-wrap:wrap;">
-
-      {{-- Photo column --}}
-      <div style="flex-shrink:0; text-align:center; width:220px;">
-        <div style="width:200px; height:240px; border-radius:16px; overflow:hidden; border:3px solid #C8590A; box-shadow:0 8px 32px rgba(200,90,10,0.2); margin:0 auto 16px;">
-          <img
-            src="{{ asset('images/chairman.jpeg') }}"
-            alt="Chairman"
-            style="width:100%; height:100%; object-fit:cover; object-position:top;" />
-        </div>
-        <p style="font-family:'Cinzel',serif; font-size:14px; font-weight:700; color:#FFD580; margin-bottom:4px;">
-          Vaikunthapati das
-        </p>
-        <p style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:#FFA040;">
-          Project Coordinator, Birnagar Temple Project
-        </p>
+      {{-- Section tag --}}
+      <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,150,60,0.15); border:1px solid rgba(255,150,60,0.3); border-radius:6px; padding:5px 14px; margin-bottom:20px; margin-left:auto; margin-right:auto;">
+        <div style="width:20px; height:1.5px; background:#C8590A;"></div>
+        <span style="font-size:10px; text-transform:uppercase; letter-spacing:3px; color:#FFB870; font-weight:700;">A Message from the Project Coordinator</span>
       </div>
 
-      {{-- Write-up column --}}
-      <div style="flex:1; min-width:260px;">
+      {{-- Title --}}
+      <h2 style="font-family:'Cinzel',serif; font-size:clamp(24px,4vw,40px); font-weight:700; color:#FFD580; margin-bottom:40px; line-height:1.2; text-align:center;">
+        Why This Temple <span style="color:#FFA040;">Must Be Built</span>
+      </h2>
 
-        {{-- Opening quote --}}
-        <div style="border-left:3px solid #FFA040; padding-left:20px; margin-bottom:24px;">
-          <p style="font-family:'Georgia',serif; font-size:clamp(16px,2vw,20px); color:rgba(255,235,200,0.95); font-style:italic; line-height:1.7; margin:0;">
-            "This is not merely a construction project. It is a sacred debt we owe to Srila Bhaktivinoda Thakur — a saint who gave his entire life so that the holy name could reach every corner of the world."
+      {{-- Two column layout: photo left, text right --}}
+      <div style="display:flex; gap:48px; align-items:flex-start; flex-wrap:wrap; justify-content:center;">
+
+
+        {{-- Photo column --}}
+        <div style="flex-shrink:0; text-align:center; width:220px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <div style="width:200px; height:240px; border-radius:16px; overflow:hidden; border:3px solid #C8590A; box-shadow:0 8px 32px rgba(200,90,10,0.2); margin:0 auto 16px;">
+            <img
+              src="{{ asset('images/chairman.jpeg') }}"
+              alt="Chairman"
+              style="width:100%; height:100%; object-fit:cover; object-position:top;" />
+          </div>
+          <p style="font-family:'Cinzel',serif; font-size:14px; font-weight:700; color:#FFD580; margin-bottom:4px;">
+            Vaikunthapati das
+          </p>
+          <p style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:#FFA040;">
+            Project Director, Birnagar Temple Project
           </p>
         </div>
 
-        {{-- Body paragraphs --}}
-        <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:16px;">
-          Birnagar is the birthplace of one of the greatest Vaishnava saints of the modern era. For decades, devotees have dreamed of building a temple there worthy of his legacy — a place where pilgrims from around the world can come to pay their respects, learn his teachings, and feel his presence.
-        </p>
+        {{-- Write-up column --}}
+        <div style="flex:1; min-width:260px;">
 
-        <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:16px;">
-          The Wall of Legacy campaign is our answer to that dream. We are not asking a handful of wealthy donors to fund this alone. We are inviting <strong style="color:#FFD580;">one lakh devoted hearts</strong> to each contribute one spiritual share — so that when this temple stands, every one of them can say: <em>"I helped build this."</em>
-        </p>
-
-        <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:28px;">
-          The campaign closes on June 30, 2026. The window is short and the wall has limited space. I urge every devotee who feels the call of Srila Bhaktivinoda Thakur's mercy to come forward now and claim their place in this eternal legacy.
-        </p>
-
-        {{-- Signature --}}
-        <div style="display:flex; align-items:center; gap:16px; padding-top:20px; border-top:1px solid rgba(200,120,30,0.2);">
-          <div>
-            <p style="font-family:'Dancing Script',cursive; font-size:22px; color:#FFA040; margin:0 0 2px;">
-              Vaikunthapati das
-            </p>
-            <p style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:rgba(255,200,140,0.7); margin:0;">
-              Project Coordinator &nbsp;·&nbsp; Birnagar Temple Project
+          {{-- Opening quote --}}
+          <div style="border-left:3px solid #FFA040; padding-left:20px; margin-bottom:24px;">
+            <p style="font-family:'Georgia',serif; font-size:clamp(16px,2vw,20px); color:rgba(255,235,200,0.95); font-style:italic; line-height:1.7; margin:0;">
+              "This is not merely a construction project. It is a sacred debt we owe to Srila Bhaktivinoda Thakur — a saint who gave his entire life so that the holy name could reach every corner of the world."
             </p>
           </div>
+
+          {{-- Body paragraphs --}}
+          <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:16px;">
+            Birnagar is the birthplace of one of the greatest Vaishnava saints of the modern era. For decades, devotees have dreamed of building a temple there worthy of his legacy — a place where pilgrims from around the world can come to pay their respects, learn his teachings, and feel his presence.
+          </p>
+
+          <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:16px;">
+            The Wall of Legacy campaign is our answer to that dream. We are not asking a handful of wealthy donors to fund this alone. We are inviting <strong style="color:#FFD580;">one lakh devoted hearts</strong> to each contribute one spiritual share — so that when this temple stands, every one of them can say: <em>"I helped build this."</em>
+          </p>
+
+          <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:28px;">
+            The campaign closes on June 30, 2026. The window is short and the wall has limited space. I urge every devotee who feels the call of Srila Bhaktivinoda Thakur's mercy to come forward now and claim their place in this eternal legacy.
+          </p>
+
+          {{-- Signature --}}
+          <div style="display:flex; align-items:center; gap:16px; padding-top:20px; border-top:1px solid rgba(200,120,30,0.2);">
+            <div>
+              <p style="font-family:'Dancing Script',cursive; font-size:22px; color:#FFA040; margin:0 0 2px;">
+                Vaikunthapati das
+              </p>
+              <p style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:rgba(255,200,140,0.7); margin:0;">
+                Project Director &nbsp;·&nbsp; Birnagar Temple Project
+              </p>
+            </div>
+          </div>
+
         </div>
-
       </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      SECTION 3 — WALL TIERS
 ══════════════════════════════════════════ -->
-<section class="wall-section">
-  <div class="wall-inner">
-    <p class="wall-title-cursive">Srila Bhaktivinoda Thakur's</p>
-    <h2 class="wall-title">Wall of Legacy — Name Appearances</h2>
-    <p class="wall-desc">
-      The more you contribute, the more times your name appears on the Wall of Legacy.
-      Every contribution is in <strong>multiples of ₹1,000</strong> — each ₹1,000 secures one appearance.
-    </p>
-    <div class="wall-grid">
-      <div class="wall-tier">
-        <div class="wall-tier-amount">₹1,000</div>
-        <div class="wall-tier-label">Minimum</div>
-        <div class="wall-tier-appearances"><strong>1 time</strong> your name appears</div>
-      </div>
-      <div class="wall-tier">
-        <div class="wall-tier-amount">₹5,000</div>
-        <div class="wall-tier-label">Five-Fold</div>
-        <div class="wall-tier-appearances"><strong>5 times</strong> your name appears</div>
-      </div>
-      <div class="wall-tier">
-        <div class="wall-tier-amount">₹10,000</div>
-        <div class="wall-tier-label">Ten-Fold</div>
-        <div class="wall-tier-appearances"><strong>10 times</strong> your name appears</div>
-      </div>
-      <div class="wall-tier">
-        <div class="wall-tier-amount">₹50,000</div>
-        <div class="wall-tier-label">Fifty-Fold</div>
-        <div class="wall-tier-appearances"><strong>50 times</strong> your name appears</div>
-      </div>
-      <!-- <div class="wall-tier">
+  <section class="wall-section">
+    <div class="wall-inner">
+      <p class="wall-title-cursive">Srila Bhaktivinoda Thakur's</p>
+      <h2 class="wall-title">Wall of Legacy — Name Appearances</h2>
+      <p class="wall-desc">
+        The more you contribute, the more times your name appears on the Wall of Legacy.
+        Every contribution is in <strong>multiples of ₹1,000</strong> — each ₹1,000 secures one appearance.
+      </p>
+      <div class="wall-grid">
+        <div class="wall-tier">
+          <div class="wall-tier-amount">₹1,000</div>
+          <div class="wall-tier-label">Minimum</div>
+          <div class="wall-tier-appearances"><strong>1 time</strong> your name appears</div>
+        </div>
+        <div class="wall-tier">
+          <div class="wall-tier-amount">₹5,000</div>
+          <div class="wall-tier-label">Five-Fold</div>
+          <div class="wall-tier-appearances"><strong>5 times</strong> your name appears</div>
+        </div>
+        <div class="wall-tier">
+          <div class="wall-tier-amount">₹10,000</div>
+          <div class="wall-tier-label">Ten-Fold</div>
+          <div class="wall-tier-appearances"><strong>10 times</strong> your name appears</div>
+        </div>
+        <div class="wall-tier">
+          <div class="wall-tier-amount">₹50,000</div>
+          <div class="wall-tier-label">Fifty-Fold</div>
+          <div class="wall-tier-appearances"><strong>50 times</strong> your name appears</div>
+        </div>
+        <!-- <div class="wall-tier">
         <div class="wall-tier-amount">₹100,000</div>
         <div class="wall-tier-label">One-Hundred-Fold</div>
         <div class="wall-tier-appearances"><strong>100 times</strong> your name appears</div>
       </div> -->
+      </div>
+      <div class="wall-cta-row">
+        <a href="https://wall.birnagar.org/web-app" class="btn-primary">Claim My Spot Now</a>
+      </div>
     </div>
-    <div class="wall-cta-row">
-      <a href="https://wall.birnagar.org/web-app" class="btn-primary">Claim My Spot Now</a>
-    </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      SECTION 4 — HOW PARTICIPATION WORKS
 ══════════════════════════════════════════ -->
-<section class="payment-section" id="payment-steps">
-  <div class="section-inner">
-    <div class="section-tag">
-      <div class="section-tag-line"></div><span class="section-tag-text">Step by Step</span>
+  <section class="payment-section" id="payment-steps">
+    <div class="section-inner">
+      <div class="section-tag">
+        <div class="section-tag-line"></div><span class="section-tag-text">Step by Step</span>
+      </div>
+      <h2 class="section-title">How to <span>Participate</span></h2>
+      <p class="section-lead">Follow these simple steps to secure your name on the Wall of Legacy. The entire process takes less than 3 minutes.</p>
+      <div class="payment-steps">
+        <div class="payment-step">
+          <div class="payment-step-num">1</div>
+          <div class="payment-step-content">
+            <div class="payment-step-title">Start with a minimum donation of ₹1,000</div>
+            <div class="payment-step-text">A contribution of <strong>₹1,000</strong> secures your spot on the Srila Bhaktivinoda Thakur Wall of Legacy. This is the minimum amount required to have your name etched permanently on the wall. You can contribute more in multiples of ₹1,000.</div>
+          </div>
+        </div>
+        <div class="payment-step">
+          <div class="payment-step-num">2</div>
+          <div class="payment-step-content">
+            <div class="payment-step-title">More you give, more times your name appears</div>
+            <div class="payment-step-text">For every <strong>₹1,000</strong> you contribute, your name appears once on the wall. Donate ₹5,000 and your name appears 5 times. Donate ₹10,000 and it appears 10 times — across different blocks on the wall.</div>
+          </div>
+        </div>
+        <div class="payment-step">
+          <div class="payment-step-num">3</div>
+          <div class="payment-step-content">
+            <div class="payment-step-title">Click on the Donate Now button</div>
+            <div class="payment-step-text">Click the <strong>Donate Now</strong> button on this page to begin the donation process. You will be directed to our secure donation form.</div>
+          </div>
+        </div>
+        <div class="payment-step">
+          <div class="payment-step-num">4</div>
+          <div class="payment-step-content">
+            <div class="payment-step-title">Select your block on the Wall of Legacy</div>
+            <div class="payment-step-text">The wall is divided into <strong>numbered blocks</strong>. Choose the block where you would like your name to appear. Blocks fill up on a first-come, first-served basis — so choose early for the best positions.</div>
+          </div>
+        </div>
+        <div class="payment-step">
+          <div class="payment-step-num">5</div>
+          <div class="payment-step-content">
+            <div class="payment-step-title">Enter your details and select your amount</div>
+            <div class="payment-step-text">Fill in your <strong>name as you would like it to appear</strong> on the wall, along with your contact details and WhatsApp number for your receipt. Then select your donation amount.</div>
+          </div>
+        </div>
+        <div class="payment-step">
+          <div class="payment-step-num">6</div>
+          <div class="payment-step-content">
+            <div class="payment-step-title">Pay securely</div>
+            <div class="payment-step-text">Click <strong>Pay Now</strong> and complete your payment via UPI, Credit/Debit Card or Net Banking.</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <h2 class="section-title">How to <span>Participate</span></h2>
-    <p class="section-lead">Follow these simple steps to secure your name on the Wall of Legacy. The entire process takes less than 3 minutes.</p>
-    <div class="payment-steps">
-      <div class="payment-step">
-        <div class="payment-step-num">1</div>
-        <div class="payment-step-content">
-          <div class="payment-step-title">Start with a minimum donation of ₹1,000</div>
-          <div class="payment-step-text">A contribution of <strong>₹1,000</strong> secures your spot on the Srila Bhaktivinoda Thakur Wall of Legacy. This is the minimum amount required to have your name etched permanently on the wall. You can contribute more in multiples of ₹1,000.</div>
-        </div>
-      </div>
-      <div class="payment-step">
-        <div class="payment-step-num">2</div>
-        <div class="payment-step-content">
-          <div class="payment-step-title">More you give, more times your name appears</div>
-          <div class="payment-step-text">For every <strong>₹1,000</strong> you contribute, your name appears once on the wall. Donate ₹5,000 and your name appears 5 times. Donate ₹10,000 and it appears 10 times — across different blocks on the wall.</div>
-        </div>
-      </div>
-      <div class="payment-step">
-        <div class="payment-step-num">3</div>
-        <div class="payment-step-content">
-          <div class="payment-step-title">Click on the Donate Now button</div>
-          <div class="payment-step-text">Click the <strong>Donate Now</strong> button on this page to begin the donation process. You will be directed to our secure donation form.</div>
-        </div>
-      </div>
-      <div class="payment-step">
-        <div class="payment-step-num">4</div>
-        <div class="payment-step-content">
-          <div class="payment-step-title">Select your block on the Wall of Legacy</div>
-          <div class="payment-step-text">The wall is divided into <strong>numbered blocks</strong>. Choose the block where you would like your name to appear. Blocks fill up on a first-come, first-served basis — so choose early for the best positions.</div>
-        </div>
-      </div>
-      <div class="payment-step">
-        <div class="payment-step-num">5</div>
-        <div class="payment-step-content">
-          <div class="payment-step-title">Enter your details and select your amount</div>
-          <div class="payment-step-text">Fill in your <strong>name as you would like it to appear</strong> on the wall, along with your contact details and WhatsApp number for your receipt. Then select your donation amount.</div>
-        </div>
-      </div>
-      <div class="payment-step">
-        <div class="payment-step-num">6</div>
-        <div class="payment-step-content">
-          <div class="payment-step-title">Pay securely</div>
-          <div class="payment-step-text">Click <strong>Pay Now</strong> and complete your payment via UPI, Credit/Debit Card or Net Banking.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      PERKS
 ══════════════════════════════════════════ -->
-<!-- <section class="perks-section">
+  <!-- <section class="perks-section">
   <div class="section-inner">
     <div class="section-tag"><div class="section-tag-line"></div><span class="section-tag-text">What You Receive</span></div>
     <h2 class="section-title">Every Devotee <span>Gets</span></h2>
@@ -1442,125 +1430,126 @@
   </div>
 </section> -->
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      MAYAPUR STALL
 ══════════════════════════════════════════ -->
-<section class="stall-section">
-  <div class="stall-inner">
-    <div class="stall-icon">🪷</div>
-    <h2 class="stall-title">Visiting Mayapur? Donate In Person</h2>
-    <p class="stall-text">
-      If you are currently in <strong>Mayapur</strong>, you are welcome to visit our dedicated stall located near the temple and make your donation personally. Our team will assist you with block selection, fill in your details, and view your name on the digital wall on the spot.
-      <br /><br />
-      This is a wonderful opportunity to connect with fellow devotees and be part of this sacred mission face to face.
-    </p>
-    <div class="stall-badge">
-      <span style="font-size:20px;">📍</span>
-      <span class="stall-badge-text">Our Stall is Near the Mayapur Temple &nbsp;·&nbsp; Open Daily During Campaign Period</span>
+  <section class="stall-section">
+    <div class="stall-inner">
+      <div class="stall-icon">🪷</div>
+      <h2 class="stall-title">Visiting Mayapur? Donate In Person</h2>
+      <p class="stall-text">
+        If you are currently in <strong>Mayapur</strong>, you are welcome to visit our dedicated stall located near the temple and make your donation personally. Our team will assist you with block selection, fill in your details, and view your name on the digital wall on the spot.
+        <br /><br />
+        This is a wonderful opportunity to connect with fellow devotees and be part of this sacred mission face to face.
+      </p>
+      <div class="stall-badge">
+        <span style="font-size:20px;">📍</span>
+        <span class="stall-badge-text">Our Stall is Near the Mayapur Temple &nbsp;·&nbsp; Open Daily During Campaign Period</span>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      WHATSAPP STRIP
 ══════════════════════════════════════════ -->
-<!-- <div class="whatsapp-strip">
+  <!-- <div class="whatsapp-strip">
   <div class="whatsapp-inner">
     <span class="whatsapp-icon">💬</span>
     <span class="whatsapp-text">Instant Receipt on WhatsApp &nbsp;<span>— Your official donation receipt is sent to you the moment payment is confirmed.</span></span>
   </div>
 </div> -->
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      FAQ
 ══════════════════════════════════════════ -->
-<section class="faq-section">
-  <div class="section-inner">
-    <div class="section-tag">
-      <div class="section-tag-line"></div><span class="section-tag-text">Common Questions</span>
-    </div>
-    <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q">What is the minimum donation amount? <span class="faq-arrow">&#8964;</span></div>
-        <div class="faq-a">The minimum donation is <strong>₹1,000</strong>. This secures one appearance of your name on the Srila Bhaktivinoda Thakur Wall of Legacy. You can contribute more in multiples of ₹1,000.</div>
+  <section class="faq-section">
+    <div class="section-inner">
+      <div class="section-tag">
+        <div class="section-tag-line"></div><span class="section-tag-text">Common Questions</span>
       </div>
-      <div class="faq-item">
-        <div class="faq-q">Can I donate on behalf of a family member or in someone's name? <span class="faq-arrow">&#8964;</span></div>
-        <div class="faq-a">Yes, absolutely. During the donation process you can enter the name of whoever you would like to appear on the wall — it does not have to be your own name. Many devotees donate in the name of a parent, child, or spiritual teacher.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">How many times can my name appear on the wall? <span class="faq-arrow">&#8964;</span></div>
-        <div class="faq-a">For every ₹1,000 you contribute, your name appears once. So if you donate ₹5,000 your name will appear 5 times, and for ₹10,000 it will appear 10 times — across different blocks on the wall.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Can I choose where on the wall my name appears? <span class="faq-arrow">&#8964;</span></div>
-        <div class="faq-a">Yes. After completing your payment you will be able to select the numbered block on the wall where your name will be placed. Blocks are allocated on a first-come, first-served basis.</div>
-      </div>
-      <!-- <div class="faq-item">
+      <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">What is the minimum donation amount? <span class="faq-arrow">&#8964;</span></div>
+          <div class="faq-a">The minimum donation is <strong>₹1,000</strong>. This secures one appearance of your name on the Srila Bhaktivinoda Thakur Wall of Legacy. You can contribute more in multiples of ₹1,000.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I donate on behalf of a family member or in someone's name? <span class="faq-arrow">&#8964;</span></div>
+          <div class="faq-a">Yes, absolutely. During the donation process you can enter the name of whoever you would like to appear on the wall — it does not have to be your own name. Many devotees donate in the name of a parent, child, or spiritual teacher.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How many times can my name appear on the wall? <span class="faq-arrow">&#8964;</span></div>
+          <div class="faq-a">For every ₹1,000 you contribute, your name appears once. So if you donate ₹5,000 your name will appear 5 times, and for ₹10,000 it will appear 10 times — across different blocks on the wall.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I choose where on the wall my name appears? <span class="faq-arrow">&#8964;</span></div>
+          <div class="faq-a">Yes. After completing your payment you will be able to select the numbered block on the wall where your name will be placed. Blocks are allocated on a first-come, first-served basis.</div>
+        </div>
+        <!-- <div class="faq-item">
         <div class="faq-q">When will I receive my receipt? <span class="faq-arrow">&#8964;</span></div>
         <div class="faq-a">Your official receipt will be sent to your WhatsApp number immediately after your payment is confirmed — usually within a few seconds of completing the transaction.</div>
       </div> -->
-      <div class="faq-item">
-        <div class="faq-q">What payment methods are accepted? <span class="faq-arrow">&#8964;</span></div>
-        <div class="faq-a">We accept UPI, Credit/Debit Card and Net Banking. All payments are processed through a secure payment gateway.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">I pledged but have not paid yet — what should I do? <span class="faq-arrow">&#8964;</span></div>
-        <div class="faq-a">You will receive a WhatsApp reminder before the campaign closes on June 30, 2026. You can complete your donation at any time before that date. After June 30 the Wall of Legacy will be closed permanently.</div>
+        <div class="faq-item">
+          <div class="faq-q">What payment methods are accepted? <span class="faq-arrow">&#8964;</span></div>
+          <div class="faq-a">We accept UPI, Credit/Debit Card and Net Banking. All payments are processed through a secure payment gateway.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">I pledged but have not paid yet — what should I do? <span class="faq-arrow">&#8964;</span></div>
+          <div class="faq-a">You will receive a WhatsApp reminder before the campaign closes on June 30, 2026. You can complete your donation at any time before that date. After June 30 the Wall of Legacy will be closed permanently.</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
      FOOTER CTA
 ══════════════════════════════════════════ -->
-<script>
-  (function() {
-    var CURRENT = 0,
-      TARGET = 100000;
+  <script>
+    (function() {
+      var CURRENT = 0,
+        TARGET = 100000;
 
-    function buildDigits(num, containerId) {
-      var c = document.getElementById(containerId);
-      if (!c) return;
-      var str = num.toLocaleString('en-IN');
-      c.innerHTML = '';
-      for (var i = 0; i < str.length; i++) {
-        if (str[i] === ',') {
-          var cm = document.createElement('span');
-          cm.className = 'digit-comma';
-          cm.textContent = ',';
-          c.appendChild(cm);
-        } else {
-          var bx = document.createElement('div');
-          bx.className = 'digit-box';
-          bx.textContent = str[i];
-          c.appendChild(bx);
+      function buildDigits(num, containerId) {
+        var c = document.getElementById(containerId);
+        if (!c) return;
+        var str = num.toLocaleString('en-IN');
+        c.innerHTML = '';
+        for (var i = 0; i < str.length; i++) {
+          if (str[i] === ',') {
+            var cm = document.createElement('span');
+            cm.className = 'digit-comma';
+            cm.textContent = ',';
+            c.appendChild(cm);
+          } else {
+            var bx = document.createElement('div');
+            bx.className = 'digit-box';
+            bx.textContent = str[i];
+            c.appendChild(bx);
+          }
         }
       }
-    }
 
-    buildDigits(CURRENT, 'pageDevDigits');
+      buildDigits(CURRENT, 'pageDevDigits');
 
-    setTimeout(function() {
-      var pct = Math.round((CURRENT / TARGET) * 100);
-      var bar = document.getElementById('pageDevBar');
-      var lbl = document.getElementById('pageDevPct');
-      if (bar) bar.style.width = pct + '%';
-      if (lbl) lbl.textContent = pct + '%';
-    }, 400);
+      setTimeout(function() {
+        var pct = Math.round((CURRENT / TARGET) * 100);
+        var bar = document.getElementById('pageDevBar');
+        var lbl = document.getElementById('pageDevPct');
+        if (bar) bar.style.width = pct + '%';
+        if (lbl) lbl.textContent = pct + '%';
+      }, 400);
 
-    document.querySelectorAll('.faq-q').forEach(function(q) {
-      q.addEventListener('click', function() {
-        var item = this.closest('.faq-item');
-        var wasOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(i) {
-          i.classList.remove('open');
+      document.querySelectorAll('.faq-q').forEach(function(q) {
+        q.addEventListener('click', function() {
+          var item = this.closest('.faq-item');
+          var wasOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item').forEach(function(i) {
+            i.classList.remove('open');
+          });
+          if (!wasOpen) item.classList.add('open');
         });
-        if (!wasOpen) item.classList.add('open');
       });
-    });
-  })();
-</script>
+    })();
+  </script>
+</body>
 @endsection
