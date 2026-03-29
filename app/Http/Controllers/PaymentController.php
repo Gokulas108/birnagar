@@ -104,29 +104,25 @@ class PaymentController extends Controller
 
         $response = $this->curlPost($this->initiateSaleUrl, $payload);
 
+        $response = $this->curlPost($this->initiateSaleUrl, $payload);
+
         if (!$response || !isset($response['redirectURI'])) {
             Log::error('Invalid Gateway Response', ['response' => $response]);
-
-            // if ($isApi) {
-            //     return response()->json([
-            //         'success' => false,
-            //         'message' => 'Payment gateway error'
-            //     ], 500);
-            // }
-
             return back()->withErrors(['msg' => 'Payment gateway error.']);
         }
 
         $redirectUrl = $response['redirectURI'] . '?tranCtx=' . $response['tranCtx'];
 
-        // if ($isApi) {
-        //     return response()->json([
-        //         'success' => true,
-        //         'redirect_url' => $redirectUrl,
-        //         'merchant_txn_no' => $merchantTxnNo
-        //     ]);
-        // }
+        // ✅ Hybrid flow for API calls (Next.js)
+        if ($isApi) {
+            // Return a Laravel view with auto-submit form to gateway
+            return view('payment.auto_redirect', [
+                'redirectUrl' => $redirectUrl,
+                'merchantTxnNo' => $merchantTxnNo,
+            ]);
+        }
 
+        // Normal Laravel web flow
         return redirect($redirectUrl);
     }
 
