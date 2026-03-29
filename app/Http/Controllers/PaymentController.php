@@ -107,25 +107,25 @@ class PaymentController extends Controller
         if (!$response || !isset($response['redirectURI'])) {
             Log::error('Invalid Gateway Response', ['response' => $response]);
 
-            if ($isApi) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Payment gateway error'
-                ], 500);
-            }
+            // if ($isApi) {
+            //     return response()->json([
+            //         'success' => false,
+            //         'message' => 'Payment gateway error'
+            //     ], 500);
+            // }
 
             return back()->withErrors(['msg' => 'Payment gateway error.']);
         }
 
         $redirectUrl = $response['redirectURI'] . '?tranCtx=' . $response['tranCtx'];
 
-        if ($isApi) {
-            return response()->json([
-                'success' => true,
-                'redirect_url' => $redirectUrl,
-                'merchant_txn_no' => $merchantTxnNo
-            ]);
-        }
+        // if ($isApi) {
+        //     return response()->json([
+        //         'success' => true,
+        //         'redirect_url' => $redirectUrl,
+        //         'merchant_txn_no' => $merchantTxnNo
+        //     ]);
+        // }
 
         return redirect($redirectUrl);
     }
