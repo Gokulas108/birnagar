@@ -104,7 +104,6 @@ class PaymentController extends Controller
 
         $response = $this->curlPost($this->initiateSaleUrl, $payload);
 
-        $response = $this->curlPost($this->initiateSaleUrl, $payload);
 
         if (!$response || !isset($response['redirectURI'])) {
             Log::error('Invalid Gateway Response', ['response' => $response]);
