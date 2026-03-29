@@ -148,7 +148,6 @@ class PaymentController extends Controller
             $donation->response_code = $responseCode;
             $donation->response_description = $request->respDescription ?? null;
             $donation->payment_datetime = $request->paymentDateTime ?? null;
-            $donation->gateway_response = json_encode($request->all());
             $donation->save();
         } else {
             Log::error('Callback for unknown transaction', ['merchant_txn_no' => $request->merchantTxnNo]);
