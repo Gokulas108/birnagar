@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Countdown Timer Logic
-const openingDay = new Date("2026-06-01T00:00:00+05:30").getTime();
+const openingDay = new Date("2027-01-01T00:00:00+05:30").getTime();
 
 document.addEventListener("DOMContentLoaded", () => {
     // countdown code here
