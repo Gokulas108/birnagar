@@ -39,6 +39,8 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
@@ -46,6 +48,7 @@
     background: var(--cream);
     color: #2C1A0A;
     overflow-x: hidden;
+    max-width: 100%;
   }
 
   /* ── HERO ── */
@@ -1326,11 +1329,11 @@
         <div class="wall-tier-label">Fifty-Fold</div>
         <div class="wall-tier-appearances"><strong>50 times</strong> your name appears</div>
       </div>
-      <div class="wall-tier">
+      <!-- <div class="wall-tier">
         <div class="wall-tier-amount">₹100,000</div>
         <div class="wall-tier-label">One-Hundred-Fold</div>
         <div class="wall-tier-appearances"><strong>100 times</strong> your name appears</div>
-      </div>
+      </div> -->
     </div>
     <div class="wall-cta-row">
       <a href="https://wall.birnagar.org/web-app" class="btn-primary">Claim My Spot Now</a>
@@ -1388,8 +1391,8 @@
       <div class="payment-step">
         <div class="payment-step-num">6</div>
         <div class="payment-step-content">
-          <div class="payment-step-title">Pay securely and receive your receipt instantly</div>
-          <div class="payment-step-text">Click <strong>Pay Now</strong> and complete your payment via UPI, Credit/Debit Card, Net Banking, or International Card. Your official receipt will be sent to your <strong>WhatsApp immediately</strong> after payment.</div>
+          <div class="payment-step-title">Pay securely</div>
+          <div class="payment-step-text">Click <strong>Pay Now</strong> and complete your payment via UPI, Credit/Debit Card or Net Banking.</div>
         </div>
       </div>
     </div>
@@ -1494,10 +1497,10 @@
         <div class="faq-q">Can I choose where on the wall my name appears? <span class="faq-arrow">&#8964;</span></div>
         <div class="faq-a">Yes. After completing your payment you will be able to select the numbered block on the wall where your name will be placed. Blocks are allocated on a first-come, first-served basis.</div>
       </div>
-      <div class="faq-item">
+      <!-- <div class="faq-item">
         <div class="faq-q">When will I receive my receipt? <span class="faq-arrow">&#8964;</span></div>
         <div class="faq-a">Your official receipt will be sent to your WhatsApp number immediately after your payment is confirmed — usually within a few seconds of completing the transaction.</div>
-      </div>
+      </div> -->
       <div class="faq-item">
         <div class="faq-q">What payment methods are accepted? <span class="faq-arrow">&#8964;</span></div>
         <div class="faq-a">We accept UPI, Credit/Debit Card and Net Banking. All payments are processed through a secure payment gateway.</div>
