@@ -63,6 +63,7 @@ class PaymentController extends Controller
             'address' => $request->address,
             'city' => $request->city,
             'state' => $request->state,
+            'source' => $isApi ? 'api' : 'web',
             'pincode' => $request->pincode
         ]);
 
@@ -154,7 +155,7 @@ class PaymentController extends Controller
         }
 
         // Detect API flow via query param (we'll pass this)
-        $isApi = $request->query('api') === '1';
+        $isApi = $donation && $donation->source === 'api';
 
         if ($isApi) {
             return redirect()->away(
