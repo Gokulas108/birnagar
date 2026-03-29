@@ -113,7 +113,10 @@ class PaymentController extends Controller
         $redirectUrl = $response['redirectURI'] . '?tranCtx=' . $response['tranCtx'];
 
         // Normal Laravel web flow
-        return redirect($redirectUrl);
+        // return redirect($redirectUrl);
+        return view('payment.auto_redirect', [
+        'redirectUrl' => $redirectUrl
+    ]);
     }
 
     // ICICI callback
