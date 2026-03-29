@@ -2,216 +2,1120 @@
 @section('page-content')
 <style>
   /* Break out of layout container */
-.hero, .counter-strip, section,
-.wall-section, .stall-section,
-.whatsapp-strip, .footer-cta {
+  .hero,
+  .counter-strip,
+  section,
+  .wall-section,
+  .stall-section,
+  .whatsapp-strip,
+  .footer-cta {
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
     width: 100vw;
-}
+  }
 
-.hero {
+  .hero {
     margin-top: calc(-3rem - 8rem);
-}
-i
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --gold:#C8972A;
-  --gold-light:#FFD580;
-  --saffron:#C8590A;
-  --saffron-light:#F97316;
-  --cream:#FFFBF2;
-  --warm:#FDF3E3;
-  --stone:#44200A;
-  --stone-light:#7A3B1E;
-  --green:#166534;
-  --green-bg:#F0FDF4;
-}
-html{scroll-behavior:smooth;}
-body{font-family:'Lato',sans-serif;background:var(--cream);color:#2C1A0A;overflow-x:hidden;}
+  }
 
-/* ── HERO ── */
-.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:#0a0500;}
-.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1545126530-0f4ec3834f9b?w=1600&q=80') center/cover no-repeat;opacity:0.2;}
-.hero-grad{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,5,0,0.95) 0%,rgba(10,5,0,0.7) 50%,rgba(20,8,0,0.92) 100%);}
-.hero-inner{position:relative;z-index:2;width:45%;margin-left:auto;margin-right:4%;padding:120px 40px 80px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:8px;}
-.hero-cursive{font-family:'Dancing Script',cursive;font-size:clamp(22px,3vw,36px);color:rgba(255,210,120,0.8);font-weight:600;margin-bottom:0;}
-.hero-title{font-family:'Cinzel',serif;font-size:clamp(48px,8vw,96px);font-weight:900;color:var(--gold-light);line-height:1;margin-bottom:0;text-shadow:0 0 60px rgba(200,90,0,0.4);}
-.hero-sub{font-family:'Cinzel',serif;font-size:clamp(11px,1.5vw,15px);letter-spacing:4px;text-transform:uppercase;color:rgba(255,190,80,0.55);margin-bottom:0;}
-.hero-desc{font-size:clamp(15px,1.8vw,19px);color:rgba(255,235,200,0.85);font-weight:300;line-height:1.8;max-width:660px;margin:0;}
-.hero-desc strong{color:var(--gold-light);font-weight:700;}
-.hero-dates{display:inline-flex;align-items:center;gap:10px;background:rgba(200,90,0,0.2);border:1px solid rgba(200,110,0,0.35);border-radius:8px;padding:8px 20px;margin-bottom:0;}
-.hero-dates-dot{width:8px;height:8px;border-radius:50%;background:var(--saffron-light);}
-.hero-dates-text{font-size:13px;color:rgba(255,200,120,0.85);letter-spacing:1px;}
-.hero-btns{display:flex;gap:16px;justify-content:flex-start;flex-wrap:wrap;}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--saffron);color:#fff;border:none;padding:16px 40px;border-radius:50px;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.25s;}
-.btn-primary:hover{background:#a8470a;transform:translateY(-2px);}
-.btn-ghost{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--gold-light);border:1.5px solid rgba(255,190,60,0.4);padding:16px 40px;border-radius:50px;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.25s;}
-.btn-ghost:hover{border-color:var(--gold-light);background:rgba(255,200,80,0.08);transform:translateY(-2px);}
+  i * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-/* ── COUNTER STRIP ── */
-.counter-strip{background:linear-gradient(135deg,#1a0800,#2d1000,#1a0800);padding:40px 20px;text-align:center;}
-.counter-inner{max-width:700px;margin:0 auto;}
-.counter-label{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:16px;}
-.live-dot{width:8px;height:8px;border-radius:50%;background:#4eff8a;animation:livepulse 1.4s infinite;}
-@keyframes livepulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.7)}}
-.counter-label-text{font-size:11px;text-transform:uppercase;letter-spacing:3px;color:rgba(255,200,100,0.5);}
-.counter-digits{display:flex;align-items:stretch;justify-content:center;gap:6px;margin-bottom:14px;}
-.digit-box{background:rgba(0,0,0,0.5);border:1px solid rgba(255,180,40,0.25);border-radius:10px;width:52px;height:68px;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-weight:700;font-size:36px;color:var(--gold-light);position:relative;}
-.digit-box::after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,180,40,0.12);}
-.digit-comma{display:flex;align-items:flex-end;padding-bottom:10px;color:rgba(255,180,40,0.35);font-size:26px;font-weight:700;font-family:'Cinzel',serif;}
-.counter-progress-row{display:flex;align-items:center;gap:14px;max-width:440px;margin:0 auto;}
-.counter-bar-bg{flex:1;height:5px;border-radius:10px;background:rgba(255,255,255,0.08);overflow:hidden;}
-.counter-bar-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,#C8590A,#FFD580);width:0%;transition:width 2.5s cubic-bezier(0.23,1,0.32,1);}
-.counter-pct{font-size:12px;color:rgba(255,200,100,0.6);white-space:nowrap;}
-.counter-pct strong{color:var(--gold-light);}
+  :root {
+    --gold: #C8972A;
+    --gold-light: #FFD580;
+    --saffron: #C8590A;
+    --saffron-light: #F97316;
+    --cream: #FFFBF2;
+    --warm: #FDF3E3;
+    --stone: #44200A;
+    --stone-light: #7A3B1E;
+    --green: #166534;
+    --green-bg: #F0FDF4;
+  }
 
-/* ── SECTIONS ── */
-section{padding:80px 20px;}
-.section-inner{max-width:1100px;margin:0 auto;}
-.section-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(200,90,0,0.1);border:1px solid rgba(200,90,0,0.2);border-radius:6px;padding:5px 14px;margin-bottom:20px;}
-.section-tag-line{width:20px;height:1.5px;background:var(--saffron);}
-.section-tag-text{font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--saffron);font-weight:700;}
-.section-title{font-family:'Cinzel',serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--stone);margin-bottom:12px;line-height:1.15;}
-.section-title span{color:var(--saffron);}
-.section-lead{font-size:clamp(15px,1.6vw,18px);color:#5C3010;font-weight:300;line-height:1.8;max-width:680px;margin-bottom:48px;}
+  html {
+    scroll-behavior: smooth;
+  }
 
-/* ── ABOUT SECTION ── */
-.about-section{background:var(--warm);}
-.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
-.about-card{background:#fff;border:1px solid rgba(200,120,30,0.15);border-radius:16px;padding:32px 28px;border-top:4px solid var(--saffron);}
-.about-card-icon{font-size:32px;margin-bottom:16px;}
-.about-card-title{font-family:'Cinzel',serif;font-size:17px;font-weight:700;color:var(--stone);margin-bottom:10px;}
-.about-card-text{font-size:14px;color:#5C3010;line-height:1.75;font-weight:300;}
-.about-card-text strong{color:var(--stone);font-weight:700;}
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: #2C1A0A;
+    overflow-x: hidden;
+  }
 
-/* ── HOW IT WORKS ── */
-.steps-section{background:#fff;}
-.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;}
-.step-item{position:relative;padding:36px 32px;}
-.step-item:not(:last-child){border-right:1px solid rgba(200,120,30,0.12);}
-.step-num{font-family:'Cinzel',serif;font-size:56px;font-weight:900;color:rgba(200,90,10,0.08);line-height:1;margin-bottom:-8px;}
-.step-title{font-family:'Cinzel',serif;font-size:16px;font-weight:700;color:var(--stone);margin-bottom:10px;}
-.step-text{font-size:13.5px;color:#5C3010;line-height:1.7;font-weight:300;}
-.step-text strong{color:var(--saffron);font-weight:700;}
-.step-divider{display:none;}
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #0a0500;
+  }
 
-/* ── OPTIONS SECTION ── */
-.options-section{background:linear-gradient(135deg,#FFF8EC,#FFFBF2);}
-.options-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;}
-.option-card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid rgba(200,120,30,0.15);transition:transform 0.25s;}
-.option-card:hover{transform:translateY(-4px);}
-.option-card-header{padding:32px 32px 24px;}
-.option-card-header.primary{background:linear-gradient(135deg,#C8590A,#E8760A);}
-.option-card-header.secondary{background:linear-gradient(135deg,#166534,#15803d);}
-.option-badge{display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:14px;}
-.option-title{font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:8px;}
-.option-tagline{font-size:13px;color:rgba(255,255,255,0.8);font-weight:300;}
-.option-body{padding:28px 32px;}
-.option-points{list-style:none;}
-.option-points li{display:flex;gap:12px;margin-bottom:14px;font-size:14px;color:#3C1A08;line-height:1.65;}
-.option-points li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--saffron);flex-shrink:0;margin-top:8px;}
-.option-points li.green::before{background:var(--green);}
-.option-cta{margin-top:24px;}
-.btn-option-primary{display:inline-flex;align-items:center;gap:8px;background:var(--saffron);color:#fff;padding:13px 28px;border-radius:50px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
-.btn-option-primary:hover{background:#a8470a;transform:translateY(-1px);}
-.btn-option-secondary{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:13px 28px;border-radius:50px;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
-.btn-option-secondary:hover{background:#14532d;transform:translateY(-1px);}
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1545126530-0f4ec3834f9b?w=1600&q=80') center/cover no-repeat;
+    opacity: 0.2;
+  }
 
-/* ── PERKS SECTION ── */
-.perks-section{background:var(--warm);}
-.perks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
-.perk-card{background:#fff;border-radius:14px;padding:28px 24px;border:1px solid rgba(200,120,30,0.12);display:flex;flex-direction:column;gap:14px;}
-.perk-icon-wrap{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,rgba(200,90,10,0.12),rgba(200,150,42,0.1));display:flex;align-items:center;justify-content:center;font-size:24px;}
-.perk-title{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--stone);}
-.perk-text{font-size:13.5px;color:#5C3010;line-height:1.7;font-weight:300;}
-.perk-text strong{color:var(--saffron);font-weight:700;}
+  .hero-grad {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10, 5, 0, 0.95) 0%, rgba(10, 5, 0, 0.7) 50%, rgba(20, 8, 0, 0.92) 100%);
+  }
 
-/* ── MAYAPUR STALL ── */
-.stall-section{background:linear-gradient(135deg,#0a3d1a,#0f5c2a);}
-.stall-inner{max-width:800px;margin:0 auto;text-align:center;}
-.stall-icon{font-size:52px;margin-bottom:20px;}
-.stall-title{font-family:'Cinzel',serif;font-size:clamp(22px,3.5vw,36px);font-weight:700;color:#FFD580;margin-bottom:16px;}
-.stall-text{font-size:clamp(14px,1.6vw,17px);color:rgba(255,235,200,0.85);font-weight:300;line-height:1.8;margin-bottom:32px;}
-.stall-text strong{color:#FFD580;font-weight:700;}
-.stall-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:14px 28px;}
-.stall-badge-text{font-size:14px;color:rgba(255,255,255,0.9);font-weight:600;}
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 45%;
+    margin-left: auto;
+    margin-right: 4%;
+    padding: 120px 40px 80px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 
-/* ── PAYMENT STEPS ── */
-.payment-section{background:#fff;}
-.payment-steps{display:flex;flex-direction:column;gap:0;max-width:760px;margin:0 auto;}
-.payment-step{display:flex;gap:24px;padding:28px 0;border-bottom:1px solid rgba(200,120,30,0.1);}
-.payment-step:last-child{border-bottom:none;}
-.payment-step-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--saffron),var(--gold));display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:#fff;flex-shrink:0;margin-top:4px;}
-.payment-step-content{}
-.payment-step-title{font-family:'Cinzel',serif;font-size:17px;font-weight:700;color:var(--stone);margin-bottom:6px;}
-.payment-step-text{font-size:14px;color:#5C3010;line-height:1.7;font-weight:300;}
-.payment-step-text strong{color:var(--saffron);font-weight:700;}
+  .hero-cursive {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(22px, 3vw, 36px);
+    color: rgba(255, 210, 120, 0.8);
+    font-weight: 600;
+    margin-bottom: 0;
+  }
 
-/* ── WALL VISUAL ── */
-.wall-section{background:linear-gradient(135deg,#1a0800,#2d1200,#1a0800);padding:80px 20px;}
-.wall-inner{max-width:900px;margin:0 auto;text-align:center;}
-.wall-title-cursive{font-family:'Dancing Script',cursive;font-size:clamp(20px,3vw,32px);color:rgba(255,210,120,0.75);margin-bottom:8px;}
-.wall-title{font-family:'Cinzel',serif;font-size:clamp(28px,5vw,52px);font-weight:900;color:var(--gold-light);margin-bottom:24px;}
-.wall-desc{font-size:clamp(14px,1.6vw,17px);color:rgba(255,235,200,0.8);font-weight:300;line-height:1.8;margin-bottom:40px;}
-.wall-desc strong{color:var(--gold-light);font-weight:700;}
-.wall-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:40px;}
-.wall-tier{background:rgba(255,255,255,0.05);border:1px solid rgba(255,180,40,0.2);border-radius:12px;padding:24px 20px;text-align:center;}
-.wall-tier-amount{font-family:'Cinzel',serif;font-size:26px;font-weight:700;color:var(--gold-light);margin-bottom:6px;}
-.wall-tier-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,200,100,0.5);margin-bottom:12px;}
-.wall-tier-appearances{font-size:13px;color:rgba(255,220,160,0.8);}
-.wall-tier-appearances strong{color:#4eff8a;font-weight:700;}
-.wall-cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0;
+    text-shadow: 0 0 60px rgba(200, 90, 0, 0.4);
+  }
+
+  .hero-sub {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(11px, 1.5vw, 15px);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255, 190, 80, 0.55);
+    margin-bottom: 0;
+  }
+
+  .hero-desc {
+    font-size: clamp(15px, 1.8vw, 19px);
+    color: rgba(255, 235, 200, 0.85);
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 660px;
+    margin: 0;
+  }
+
+  .hero-desc strong {
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+
+  .hero-dates {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(200, 90, 0, 0.2);
+    border: 1px solid rgba(200, 110, 0, 0.35);
+    border-radius: 8px;
+    padding: 8px 20px;
+    margin-bottom: 0;
+  }
+
+  .hero-dates-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--saffron-light);
+  }
+
+  .hero-dates-text {
+    font-size: 13px;
+    color: rgba(255, 200, 120, 0.85);
+    letter-spacing: 1px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--saffron);
+    color: #fff;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+
+  .btn-primary:hover {
+    background: #a8470a;
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--gold-light);
+    border: 1.5px solid rgba(255, 190, 60, 0.4);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--gold-light);
+    background: rgba(255, 200, 80, 0.08);
+    transform: translateY(-2px);
+  }
+
+  /* ── COUNTER STRIP ── */
+  .counter-strip {
+    background: linear-gradient(135deg, #1a0800, #2d1000, #1a0800);
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .counter-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .counter-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4eff8a;
+    animation: livepulse 1.4s infinite;
+  }
+
+  @keyframes livepulse {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1)
+    }
+
+    50% {
+      opacity: 0.3;
+      transform: scale(0.7)
+    }
+  }
+
+  .counter-label-text {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255, 200, 100, 0.5);
+  }
+
+  .counter-digits {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .digit-box {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 180, 40, 0.25);
+    border-radius: 10px;
+    width: 52px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--gold-light);
+    position: relative;
+  }
+
+  .digit-box::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: rgba(255, 180, 40, 0.12);
+  }
+
+  .digit-comma {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 10px;
+    color: rgba(255, 180, 40, 0.35);
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+  }
+
+  .counter-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .counter-bar-bg {
+    flex: 1;
+    height: 5px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .counter-bar-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #C8590A, #FFD580);
+    width: 0%;
+    transition: width 2.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .counter-pct {
+    font-size: 12px;
+    color: rgba(255, 200, 100, 0.6);
+    white-space: nowrap;
+  }
+
+  .counter-pct strong {
+    color: var(--gold-light);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 80px 20px;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200, 90, 0, 0.1);
+    border: 1px solid rgba(200, 90, 0, 0.2);
+    border-radius: 6px;
+    padding: 5px 14px;
+    margin-bottom: 20px;
+  }
+
+  .section-tag-line {
+    width: 20px;
+    height: 1.5px;
+    background: var(--saffron);
+  }
+
+  .section-tag-text {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--saffron);
+    font-weight: 700;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 700;
+    color: var(--stone);
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+
+  .section-title span {
+    color: var(--saffron);
+  }
+
+  .section-lead {
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: #5C3010;
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 680px;
+    margin-bottom: 48px;
+  }
+
+  /* ── ABOUT SECTION ── */
+  .about-section {
+    background: var(--warm);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .about-card {
+    background: #fff;
+    border: 1px solid rgba(200, 120, 30, 0.15);
+    border-radius: 16px;
+    padding: 32px 28px;
+    border-top: 4px solid var(--saffron);
+  }
+
+  .about-card-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .about-card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .about-card-text {
+    font-size: 14px;
+    color: #5C3010;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .about-card-text strong {
+    color: var(--stone);
+    font-weight: 700;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps-section {
+    background: #fff;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0;
+  }
+
+  .step-item {
+    position: relative;
+    padding: 36px 32px;
+  }
+
+  .step-item:not(:last-child) {
+    border-right: 1px solid rgba(200, 120, 30, 0.12);
+  }
+
+  .step-num {
+    font-family: 'Cinzel', serif;
+    font-size: 56px;
+    font-weight: 900;
+    color: rgba(200, 90, 10, 0.08);
+    line-height: 1;
+    margin-bottom: -8px;
+  }
+
+  .step-title {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .step-text {
+    font-size: 13.5px;
+    color: #5C3010;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .step-text strong {
+    color: var(--saffron);
+    font-weight: 700;
+  }
+
+  .step-divider {
+    display: none;
+  }
+
+  /* ── OPTIONS SECTION ── */
+  .options-section {
+    background: linear-gradient(135deg, #FFF8EC, #FFFBF2);
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .option-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(200, 120, 30, 0.15);
+    transition: transform 0.25s;
+  }
+
+  .option-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .option-card-header {
+    padding: 32px 32px 24px;
+  }
+
+  .option-card-header.primary {
+    background: linear-gradient(135deg, #C8590A, #E8760A);
+  }
+
+  .option-card-header.secondary {
+    background: linear-gradient(135deg, #166534, #15803d);
+  }
+
+  .option-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+
+  .option-title {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .option-tagline {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+  }
+
+  .option-body {
+    padding: 28px 32px;
+  }
+
+  .option-points {
+    list-style: none;
+  }
+
+  .option-points li {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: #3C1A08;
+    line-height: 1.65;
+  }
+
+  .option-points li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--saffron);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .option-points li.green::before {
+    background: var(--green);
+  }
+
+  .option-cta {
+    margin-top: 24px;
+  }
+
+  .btn-option-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--saffron);
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-option-primary:hover {
+    background: #a8470a;
+    transform: translateY(-1px);
+  }
+
+  .btn-option-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green);
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-option-secondary:hover {
+    background: #14532d;
+    transform: translateY(-1px);
+  }
+
+  /* ── PERKS SECTION ── */
+  .perks-section {
+    background: var(--warm);
+  }
+
+  .perks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .perk-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px 24px;
+    border: 1px solid rgba(200, 120, 30, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .perk-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(200, 90, 10, 0.12), rgba(200, 150, 42, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  .perk-title {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--stone);
+  }
+
+  .perk-text {
+    font-size: 13.5px;
+    color: #5C3010;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .perk-text strong {
+    color: var(--saffron);
+    font-weight: 700;
+  }
+
+  /* ── MAYAPUR STALL ── */
+  .stall-section {
+    background: linear-gradient(135deg, #0a3d1a, #0f5c2a);
+  }
+
+  .stall-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .stall-icon {
+    font-size: 52px;
+    margin-bottom: 20px;
+  }
+
+  .stall-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 3.5vw, 36px);
+    font-weight: 700;
+    color: #FFD580;
+    margin-bottom: 16px;
+  }
+
+  .stall-text {
+    font-size: clamp(14px, 1.6vw, 17px);
+    color: rgba(255, 235, 200, 0.85);
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+
+  .stall-text strong {
+    color: #FFD580;
+    font-weight: 700;
+  }
+
+  .stall-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 14px 28px;
+  }
+
+  .stall-badge-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+  }
+
+  /* ── PAYMENT STEPS ── */
+  .payment-section {
+    background: #fff;
+  }
+
+  .payment-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .payment-step {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(200, 120, 30, 0.1);
+  }
+
+  .payment-step:last-child {
+    border-bottom: none;
+  }
+
+  .payment-step-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .payment-step-content {}
+
+  .payment-step-title {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--stone);
+    margin-bottom: 6px;
+  }
+
+  .payment-step-text {
+    font-size: 14px;
+    color: #5C3010;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .payment-step-text strong {
+    color: var(--saffron);
+    font-weight: 700;
+  }
+
+  /* ── WALL VISUAL ── */
+  .wall-section {
+    background: linear-gradient(135deg, #1a0800, #2d1200, #1a0800);
+    padding: 80px 20px;
+  }
+
+  .wall-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .wall-title-cursive {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(20px, 3vw, 32px);
+    color: rgba(255, 210, 120, 0.75);
+    margin-bottom: 8px;
+  }
+
+  .wall-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--gold-light);
+    margin-bottom: 24px;
+  }
+
+  .wall-desc {
+    font-size: clamp(14px, 1.6vw, 17px);
+    color: rgba(255, 235, 200, 0.8);
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  .wall-desc strong {
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+
+  .wall-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .wall-tier {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 180, 40, 0.2);
+    border-radius: 12px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .wall-tier-amount {
+    font-family: 'Cinzel', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+  }
+
+  .wall-tier-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 200, 100, 0.5);
+    margin-bottom: 12px;
+  }
+
+  .wall-tier-appearances {
+    font-size: 13px;
+    color: rgba(255, 220, 160, 0.8);
+  }
+
+  .wall-tier-appearances strong {
+    color: #4eff8a;
+    font-weight: 700;
+  }
+
+  .wall-cta-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
 
-/* ── WHATSAPP ── */
-.whatsapp-strip{background:#25D366;padding:24px 20px;}
-.whatsapp-inner{max-width:700px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;text-align:center;}
-.whatsapp-icon{font-size:28px;}
-.whatsapp-text{font-size:15px;color:#fff;font-weight:600;}
-.whatsapp-text span{font-weight:300;}
+  /* ── WHATSAPP ── */
+  .whatsapp-strip {
+    background: #25D366;
+    padding: 24px 20px;
+  }
 
-/* ── FAQ ── */
-.faq-section{background:var(--warm);}
-.faq-list{max-width:760px;display:flex;flex-direction:column;gap:12px;}
-.faq-item{background:#fff;border:1px solid rgba(200,120,30,0.15);border-radius:12px;overflow:hidden;}
-.faq-q{padding:20px 24px;font-size:15px;font-weight:700;color:var(--stone);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;}
-.faq-q:hover{background:rgba(200,90,10,0.03);}
-.faq-arrow{font-size:18px;color:var(--saffron);transition:transform 0.3s;flex-shrink:0;}
-.faq-a{padding:0 24px 20px;font-size:14px;color:#5C3010;line-height:1.75;font-weight:300;display:none;}
-.faq-item.open .faq-a{display:block;}
-.faq-item.open .faq-arrow{transform:rotate(180deg);}
+  .whatsapp-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
 
-/* ── FOOTER CTA ── */
-.footer-cta{background:linear-gradient(135deg,#C8590A,#E8760A,#C8972A);padding:80px 20px;text-align:center;}
-.footer-cta-title{font-family:'Cinzel',serif;font-size:clamp(24px,4vw,46px);font-weight:900;color:#fff;margin-bottom:16px;text-shadow:0 2px 20px rgba(0,0,0,0.2);}
-.footer-cta-text{font-size:clamp(14px,1.6vw,17px);color:rgba(255,255,255,0.88);font-weight:300;margin-bottom:36px;}
-.footer-cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-.btn-white{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--saffron);padding:16px 40px;border-radius:50px;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all 0.25s;}
-.btn-white:hover{transform:translateY(-2px);}
-.btn-white-ghost{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.6);padding:16px 40px;border-radius:50px;font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all 0.25s;}
-.btn-white-ghost:hover{border-color:#fff;transform:translateY(-2px);}
+  .whatsapp-icon {
+    font-size: 28px;
+  }
 
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-    .hero-inner{width:100%;margin-right:auto;padding:100px 24px 60px;text-align:center;align-items:center;}
-    section{padding:48px 16px;}
-    .step-item:not(:last-child){border-right:none;border-bottom:1px solid rgba(200,120,30,0.12);}
+  .whatsapp-text {
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+  }
 
-    .counter-strip{padding:28px 16px;}
-    .counter-inner{width:100%;}
-    .counter-label{gap:6px;}
-    .counter-label-text{font-size:9px;letter-spacing:1.5px;text-align:center;}
-    .counter-digits{gap:3px;}
-    .digit-box{width:34px;height:44px;font-size:22px;border-radius:6px;}
-    .digit-comma{font-size:16px;padding-bottom:5px;}
+  .whatsapp-text span {
+    font-weight: 300;
+  }
 
-    .counter-progress-row{max-width:100%;padding:0 8px;gap:8px;flex-wrap:nowrap;box-sizing:border-box;}
-    .counter-bar-bg{flex:1;min-width:0;}
-    .counter-bar-fill{min-width:0;}
-    .counter-pct{font-size:10px;white-space:nowrap;flex-shrink:0;}
-}
+  /* ── FAQ ── */
+  .faq-section {
+    background: var(--warm);
+  }
 
+  .faq-list {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: #fff;
+    border: 1px solid rgba(200, 120, 30, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .faq-q {
+    padding: 20px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--stone);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .faq-q:hover {
+    background: rgba(200, 90, 10, 0.03);
+  }
+
+  .faq-arrow {
+    font-size: 18px;
+    color: var(--saffron);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .faq-a {
+    padding: 0 24px 20px;
+    font-size: 14px;
+    color: #5C3010;
+    line-height: 1.75;
+    font-weight: 300;
+    display: none;
+  }
+
+  .faq-item.open .faq-a {
+    display: block;
+  }
+
+  .faq-item.open .faq-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* ── FOOTER CTA ── */
+  .footer-cta {
+    background: linear-gradient(135deg, #C8590A, #E8760A, #C8972A);
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .footer-cta-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(24px, 4vw, 46px);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .footer-cta-text {
+    font-size: clamp(14px, 1.6vw, 17px);
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 300;
+    margin-bottom: 36px;
+  }
+
+  .footer-cta-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    color: var(--saffron);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-white-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+
+  .btn-white-ghost:hover {
+    border-color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:768px) {
+    .hero-inner {
+      width: 100%;
+      margin-right: auto;
+      padding: 100px 24px 60px;
+      text-align: center;
+      align-items: center;
+    }
+
+    section {
+      padding: 48px 16px;
+    }
+
+    .step-item:not(:last-child) {
+      border-right: none;
+      border-bottom: 1px solid rgba(200, 120, 30, 0.12);
+    }
+
+    .counter-strip {
+      padding: 28px 16px;
+    }
+
+    .counter-inner {
+      width: 100%;
+    }
+
+    .counter-label {
+      gap: 6px;
+    }
+
+    .counter-label-text {
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-align: center;
+    }
+
+    .counter-digits {
+      gap: 3px;
+    }
+
+    .digit-box {
+      width: 34px;
+      height: 44px;
+      font-size: 22px;
+      border-radius: 6px;
+    }
+
+    .digit-comma {
+      font-size: 16px;
+      padding-bottom: 5px;
+    }
+
+    .counter-progress-row {
+      max-width: 100%;
+      padding: 0 8px;
+      gap: 8px;
+      flex-wrap: nowrap;
+      box-sizing: border-box;
+    }
+
+    .counter-bar-bg {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .counter-bar-fill {
+      min-width: 0;
+    }
+
+    .counter-pct {
+      font-size: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+  }
 </style>
 
 
@@ -219,13 +1123,13 @@ section{padding:80px 20px;}
      HERO
 ══════════════════════════════════════════ -->
 <section class="hero">
-    <div style="position:absolute; inset:0; z-index:0;
+  <div style="position:absolute; inset:0; z-index:0;
             background-image: url('{{ asset('images/campaign-background.png') }}');
             background-size: cover;
             background-position: center;
             opacity: 1;">
 
-    </div>
+  </div>
   <div class="hero-inner .hero-inner { position: relative; z-index: 1; }">
     <p class="hero-cursive">Srila Bhaktivinoda Thakur's</p>
     <h1 class="hero-title">Wall of Legacy</h1>
@@ -240,7 +1144,9 @@ section{padding:80px 20px;}
     </p>
     <div class="hero-btns">
       <a href="https://wall.birnagar.org/web-app" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12h14" />
+        </svg>
         Claim your spot!
       </a>
     </div>
@@ -258,7 +1164,9 @@ section{padding:80px 20px;}
     </div>
     <div class="counter-digits" id="pageDevDigits"></div>
     <div class="counter-progress-row">
-      <div class="counter-bar-bg"><div class="counter-bar-fill" id="pageDevBar"></div></div>
+      <div class="counter-bar-bg">
+        <div class="counter-bar-fill" id="pageDevBar"></div>
+      </div>
       <span class="counter-pct"><strong id="pageDevPct">0%</strong> of 100,000</span>
     </div>
   </div>
@@ -269,7 +1177,9 @@ section{padding:80px 20px;}
 ══════════════════════════════════════════ -->
 <section class="about-section">
   <div class="section-inner">
-    <div class="section-tag"><div class="section-tag-line"></div><span class="section-tag-text">About the Campaign</span></div>
+    <div class="section-tag">
+      <div class="section-tag-line"></div><span class="section-tag-text">About the Campaign</span>
+    </div>
     <h2 class="section-title">What is the <span>Wall of Legacy?</span></h2>
     <p class="section-lead">A sacred initiative to build temple in Birnagar dedicated to Srila Bhaktivinoda Thakur funded by 100,000 devoted hearts.</p>
     <div class="about-grid">
@@ -311,78 +1221,77 @@ section{padding:80px 20px;}
      CHAIRMAN'S MESSAGE
 ══════════════════════════════════════════ -->
 <section style="background: #6B2D0E; padding: 80px 20px;">
-    <div style="max-width: 900px; margin: 0 auto;">
+  <div style="max-width: 900px; margin: 0 auto;">
 
-        {{-- Section tag --}}
-        <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,150,60,0.15); border:1px solid rgba(255,150,60,0.3); border-radius:6px; padding:5px 14px; margin-bottom:20px;">
-            <div style="width:20px; height:1.5px; background:#C8590A;"></div>
-            <span style="font-size:10px; text-transform:uppercase; letter-spacing:3px; color:#FFB870; font-weight:700;">A Message from the Chairman</span>
-        </div>
-
-        {{-- Title --}}
-        <h2 style="font-family:'Cinzel',serif; font-size:clamp(24px,4vw,40px); font-weight:700; color:#FFD580;; margin-bottom:40px; line-height:1.2;">
-            Why This Temple <span style="color:#FFA040;">Must Be Built</span>
-        </h2>
-
-        {{-- Two column layout: photo left, text right --}}
-        <div style="display:flex; gap:48px; align-items:flex-start; flex-wrap:wrap;">
-
-            {{-- Photo column --}}
-            <div style="flex-shrink:0; text-align:center; width:220px;">
-                <div style="width:200px; height:240px; border-radius:16px; overflow:hidden; border:3px solid #C8590A; box-shadow:0 8px 32px rgba(200,90,10,0.2); margin:0 auto 16px;">
-                    <img
-                        src="{{ asset('images/chairman.jpeg') }}"
-                        alt="Chairman"
-                        style="width:100%; height:100%; object-fit:cover; object-position:top;"
-                    />
-                </div>
-                <p style="font-family:'Cinzel',serif; font-size:14px; font-weight:700; color:#FFD580; margin-bottom:4px;">
-                    Vaikuntapathy das
-                </p>
-                <p style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:#FFA040;">
-                    Chairman, Birnagar Temple Project
-                </p>
-            </div>
-
-            {{-- Write-up column --}}
-            <div style="flex:1; min-width:260px;">
-
-                {{-- Opening quote --}}
-                <div style="border-left:3px solid #FFA040; padding-left:20px; margin-bottom:24px;">
-                    <p style="font-family:'Georgia',serif; font-size:clamp(16px,2vw,20px); color:rgba(255,235,200,0.95); font-style:italic; line-height:1.7; margin:0;">
-                        "This is not merely a construction project. It is a sacred debt we owe to Srila Bhaktivinoda Thakur — a saint who gave his entire life so that the holy name could reach every corner of the world."
-                    </p>
-                </div>
-
-                {{-- Body paragraphs --}}
-                <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:16px;">
-                    Birnagar is the birthplace of one of the greatest Vaishnava saints of the modern era. For decades, devotees have dreamed of building a temple there worthy of his legacy — a place where pilgrims from around the world can come to pay their respects, learn his teachings, and feel his presence.
-                </p>
-
-                <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:16px;">
-                    The Wall of Legacy campaign is our answer to that dream. We are not asking a handful of wealthy donors to fund this alone. We are inviting <strong style="color:#FFD580;">one lakh devoted hearts</strong> to each contribute one spiritual share — so that when this temple stands, every one of them can say: <em>"I helped build this."</em>
-                </p>
-
-                <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:28px;">
-                    The campaign closes on June 30, 2026. The window is short and the wall has limited space. I urge every devotee who feels the call of Srila Bhaktivinoda Thakur's mercy to come forward now and claim their place in this eternal legacy.
-                </p>
-
-                {{-- Signature --}}
-                <div style="display:flex; align-items:center; gap:16px; padding-top:20px; border-top:1px solid rgba(200,120,30,0.2);">
-                    <div>
-                        <p style="font-family:'Dancing Script',cursive; font-size:22px; color:#FFA040; margin:0 0 2px;">
-                            Vaikuntapathy das
-                        </p>
-                        <p style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:rgba(255,200,140,0.7); margin:0;">
-                            Chairman &nbsp;·&nbsp; Birnagar Temple Project
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
+    {{-- Section tag --}}
+    <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,150,60,0.15); border:1px solid rgba(255,150,60,0.3); border-radius:6px; padding:5px 14px; margin-bottom:20px;">
+      <div style="width:20px; height:1.5px; background:#C8590A;"></div>
+      <span style="font-size:10px; text-transform:uppercase; letter-spacing:3px; color:#FFB870; font-weight:700;">A Message from the Project Coordinator</span>
     </div>
+
+    {{-- Title --}}
+    <h2 style="font-family:'Cinzel',serif; font-size:clamp(24px,4vw,40px); font-weight:700; color:#FFD580;; margin-bottom:40px; line-height:1.2;">
+      Why This Temple <span style="color:#FFA040;">Must Be Built</span>
+    </h2>
+
+    {{-- Two column layout: photo left, text right --}}
+    <div style="display:flex; gap:48px; align-items:flex-start; flex-wrap:wrap;">
+
+      {{-- Photo column --}}
+      <div style="flex-shrink:0; text-align:center; width:220px;">
+        <div style="width:200px; height:240px; border-radius:16px; overflow:hidden; border:3px solid #C8590A; box-shadow:0 8px 32px rgba(200,90,10,0.2); margin:0 auto 16px;">
+          <img
+            src="{{ asset('images/chairman.jpeg') }}"
+            alt="Chairman"
+            style="width:100%; height:100%; object-fit:cover; object-position:top;" />
+        </div>
+        <p style="font-family:'Cinzel',serif; font-size:14px; font-weight:700; color:#FFD580; margin-bottom:4px;">
+          Vaikunthapati das
+        </p>
+        <p style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:#FFA040;">
+          Project Coordinator, Birnagar Temple Project
+        </p>
+      </div>
+
+      {{-- Write-up column --}}
+      <div style="flex:1; min-width:260px;">
+
+        {{-- Opening quote --}}
+        <div style="border-left:3px solid #FFA040; padding-left:20px; margin-bottom:24px;">
+          <p style="font-family:'Georgia',serif; font-size:clamp(16px,2vw,20px); color:rgba(255,235,200,0.95); font-style:italic; line-height:1.7; margin:0;">
+            "This is not merely a construction project. It is a sacred debt we owe to Srila Bhaktivinoda Thakur — a saint who gave his entire life so that the holy name could reach every corner of the world."
+          </p>
+        </div>
+
+        {{-- Body paragraphs --}}
+        <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:16px;">
+          Birnagar is the birthplace of one of the greatest Vaishnava saints of the modern era. For decades, devotees have dreamed of building a temple there worthy of his legacy — a place where pilgrims from around the world can come to pay their respects, learn his teachings, and feel his presence.
+        </p>
+
+        <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:16px;">
+          The Wall of Legacy campaign is our answer to that dream. We are not asking a handful of wealthy donors to fund this alone. We are inviting <strong style="color:#FFD580;">one lakh devoted hearts</strong> to each contribute one spiritual share — so that when this temple stands, every one of them can say: <em>"I helped build this."</em>
+        </p>
+
+        <p style="font-size:clamp(14px,1.5vw,16px); color:rgba(255,220,180,0.85); line-height:1.85; font-weight:300; margin-bottom:28px;">
+          The campaign closes on June 30, 2026. The window is short and the wall has limited space. I urge every devotee who feels the call of Srila Bhaktivinoda Thakur's mercy to come forward now and claim their place in this eternal legacy.
+        </p>
+
+        {{-- Signature --}}
+        <div style="display:flex; align-items:center; gap:16px; padding-top:20px; border-top:1px solid rgba(200,120,30,0.2);">
+          <div>
+            <p style="font-family:'Dancing Script',cursive; font-size:22px; color:#FFA040; margin:0 0 2px;">
+              Vaikunthapati das
+            </p>
+            <p style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:rgba(255,200,140,0.7); margin:0;">
+              Project Coordinator &nbsp;·&nbsp; Birnagar Temple Project
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════════
@@ -435,7 +1344,9 @@ section{padding:80px 20px;}
 ══════════════════════════════════════════ -->
 <section class="payment-section" id="payment-steps">
   <div class="section-inner">
-    <div class="section-tag"><div class="section-tag-line"></div><span class="section-tag-text">Step by Step</span></div>
+    <div class="section-tag">
+      <div class="section-tag-line"></div><span class="section-tag-text">Step by Step</span>
+    </div>
     <h2 class="section-title">How to <span>Participate</span></h2>
     <p class="section-lead">Follow these simple steps to secure your name on the Wall of Legacy. The entire process takes less than 3 minutes.</p>
     <div class="payment-steps">
@@ -537,7 +1448,7 @@ section{padding:80px 20px;}
     <h2 class="stall-title">Visiting Mayapur? Donate In Person</h2>
     <p class="stall-text">
       If you are currently in <strong>Mayapur</strong>, you are welcome to visit our dedicated stall located near the temple and make your donation personally. Our team will assist you with block selection, fill in your details, and view your name on the digital wall on the spot.
-      <br/><br/>
+      <br /><br />
       This is a wonderful opportunity to connect with fellow devotees and be part of this sacred mission face to face.
     </p>
     <div class="stall-badge">
@@ -562,7 +1473,9 @@ section{padding:80px 20px;}
 ══════════════════════════════════════════ -->
 <section class="faq-section">
   <div class="section-inner">
-    <div class="section-tag"><div class="section-tag-line"></div><span class="section-tag-text">Common Questions</span></div>
+    <div class="section-tag">
+      <div class="section-tag-line"></div><span class="section-tag-text">Common Questions</span>
+    </div>
     <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
     <div class="faq-list">
       <div class="faq-item">
@@ -601,48 +1514,50 @@ section{padding:80px 20px;}
      FOOTER CTA
 ══════════════════════════════════════════ -->
 <script>
-(function(){
-  var CURRENT=28460, TARGET=100000;
+  (function() {
+    var CURRENT = 0,
+      TARGET = 100000;
 
-  function buildDigits(num, containerId){
-    var c=document.getElementById(containerId);
-    if(!c)return;
-    var str=num.toLocaleString('en-IN');
-    c.innerHTML='';
-    for(var i=0;i<str.length;i++){
-      if(str[i]===','){
-        var cm=document.createElement('span');
-        cm.className='digit-comma';
-        cm.textContent=',';
-        c.appendChild(cm);
-      } else {
-        var bx=document.createElement('div');
-        bx.className='digit-box';
-        bx.textContent=str[i];
-        c.appendChild(bx);
+    function buildDigits(num, containerId) {
+      var c = document.getElementById(containerId);
+      if (!c) return;
+      var str = num.toLocaleString('en-IN');
+      c.innerHTML = '';
+      for (var i = 0; i < str.length; i++) {
+        if (str[i] === ',') {
+          var cm = document.createElement('span');
+          cm.className = 'digit-comma';
+          cm.textContent = ',';
+          c.appendChild(cm);
+        } else {
+          var bx = document.createElement('div');
+          bx.className = 'digit-box';
+          bx.textContent = str[i];
+          c.appendChild(bx);
+        }
       }
     }
-  }
 
-  buildDigits(CURRENT,'pageDevDigits');
+    buildDigits(CURRENT, 'pageDevDigits');
 
-  setTimeout(function(){
-    var pct=Math.round((CURRENT/TARGET)*100);
-    var bar=document.getElementById('pageDevBar');
-    var lbl=document.getElementById('pageDevPct');
-    if(bar)bar.style.width=pct+'%';
-    if(lbl)lbl.textContent=pct+'%';
-  },400);
+    setTimeout(function() {
+      var pct = Math.round((CURRENT / TARGET) * 100);
+      var bar = document.getElementById('pageDevBar');
+      var lbl = document.getElementById('pageDevPct');
+      if (bar) bar.style.width = pct + '%';
+      if (lbl) lbl.textContent = pct + '%';
+    }, 400);
 
-  document.querySelectorAll('.faq-q').forEach(function(q){
-    q.addEventListener('click',function(){
-      var item=this.closest('.faq-item');
-      var wasOpen=item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
-      if(!wasOpen)item.classList.add('open');
+    document.querySelectorAll('.faq-q').forEach(function(q) {
+      q.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) {
+          i.classList.remove('open');
+        });
+        if (!wasOpen) item.classList.add('open');
+      });
     });
-  });
-})();
+  })();
 </script>
 @endsection
-
