@@ -57,6 +57,7 @@ Route::get('/campaign', function () {
 
 
 Route::post('/payment/initiate', [PaymentController::class, 'initiateSale'])
+    ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class])
     ->name('payment.initiate');
 
 Route::post('payment-result', [PaymentController::class, 'handleCallback'])
