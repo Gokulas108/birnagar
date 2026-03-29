@@ -69,3 +69,7 @@ Route::post('/payment/status', [PaymentController::class, 'checkStatus'])
 
 Route::post('/payment/refund', [PaymentController::class, 'refund'])
     ->name('payment.refund');
+
+    // Redirect from Next.js to Laravel gateway
+Route::get('/payment/redirect-to-gateway', [PaymentController::class, 'redirectToGateway'])
+    ->name('payment.redirect');

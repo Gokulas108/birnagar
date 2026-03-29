@@ -113,15 +113,6 @@ class PaymentController extends Controller
 
         $redirectUrl = $response['redirectURI'] . '?tranCtx=' . $response['tranCtx'];
 
-        // ✅ Hybrid flow for API calls (Next.js)
-        if ($isApi) {
-            // Return a Laravel view with auto-submit form to gateway
-            return view('payment.auto_redirect', [
-                'redirectUrl' => $redirectUrl,
-                'merchantTxnNo' => $merchantTxnNo,
-            ]);
-        }
-
         // Normal Laravel web flow
         return redirect($redirectUrl);
     }
@@ -170,6 +161,15 @@ class PaymentController extends Controller
             'amount' => $donation->amount ?? null,
             'respDescription' => $request->respDescription ?? null
         ]);
+    }
+
+    public function redirectToGateway(Request $request)
+    {
+        // Call initiateSale internally
+        // We pass api = true so initiateSale knows it's from Next.js
+        $request->merge(['api' => true]);
+
+        return $this->initiateSale($request);
     }
 
     // // Status Check API
