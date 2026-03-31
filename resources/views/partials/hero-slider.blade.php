@@ -27,7 +27,7 @@
             {{-- Cursive name --}}
             <p class="mb-0 text-center sm:text-left"
                 style="font-family: 'Dancing Script', cursive;
-                  font-size: clamp(17px, 2vw, 26px);
+                  font-size: clamp(20px, 2.5vw, 32px);
                   color: rgba(255, 210, 120, 0.75);
                   font-weight: 600;
                   line-height: 1.1;">
@@ -37,7 +37,7 @@
             {{-- Title --}}
             <h1 class="font-black leading-[1.0] mb-1 text-center sm:text-left"
                 style="font-family:'Cinzel','Georgia',serif;
-                   font-size:clamp(34px,4.8vw,56px);
+                   font-size:clamp(38px,5vw,60px);
                    color:#FFD580;
                    text-shadow:0 0 40px rgba(200,90,0,0.35);">
                 Wall of Legacy
@@ -56,7 +56,7 @@
             <div class="inline-flex items-center gap-2 mb-3 self-center sm:self-start px-3 py-1 rounded-md"
                 style="background:rgba(200,90,0,0.15); border:1px solid rgba(200,110,0,0.28);">
                 <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-                <span class="text-[11px] tracking-wide"
+                <span class="text-[17px] tracking-wide"
                     style="color:rgba(255,200,120,0.78);">
                     March 29 — June 30, 2026
                 </span>
@@ -73,7 +73,7 @@
             </p>
 
             {{-- Devotee counter --}}
-            <div class="mb-4 w-full">
+            <!-- <div class="mb-4 w-full">
 
                 <div class="flex items-center justify-center sm:justify-start gap-2 mb-2">
                     <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-ping"
@@ -99,7 +99,7 @@
                     </span>
                 </div>
 
-            </div>
+            </div> -->
 
             {{-- Button --}}
             <div class="flex justify-center sm:justify-start">
