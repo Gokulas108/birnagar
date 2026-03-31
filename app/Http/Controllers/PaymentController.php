@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Donation;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
 {
@@ -63,7 +64,7 @@ class PaymentController extends Controller
             'address' => $request->address,
             'city' => $request->city,
             'state' => $request->state,
-            'source' => $isApi ? 'api' : 'web',
+            'source' => $isApi ? $request->api_key : 'web',
             'pincode' => $request->pincode
         ]);
 
@@ -167,9 +168,23 @@ class PaymentController extends Controller
 
     public function redirectToGateway(Request $request)
     {
-        // Call initiateSale internally
-        // We pass api = true so initiateSale knows it's from Next.js
-        $request->merge(['api' => true]);
+        $validator = Validator::make($request->all(), [
+            'api_key' => ['required', 'string', 'starts_with:api_'],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->away(
+                'https://wall.birnagar.org/payment/result?' . http_build_query([
+                    'status' => 'failed',
+                    'message' => 'Invalid Transaction details',
+                ])
+            );
+        }
+
+        // Force api flag
+        $request->merge([
+            'api' => true,
+        ]);
 
         return $this->initiateSale($request);
     }
