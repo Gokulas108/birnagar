@@ -155,6 +155,7 @@ class PaymentController extends Controller
                     'txnID' => $request->txnID ?? null,
                     'amount' => $donation->amount ?? null,
                     'message' => $request->respDescription ?? null,
+                    'api_key' => $donation->source, // pass back the api key for client-side correlation
                 ])
             );
         }
