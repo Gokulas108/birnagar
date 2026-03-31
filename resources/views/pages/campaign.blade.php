@@ -1176,7 +1176,7 @@
         <div class="about-card">
           <div class="about-card-icon">🏛️</div>
           <div class="about-card-title">The Mission</div>
-          <div class="about-card-text">We are raising <strong>₹10 Crore</strong> to build a temple in Birnagar for honouring Srila Bhaktivinoda Thakur — one of the greatest Vaishnava saints of the modern age.</div>
+          <div class="about-card-text">We are raising <strong>₹10 Crore</strong> to build a temple complex in Birnagar for honouring Srila Bhaktivinoda Thakur — one of the greatest Vaishnava saints of the modern age.</div>
         </div>
         <div class="about-card">
           <div class="about-card-icon">🪨</div>
@@ -1216,7 +1216,7 @@
       {{-- Section tag --}}
       <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,150,60,0.15); border:1px solid rgba(255,150,60,0.3); border-radius:6px; padding:5px 14px; margin-bottom:20px; margin-left:auto; margin-right:auto;">
         <div style="width:20px; height:1.5px; background:#C8590A;"></div>
-        <span style="font-size:10px; text-transform:uppercase; letter-spacing:3px; color:#FFB870; font-weight:700;">A Message from the Project Coordinator</span>
+        <span style="font-size:10px; text-transform:uppercase; letter-spacing:3px; color:#FFB870; font-weight:700;">A Message from the Project Director</span>
       </div>
 
       {{-- Title --}}
