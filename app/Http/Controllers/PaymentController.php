@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Donation;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class PaymentController extends Controller
 {
@@ -63,7 +65,7 @@ class PaymentController extends Controller
             'address' => $request->address,
             'city' => $request->city,
             'state' => $request->state,
-            'source' => $isApi ? 'api' : 'web',
+            'source' => $isApi ? $request->api_key : 'web',
             'pincode' => $request->pincode
         ]);
 
@@ -144,7 +146,7 @@ class PaymentController extends Controller
         }
 
         // Detect API flow via query param (we'll pass this)
-        $isApi = $donation && $donation->source === 'api';
+        $isApi = $donation && $donation->source && Str::startsWith($donation->source, 'api_');
 
         if ($isApi) {
             return redirect()->away(
@@ -153,6 +155,7 @@ class PaymentController extends Controller
                     'txnID' => $request->txnID ?? null,
                     'amount' => $donation->amount ?? null,
                     'message' => $request->respDescription ?? null,
+                    'api_key' => $donation->source, // pass back the api key for client-side correlation
                 ])
             );
         }
@@ -167,9 +170,23 @@ class PaymentController extends Controller
 
     public function redirectToGateway(Request $request)
     {
-        // Call initiateSale internally
-        // We pass api = true so initiateSale knows it's from Next.js
-        $request->merge(['api' => true]);
+        $validator = Validator::make($request->all(), [
+            'api_key' => ['required', 'string', 'starts_with:api_'],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->away(
+                'https://wall.birnagar.org/payment/result?' . http_build_query([
+                    'status' => 'failed',
+                    'message' => 'Invalid Transaction details',
+                ])
+            );
+        }
+
+        // Force api flag
+        $request->merge([
+            'api' => true,
+        ]);
 
         return $this->initiateSale($request);
     }
