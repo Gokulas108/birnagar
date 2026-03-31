@@ -145,7 +145,7 @@ class PaymentController extends Controller
         }
 
         // Detect API flow via query param (we'll pass this)
-        $isApi = $donation && $donation->source === 'api';
+        $isApi = $donation && $donation->source && Str::startsWith($donation->source, 'api_');
 
         if ($isApi) {
             return redirect()->away(
