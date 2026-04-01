@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Donation;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class PaymentController extends Controller
@@ -121,52 +122,189 @@ class PaymentController extends Controller
     ]);
     }
 
-    // ICICI callback
-    public function handleCallback(Request $request)
+    /**
+     * 🔑 Shared logic (Idempotent - used by BOTH webhook & callback)
+     */
+    private function updateDonationFromGateway(Request $request)
     {
-        Log::info('Payment Callback Received', ['request' => $request->all()]);
-
         $responseCode = $request->responseCode ?? '';
-        $txnStatus = ($responseCode === '0000') ? 'SUCCESS' : 'FAILED';
+        $txnStatus = ($responseCode === '0000') ? 'success' : 'failed';
 
         $donation = Donation::where('merchant_txn_no', $request->merchantTxnNo)->first();
 
-        if ($donation) {
-            $donation->status = strtolower($txnStatus);
-            $donation->txn_id = $request->txnID ?? null;
-            $donation->payment_id = $request->paymentID ?? null;
-            $donation->auth_code = $request->authCode ?? null;
-            $donation->payment_mode = $request->paymentMode ?? null;
-            $donation->response_code = $responseCode;
-            $donation->response_description = $request->respDescription ?? null;
-            $donation->payment_datetime = $request->paymentDateTime ?? null;
-            $donation->save();
-        } else {
-            Log::error('Callback for unknown transaction', ['merchant_txn_no' => $request->merchantTxnNo]);
+        if (!$donation) {
+            Log::error('Unknown transaction', [
+                'merchant_txn_no' => $request->merchantTxnNo,
+                'payload' => $request->all()
+            ]);
+            return null;
         }
 
-        // Detect API flow via query param (we'll pass this)
-        $isApi = $donation && $donation->source && Str::startsWith($donation->source, 'api_');
+        // Do not downgrade a successful payment on duplicate/late callbacks.
+        if ($donation->status === 'success') {
+            Log::info('Duplicate update skipped', [
+                'merchant_txn_no' => $donation->merchant_txn_no,
+                'existing_status' => $donation->status,
+                'incoming_status' => $txnStatus,
+                'hit_from' => request()->path()
+            ]);
+            return $donation;
+        }
+
+        // Skip no-op duplicates for already failed records.
+        if ($donation->status === 'failed' && $txnStatus === 'failed') {
+            Log::info('Duplicate failed update skipped', [
+                'merchant_txn_no' => $donation->merchant_txn_no,
+                'existing_status' => $donation->status,
+                'incoming_status' => $txnStatus,
+                'hit_from' => request()->path()
+            ]);
+            return $donation;
+        }
+
+        // ✅ Update donation
+        $donation->status = $txnStatus;
+        $donation->txn_id = $request->txnID ?? null;
+        $donation->payment_id = $request->paymentID ?? null;
+        $donation->auth_code = $request->authCode ?? null;
+        $donation->payment_mode = $request->paymentMode ?? null;
+        $donation->response_code = $responseCode;
+        $donation->response_description = $request->respDescription ?? null;
+        $donation->payment_datetime = $request->paymentDateTime ?? null;
+
+        $donation->save();
+
+        // Notify API client system after status update for API initiated flows.
+        if ($donation->source && Str::startsWith($donation->source, 'api_')) {
+            try {
+                Http::timeout(10)
+                    ->acceptJson()
+                    ->post('https://wall.birnagar.org/api/webhooks/payment', [
+                        'api_key' => $donation->source,
+                        'txn_id' => $donation->txn_id,
+                        'status' => $donation->status,
+                    ]);
+            } catch (\Throwable $e) {
+                Log::error('Payment webhook dispatch failed', [
+                    'merchant_txn_no' => $donation->merchant_txn_no,
+                    'error' => $e->getMessage(),
+                ]);
+            }
+        }
+
+        Log::info('Donation updated successfully', [
+            'merchant_txn_no' => $donation->merchant_txn_no,
+            'status' => $txnStatus,
+            'updated_from' => request()->path()
+        ]);
+
+        return $donation;
+    }
+
+    /**
+     * 🔔 WEBHOOK (PRIMARY - Server to Server)
+     */
+    public function handleWebhook(Request $request)
+    {
+        Log::info('Webhook Received', [
+            'payload' => $request->all()
+        ]);
+
+        $this->updateDonationFromGateway($request);
+
+        // Always return success quickly
+        return response()->json([
+            'status' => 'OK'
+        ]);
+    }
+
+    /**
+     * 🌐 CALLBACK (SECONDARY - Browser redirect)
+     */
+    public function handleCallback(Request $request)
+    {
+        Log::info('Callback Received', [
+            'payload' => $request->all()
+        ]);
+
+        $donation = $this->updateDonationFromGateway($request);
+
+        if (!$donation) {
+            return view('donation.callback_error');
+        }
+
+        $txnStatus = strtoupper($donation->status);
+
+        // Detect API flow
+        $isApi = $donation->source && Str::startsWith($donation->source, 'api_');
 
         if ($isApi) {
             return redirect()->away(
                 'https://wall.birnagar.org/payment/result?' . http_build_query([
-                    'status' => strtolower($txnStatus),
-                    'txnID' => $request->txnID ?? null,
-                    'amount' => $donation->amount ?? null,
-                    'message' => $request->respDescription ?? null,
-                    'api_key' => $donation->source, // pass back the api key for client-side correlation
+                    'status'   => $donation->status,
+                    'txnID'    => $donation->txn_id,
+                    'amount'   => $donation->amount,
+                    'message'  => $donation->response_description,
+                    'api_key'  => $donation->source,
                 ])
             );
         }
 
         return view('donation.callback', [
             'status' => $txnStatus,
-            'txnID' => $request->txnID ?? null,
-            'amount' => $donation->amount ?? null,
-            'respDescription' => $request->respDescription ?? null
+            'txnID' => $donation->txn_id,
+            'amount' => $donation->amount,
+            'respDescription' => $donation->response_description
         ]);
     }
+
+
+    // ICICI callback
+    // public function handleCallback(Request $request)
+    // {
+    //     Log::info('Payment Callback Received', ['request' => $request->all()]);
+
+    //     $responseCode = $request->responseCode ?? '';
+    //     $txnStatus = ($responseCode === '0000') ? 'SUCCESS' : 'FAILED';
+
+    //     $donation = Donation::where('merchant_txn_no', $request->merchantTxnNo)->first();
+
+    //     if ($donation) {
+    //         $donation->status = strtolower($txnStatus);
+    //         $donation->txn_id = $request->txnID ?? null;
+    //         $donation->payment_id = $request->paymentID ?? null;
+    //         $donation->auth_code = $request->authCode ?? null;
+    //         $donation->payment_mode = $request->paymentMode ?? null;
+    //         $donation->response_code = $responseCode;
+    //         $donation->response_description = $request->respDescription ?? null;
+    //         $donation->payment_datetime = $request->paymentDateTime ?? null;
+    //         $donation->save();
+    //     } else {
+    //         Log::error('Callback for unknown transaction', ['merchant_txn_no' => $request->merchantTxnNo]);
+    //     }
+
+    //     // Detect API flow via query param (we'll pass this)
+    //     $isApi = $donation && $donation->source && Str::startsWith($donation->source, 'api_');
+
+    //     if ($isApi) {
+    //         return redirect()->away(
+    //             'https://wall.birnagar.org/payment/result?' . http_build_query([
+    //                 'status' => strtolower($txnStatus),
+    //                 'txnID' => $request->txnID ?? null,
+    //                 'amount' => $donation->amount ?? null,
+    //                 'message' => $request->respDescription ?? null,
+    //                 'api_key' => $donation->source, // pass back the api key for client-side correlation
+    //             ])
+    //         );
+    //     }
+
+    //     return view('donation.callback', [
+    //         'status' => $txnStatus,
+    //         'txnID' => $request->txnID ?? null,
+    //         'amount' => $donation->amount ?? null,
+    //         'respDescription' => $request->respDescription ?? null
+    //     ]);
+    // }
 
     public function redirectToGateway(Request $request)
     {
