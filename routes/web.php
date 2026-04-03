@@ -73,6 +73,3 @@ Route::post('/payment/refund', [PaymentController::class, 'refund'])
     // Redirect from Next.js to Laravel gateway
 Route::get('/payment/redirect-to-gateway', [PaymentController::class, 'redirectToGateway'])
     ->name('payment.redirect');
-
-Route::post('/payment/webhook', [PaymentController::class, 'handleWebhook'])
-    ->name('payment.webhook');
