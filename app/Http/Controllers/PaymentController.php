@@ -76,7 +76,6 @@ class PaymentController extends Controller
                     $amount .
                     '356' .
                     $request->email .
-                    $request->mobile .
                     $request->name .
                     $this->merchantId .
                     $merchantTxnNo .
@@ -98,10 +97,7 @@ class PaymentController extends Controller
             "transactionType" => "SALE",
             "returnURL"       => route('payment.advice'),
             "txnDate"         => $txnDate,
-            "customerMobileNo"=> $request->mobile,
             "customerName"    => $request->name,
-            "addlParam1"      => $request->addlParam1 ?? '',
-            "addlParam2"      => $request->addlParam2 ?? '',
             "secureHash"      => $secureHash
         ];
 
