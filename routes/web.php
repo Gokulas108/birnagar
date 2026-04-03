@@ -15,7 +15,7 @@ Route::get('/about/building-temple', function () {
     return view('pages.building_temple');
 });
 
-Route::get('about/message-from-chairman', function () {
+Route::get('about/message-from-project-director', function () {
     return view('pages.message_chairman');
 });
 
@@ -70,6 +70,6 @@ Route::post('/payment/status', [PaymentController::class, 'checkStatus'])
 Route::post('/payment/refund', [PaymentController::class, 'refund'])
     ->name('payment.refund');
 
-    // Redirect from Next.js to Laravel gateway
+// Redirect from Next.js to Laravel gateway
 Route::get('/payment/redirect-to-gateway', [PaymentController::class, 'redirectToGateway'])
     ->name('payment.redirect');
