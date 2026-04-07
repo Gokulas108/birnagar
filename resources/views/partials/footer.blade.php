@@ -1,7 +1,7 @@
 <footer class="bg-gradient-to-b from-stone-900 to-stone-950 text-stone-400 pt-16 sm:pt-20 pb-6 sm:pb-8 px-4 sm:px-6">
   <div class="max-w-7xl mx-auto">
     <!-- Main Footer Content -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-12 sm:mb-14 md:mb-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-12 sm:mb-14 md:mb-16">
       <!-- Brand Section -->
       <div class="md:col-span-1 text-center md:text-left">
         <div class="mb-5 sm:mb-6 flex flex-col items-center md:items-start">
@@ -16,9 +16,9 @@
         </p>
         <!-- Social Links -->
         <div class="flex space-x-3 sm:space-x-4 justify-center md:justify-start">
-          <a href="https://www.youtube.co/@JanmasthanTempleProject" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"><i class="fab fa-youtube text-lg"></i></a>
+          <a href="https://www.youtube.com/@BirnagarTempleProject" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"><i class="fab fa-youtube text-lg"></i></a>
           <a href="https://whatsapp.com/channel/0029VbCQ6J989inlavZeQA33" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"><i class="fab fa-whatsapp text-lg"></i></a>
-          <a href="https://www.instagram.com/janmasthantempleproject/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"><i class="fab fa-instagram text-lg"></i></a>
+          <a href="https://www.instagram.com/birnagartemple?igsh=c2dvbWR3aTY3MWRh" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"><i class="fab fa-instagram text-lg"></i></a>
           <a href="https://www.facebook.com/share/1AXrpzXWQp/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center justify-center rounded-full bg-stone-800 text-white hover:bg-saffron-500 hover:text-stone-900 transition-all duration-300 transform hover:scale-110"><i class="fab fa-facebook-f text-lg"></i></a>
         </div>
       </div>
@@ -64,6 +64,12 @@
             </span>
           </li>
           <li class="flex items-start group w-full">
+            <i class="fas fa-map-marker-alt w-7 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
+            <span class="text-stone-400 text-sm group-hover:text-stone-300 transition-colors text-left">
+              Ward No. 3, Mustafipara Road, Birnagar, Nadia. Pin - 741127
+            </span>
+          </li>
+          <li class="flex items-start group w-full">
             <i class="fas fa-phone w-7 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
             <a href="tel:+918167562119" class="text-stone-400 text-sm hover:text-saffron-500 transition-colors text-left">+91 81675 62119</a>
           </li>
@@ -75,7 +81,7 @@
       </div>
 
       <!-- Newsletter -->
-      <div class="text-center md:text-left">
+      <!-- <div class="text-center md:text-left">
         <h4
           class="text-white font-bold mb-5 sm:mb-6 uppercase text-xs tracking-widest">
           Newsletter
@@ -94,20 +100,23 @@
           </button>
         </form>
       </div>
-    </div>
+    </div> -->
 
-    <!-- Divider -->
-    <div class="border-t border-stone-800 my-6 sm:my-8"></div>
+      <!-- Divider -->
+      <div class="border-t border-stone-800 my-6 sm:my-8"></div>
 
-    <!-- Bottom Footer -->
-    <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-3 sm:gap-4">
-      <p class="text-xs text-stone-500">
-        &copy; 2026 Kirtan Seva Trust. All rights reserved.
-      </p>
-      <div class="flex gap-4 sm:gap-6">
-        <a href="/privacy-policy" class="text-xs text-stone-500 hover:text-saffron-500 transition-colors">Privacy Policy</a>
-        <a href="/terms-and-conditions" class="text-xs text-stone-500 hover:text-saffron-500 transition-colors">Terms and Conditions</a>
+      <!-- Bottom Footer -->
+      <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-3 sm:gap-4">
+        <p class="text-xs text-stone-500">
+          &copy; 2026 Kirtan Seva Trust. All rights reserved.
+        </p>
+        <div class="flex gap-4 sm:gap-6">
+          <a href="/privacy-policy" class="text-xs text-stone-500 hover:text-saffron-500 transition-colors">Privacy Policy</a>
+          <a href="/terms-and-conditions" class="text-xs text-stone-500 hover:text-saffron-500 transition-colors">Terms and Conditions</a>
+        </div>
       </div>
+
+      <!-- Divider -->
+      <div class="border-t border-stone-800 my-6 sm:my-8"></div>
     </div>
-  </div>
 </footer>

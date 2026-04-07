@@ -1,4 +1,3 @@
-
 <!-- <section style="background: #FFF8EC; padding: 24px 24px; border-top: 1px solid rgba(200,120,30,0.15); border-bottom: 1px solid rgba(200,120,30,0.15);">
     <div style="max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
 
@@ -52,8 +51,7 @@
                 <img
                     src="{{ asset('images/srila_prabhupada.webp') }}"
                     alt="Srila Prabhupada"
-                    style="width:100%; height:100%; object-fit:cover; object-position:top;"
-                />
+                    style="width:100%; height:100%; object-fit:cover; object-position:top;" />
             </div>
             <!-- <p style="font-size:9px; text-transform:uppercase; letter-spacing:2px; color:#FFD580; font-weight:700; margin:0;">Srila Prabhupada</p> -->
         </div>
@@ -65,9 +63,11 @@
                 “I wish that a nice temple be constructed there [In Birnagar] and a well-equipped library and Bhaktivinoda Memorial Hall be established.”
             </blockquote>
             <p style="font-size:10px; text-transform:uppercase; letter-spacing:2.5px; color:#FFD580; font-weight:700; margin:0;">
-                — Srila Prabhupada 
+                ~ Srila Prabhupada
             </p>
+            <a href="about/gbc" style="color:#FFD580; font-size:11px;">
+                (View GBC Resolution)
+            </a>
         </div>
-
     </div>
 </section>
