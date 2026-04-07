@@ -7,22 +7,20 @@ use Illuminate\Foundation\Configuration\Middleware;
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
-        api: null,
+        api: null, // disable default api prefix
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
+        then: function () {
+            Route::middleware('api')
+                ->group(base_path('routes/api.php'));
+        }
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->group('api', [
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            // add more if needed:
-            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            // \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
-    })->create()
-    ->withRouting(function () {
-        Route::middleware('api')
-            ->group(base_path('routes/api.php'));
-    });
+    })
+    ->create();
