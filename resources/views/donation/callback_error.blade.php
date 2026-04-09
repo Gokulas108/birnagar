@@ -3,12 +3,10 @@
 
 <link
   href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap"
-  rel="stylesheet"
-/>
+  rel="stylesheet" />
 <link
   rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 <style>
   body {
@@ -24,6 +22,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -66,21 +65,19 @@
               </p>
               <p class="text-sm text-stone-600">
                 <i class="fas fa-phone text-red-600 mr-2"></i>
-                <span>If money was debited, please contact support at <span class="font-semibold">support@birnagar.org</span>.</span>
+                <span>If money was debited, please contact support at <span class="font-semibold">sbvt.jsp@gmail.com</span>.</span>
               </p>
             </div>
 
             <div class="border-t border-stone-200 pt-6 space-y-3">
               <a
                 href="/donation"
-                class="block w-full bg-linear-to-r from-red-500 to-red-600 text-white font-bold py-3 rounded-xl text-center hover:shadow-lg transition uppercase tracking-widest text-sm"
-              >
+                class="block w-full bg-linear-to-r from-red-500 to-red-600 text-white font-bold py-3 rounded-xl text-center hover:shadow-lg transition uppercase tracking-widest text-sm">
                 <i class="fas fa-heart mr-2"></i> Donate Again
               </a>
               <a
                 href="/"
-                class="block w-full bg-stone-100 text-stone-700 font-bold py-3 rounded-xl text-center hover:bg-stone-200 transition uppercase tracking-widest text-sm"
-              >
+                class="block w-full bg-stone-100 text-stone-700 font-bold py-3 rounded-xl text-center hover:bg-stone-200 transition uppercase tracking-widest text-sm">
                 <i class="fas fa-home mr-2"></i> Back to Home
               </a>
             </div>

@@ -37,7 +37,7 @@ Route::get('/songs', function () {
 
 Route::get('/donation', function () {
     return view('pages.donate');
-});
+})->name('donation');
 
 Route::get('/terms-and-conditions', function () {
     return view('pages.terms_conditions');
