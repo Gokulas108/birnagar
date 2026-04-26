@@ -279,7 +279,7 @@
             <div class="flex items-start justify-between mb-2">
               <div class="flex items-center gap-3">
                 <div
-                  class="w-10 h-10 rounded-full bg-stone-100 text-stone-600 flex items-center justify-center">
+                  class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
                   <i class="fas fa-heart"></i>
                 </div>
                 <div>
@@ -299,29 +299,53 @@
           </div>
         </div>
 
-        {{-- 5th option — full width --}}
-        <div
-          @click="setCustom()"
-          class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white mb-6"
-          :class="selectedSeva === 'custom' ? 'selected' : 'border-stone-200'">
-          <div class="flex items-start justify-between mb-2">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
-                <i class="fas fa-hand-holding-heart"></i>
-              </div>
-              <div>
-                <span class="block text-stone-800 font-bold text-sm">General Donation</span>
-                <span class="block text-saffron-600 font-bold text-xs">Any Amount</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+
+          <div
+            @click="window.location.href = '/campaign'"
+            class="seva-option border rounded-xl p-4 cursor-pointer relative bg-orange-200 shadow-lg">
+            <div class="flex items-start justify-between mb-2">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
+                  <i class="fas fa-th"></i>
+                </div>
+                <div>
+                  <span class="block text-stone-800 font-bold text-sm">Wall Of Legacy</span>
+                  <span class="block text-saffron-600 font-bold text-xs">View Campaign</span>
+                </div>
               </div>
             </div>
-            <div x-show="selectedSeva === 'custom'" class="text-saffron-500">
-              <i class="fas fa-check-circle"></i>
-            </div>
+            <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
+              Discover the ongoing legacy of our donors and supporters.
+            </p>
           </div>
-          <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
-            Contribute any amount of your choice towards the sacred Birnagar Temple Project. Every rupee counts.
-          </p>
+
+          <div
+            @click="setCustom()"
+            class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
+            :class="selectedSeva === 'custom' ? 'selected' : 'border-stone-200'">
+            <div class="flex items-start justify-between mb-2">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
+                  <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <div>
+                  <span class="block text-stone-800 font-bold text-sm">General Donation</span>
+                  <span class="block text-saffron-600 font-bold text-xs">Any Amount</span>
+                </div>
+              </div>
+              <div x-show="selectedSeva === 'custom'" class="text-saffron-500">
+                <i class="fas fa-check-circle"></i>
+              </div>
+            </div>
+            <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
+              Contribute any amount towards the Birnagar Temple Project. Every rupee counts.
+            </p>
+          </div>
+
         </div>
+
+
 
         <div class="relative mb-6">
           <label
@@ -393,7 +417,6 @@
                   <option value="+420">Czech Republic (+420)</option>
                   <option value="+45">Denmark (+45)</option>
                   <option value="+20">Egypt (+20)</option>
-
                   <option value="+358">Finland (+358)</option>
                   <option value="+33">France (+33)</option>
                   <option value="+49">Germany (+49)</option>
