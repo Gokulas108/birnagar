@@ -137,6 +137,14 @@
     gap: 16px;
     justify-content: flex-start;
     flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  @media (max-width: 768px) {
+    .hero-btns {
+      flex-direction: column;
+    }
   }
 
   .btn-primary {
@@ -160,6 +168,31 @@
   .btn-primary:hover {
     background: #a8470a;
     transform: translateY(-2px);
+  }
+
+  .btn-find-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    backdrop-filter: blur(4px);
+    transition: all 0.25s;
+  }
+
+  .btn-find-name:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
   }
 
   .btn-ghost {
@@ -1137,7 +1170,10 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 5v14M5 12h14" />
           </svg>
-          Claim your spot!
+          Donate Now!
+        </a>
+        <a href="https://wall.birnagar.org/web-app" class="btn-find-name">
+          Find your name
         </a>
       </div>
     </div>
@@ -1274,7 +1310,8 @@
                 Vaikunthapati das
               </p>
               <p style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:rgba(255,200,140,0.7); margin:0;">
-                Project Director &nbsp;·&nbsp; Birnagar Temple Project
+                Project Director<br>
+                Birnagar Temple Project
               </p>
             </div>
           </div>

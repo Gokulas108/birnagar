@@ -300,29 +300,9 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-
-          <div
-            @click="window.location.href = '/campaign'"
-            class="seva-option border rounded-xl p-4 cursor-pointer relative bg-orange-200 shadow-lg">
-            <div class="flex items-start justify-between mb-2">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
-                  <i class="fas fa-th"></i>
-                </div>
-                <div>
-                  <span class="block text-stone-800 font-bold text-sm">Wall Of Legacy</span>
-                  <span class="block text-saffron-600 font-bold text-xs">View Campaign</span>
-                </div>
-              </div>
-            </div>
-            <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
-              Discover the ongoing legacy of our donors and supporters.
-            </p>
-          </div>
-
           <div
             @click="setCustom()"
-            class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
+            class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white md:col-span-2"
             :class="selectedSeva === 'custom' ? 'selected' : 'border-stone-200'">
             <div class="flex items-start justify-between mb-2">
               <div class="flex items-center gap-3">

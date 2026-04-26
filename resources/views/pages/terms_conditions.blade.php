@@ -3,7 +3,7 @@
 
 <div class="min-h-screen py-2 sm:py-12 md:py-16">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
-    
+
     <!-- Page Title -->
     <div class="mb-8 sm:mb-12 pb-6 border-b border-gray-200">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
@@ -56,7 +56,7 @@
       <h2 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 mb-4">
         3. Donations and Contributions
       </h2>
-      
+
       <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3">3.1 Nature of Donations</h3>
       <ul class="list-disc list-inside space-y-2 mb-6 text-sm sm:text-base text-gray-700 ml-4">
         <li>All donations made through the Website are voluntary contributions.</li>
@@ -109,12 +109,18 @@
       <h2 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 mb-4">
         6. Refund and Cancellation Policy
       </h2>
-      <ul class="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-700 ml-4">
-        <li>Donations made to Kirtan Seva Trust are generally non-refundable, as they are voluntary contributions made for charitable and religious purposes.</li>
-        <li>In exceptional cases such as duplicate payments or technical errors, refund requests may be considered at the sole discretion of the Trust.</li>
-        <li>Refund requests must be submitted within 7 days of the transaction, along with valid transaction details.</li>
-        <li>The Trust reserves the right to approve or reject refund requests.</li>
-      </ul>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        All donations and contributions made to the Birnagar Project are voluntary and are used towards the development of the temple and associated initiatives.
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        Once a donation has been successfully processed, it is considered final and non-refundable. We do not entertain requests for refunds or cancellations under normal circumstances.
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        In case of any duplicate transactions or technical errors resulting in an unintended payment, donors may contact us within 7 days of the transaction. Such requests will be reviewed on a case-by-case basis, and any decision made by the organization shall be final.
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+        For any queries regarding payments, please contact us at [your email/contact details].
+      </p>
     </div>
 
     <!-- Section 7 -->
@@ -136,9 +142,23 @@
       </p>
     </div>
 
+    <!-- Section 8 -->
+    <div class="mb-8 sm:mb-10">
+      <h2 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 mb-4">
+        8. Tax Exemption
+      </h2>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        The Birnagar Project operates under a registered charitable entity holding valid registration under Section 12A of the Income Tax Act, 1961.
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+        However, donations made to the organization are currently not eligible for tax deduction under Section 80G of the Income Tax Act. Donors are advised to consider this before making contributions.
+      </p>
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed">
+        Any updates regarding tax exemption status will be communicated through official channels.
+      </p>
+    </div>
+
   </div>
 </div>
 
 @endsection
-    
-    
