@@ -56,23 +56,27 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
 
-            <a href="/" class="flex-shrink-0 flex items-center gap-3 group cursor-pointer">
+            <a href="/" class="flex-shrink-0 flex items-center gap-1 cursor-pointer">
+                <img
+                    src="{{ asset('images/logo.png') }}"
+                    alt="Kirtan Seva Trust Logo"
+                    class="h-16 w-16 md:h-20 md:w-20 object-contain shrink-0" />
                 <div class="flex flex-col">
                     <h1 class="font-bold text-xl md:text-2xl tracking-wide leading-none transition-colors
                             @if(request()->path() === '/' || request()->path() === 'campaign')
-                                text-white group-hover:text-saffron-400
+                                text-white
                             @else
-                                text-amber-950 group-hover:text-saffron-600
-                            @endif">
-                        Kirtan Seva Trust
-                    </h1>
-                    <p class="text-[10px] font-bold uppercase tracking-[0.25em] mt-1 transition-colors
-                            @if(request()->path() === '/' || request()->path() === 'campaign')
-                                text-white/80 group-hover:text-white/80
-                            @else
-                                text-amber-950/80 group-hover:text-amber-950
+                                text-amber-950
                             @endif">
                         Birnagar Temple Project
+                    </h1>
+                    <p class="text-xs md:text-sm font-bold uppercase tracking-[0.25em] mt-1 transition-colors
+                            @if(request()->path() === '/' || request()->path() === 'campaign')
+                                text-white/80
+                            @else
+                                text-amber-950/80
+                            @endif">
+                        Kirtan Seva Trust
                     </p>
                 </div>
             </a>
