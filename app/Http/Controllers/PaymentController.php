@@ -383,37 +383,4 @@ class PaymentController extends Controller
         return json_decode($response, true);
     }
 
-    public function generateTicket(Request $request)
-    {
-        // 1. Grab the exact parameters from the URL
-        $data = [
-            'name'  => $request->query('name'),
-            'qty'   => $request->query('qty'),
-            'block' => $request->query('block'),
-        ];
-
-        // 2. Point to your template (the path you just fixed!)
-        $templatePath = storage_path('app/templates/template.pdf');
-        
-        // 3. Define where the temporary filled file should go
-        $outputPath = storage_path('app/templates/filled_' . time() . '.pdf');
-
-        // 4. Initialize pdftk
-        $pdf = new Pdf($templatePath);
-
-        // 5. Fill, flatten, and save
-        $result = $pdf->fillForm($data)
-                      ->needAppearances() // Helps render fonts correctly in some PDF viewers
-                      ->flatten()         // Locks the fields so they can't be edited
-                      ->saveAs($outputPath);
-
-        // 6. Error handling
-        if ($result === false) {
-            return response()->json(['error' => $pdf->getError()], 500);
-        }
-
-        // 7. Force download and delete the temporary file off the server
-        return response()->download($outputPath, 'Ticket.pdf')->deleteFileAfterSend(true);
-    }
-    
 }
