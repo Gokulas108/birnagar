@@ -31,13 +31,13 @@
         </h4>
         <ul class="space-y-1 sm:space-y-3">
           <li>
-            <a href="/about/bhaktivinoda-thakura" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">Who Is bhaktivinoda Thakur</a>
+            <a href="/about/bhaktivinoda-thakura" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">Who is Srila Bhaktivinoda Thakur</a>
           </li>
           <li>
             <a href="/about/building-temple" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">Why Build a temple?</a>
           </li>
           <li>
-            <a href="/about/gbc" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">GBC Resolution</a>
+            <a href="/about/gbc" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">ISKCON GBC Resolution</a>
           </li>
           <li>
             <a href="/donation" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">Donate</a>

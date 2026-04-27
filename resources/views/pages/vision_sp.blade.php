@@ -11,7 +11,7 @@
         </div>
 
         <h1 class="text-4xl md:text-6xl  text-stone-900 mb-6 tracking-tight">
-            Śrīla Prabhupāda’s Vision
+            His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda’s Vision
         </h1>
 
         <p class="text-lg md:text-xl text-stone-600 leading-relaxed font-light text-justify mx-auto">
@@ -59,10 +59,9 @@
                             and Bhaktivinoda Memorial Hall be established.
                         </p>
                         <footer class="mt-8 flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-amber-800 border border-amber-700 flex items-center justify-center text-orange-300  font-bold">SP</div>
-                            <div>
-                                <div class="text-sm font-bold uppercase tracking-wide text-white">Śrīla Prabhupāda</div>
-                                <div class="text-xs text-amber-300/70">Founder-Acharya</div>
+                            <div class="flex flex-col">
+                                <div class="text-sm font-bold uppercase tracking-wide text-white">His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda</div>
+                                <div class="text-xs text-amber-300/70">Founder-Acharya - The International Society for Krishna Consciousness</div>
                             </div>
                         </footer>
                     </blockquote>
