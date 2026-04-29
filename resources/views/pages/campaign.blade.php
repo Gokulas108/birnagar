@@ -1166,13 +1166,13 @@
         <strong>Srila Bhaktivinoda Thakur's Wall of Legacy.</strong>
       </p>
       <div class="hero-btns">
-        <a href="https://wall.birnagar.org/web-app" class="btn-primary">
+        <a href="https://wall.birnagar.org/wall-frame" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 5v14M5 12h14" />
           </svg>
           Donate Now!
         </a>
-        <a href="https://wall.birnagar.org/web-app" class="btn-find-name">
+        <a href="https://wall.birnagar.org/wall-frame?search=true" class="btn-find-name">
           Find your name
         </a>
       </div>
@@ -1361,7 +1361,7 @@
       </div> -->
       </div>
       <div class="wall-cta-row">
-        <a href="https://wall.birnagar.org/web-app" class="btn-primary">Claim My Spot Now</a>
+        <a href="https://wall.birnagar.org/wall-frame" class="btn-primary">Claim My Spot Now</a>
       </div>
     </div>
   </section>

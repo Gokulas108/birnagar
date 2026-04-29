@@ -1,7 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/favicon.ico', function () {
+    return response()->file(public_path('images/logo.png'), [
+        'Content-Type' => 'image/png',
+        'Cache-Control' => 'public, max-age=604800',
+    ]);
+});
 
 Route::get('/', function () {
     return view('pages.home');
@@ -54,7 +61,6 @@ Route::get('/srila-prabhupad-vision', function () {
 Route::get('/campaign', function () {
     return view('pages.campaign');
 });
-
 
 Route::post('/payment/initiate', [PaymentController::class, 'initiateSale'])
     ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class])
