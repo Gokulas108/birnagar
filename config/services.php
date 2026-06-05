@@ -42,4 +42,10 @@ return [
         'initiate_sale_url' => env('ICICI_INITIATE_SALE_URL'),
     ],
 
+    // Shared secret for the wall-of-legacy reconciliation dashboard's read-only
+    // donations export (server-to-server; sent as the X-Export-Key header).
+    'wall' => [
+        'export_key' => env('WALL_EXPORT_KEY'),
+    ],
+
 ];
