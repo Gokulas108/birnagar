@@ -6,10 +6,95 @@
 
 <div class="relative w-full h-screen overflow-hidden font-googleSans">
 
-    {{-- ─── SLIDE 1: WALL OF LEGACY CAMPAIGN ─────────────────── --}}
-    {{-- ─── SLIDE 1: WALL OF LEGACY CAMPAIGN ─────────────────── --}}
+    {{-- ─── SLIDE 1: ORIGINAL HERO (moved forward) ─────────────────── --}}
     <div class="absolute inset-0 flex flex-col transition-opacity duration-700 opacity-100 z-10"
         id="slide-0">
+
+        {{-- Background --}}
+        <div class="absolute inset-0 z-0 overflow-hidden bg-stone-900">
+            <img
+                src="{{ asset('images/temple-background.png') }}"
+                alt="Temple Background"
+                class="w-full h-full object-cover object-center animate-slow-zoom opacity-85" />
+            {{-- Gradient only at bottom for readability --}}
+            <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 25%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.65) 75%, rgba(0,0,0,0.85) 100%);"></div>
+            <div class="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/noise.png')]"></div>
+        </div>
+
+        {{-- BOTTOM — Title left, buttons right --}}
+        <div class="absolute bottom-0 left-0 right-0 z-20
+                flex items-end justify-between flex-wrap gap-4
+                px-6 sm:px-10 pb-10 sm:pb-14
+                opacity-0"
+            style="animation: s2FadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;">
+
+            {{-- Title + tagline --}}
+            <div>
+                <span class="text-white/85 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.2em]">
+                    Sri Sri Radha Krishna Temple
+                </span>
+                <h1 class="font-bold leading-tight drop-shadow-2xl mb-2"
+                    style="font-family:'Cinzel','Georgia',serif; font-size:clamp(28px,5vw,58px);">
+                    <span class="text-white block">Manifesting a</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-200 to-amber-400">
+                        Sacred Vision
+                    </span>
+                </h1>
+                <p class="text-white/60 font-light italic tracking-wide"
+                    style="font-size:clamp(12px,1.4vw,15px);">
+                    Fulfilling the long‑standing desire of Srila Prabhupada
+                </p>
+            </div>
+
+            {{-- Buttons --}}
+            <div class="flex gap-3 flex-wrap items-center pb-1">
+                <a href="/donation"
+                    class="inline-flex items-center gap-2 text-white font-bold uppercase tracking-wider rounded-full border border-white/15 transition-all transform hover:-translate-y-1"
+                    style="background:linear-gradient(135deg,#C8590A,#E8760A); padding:12px 26px; font-size:12px; letter-spacing:1px; text-decoration:none; box-shadow:0 4px 20px rgba(200,90,10,0.45);">
+                    <i class="fa-solid fa-hands-praying"></i>
+                    Help Build the Temple
+                </a>
+                <a href="#about"
+                    class="inline-flex items-center gap-2 text-white font-bold uppercase tracking-wider rounded-full transition-all transform hover:-translate-y-1"
+                    style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35); padding:12px 26px; font-size:12px; letter-spacing:1px; text-decoration:none; backdrop-filter:blur(4px);">
+                    Learn History
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <style>
+        @keyframes s2FadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes s2FadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    {{-- ─── SLIDE 2: WALL OF LEGACY (moved back) ─────────────────── --}}
+    <div class="absolute inset-0 flex flex-col transition-opacity duration-700 opacity-0 pointer-events-none z-10"
+        id="slide-1">
 
         <div class="absolute inset-0 bg-stone-950">
             <img
@@ -71,35 +156,6 @@
                 and become the first to get<br class="sm:hidden">
                 your name etched on the <span style="color:#FFD580;font-weight:700;">Wall of Legacy.</span>
             </p>
-
-            {{-- Devotee counter --}}
-            <!-- <div class="mb-4 w-full">
-
-                <div class="flex items-center justify-center sm:justify-start gap-2 mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-ping"
-                        style="animation-duration:1.4s;"></span>
-                    <span class="text-[10px] uppercase tracking-[0.22em]"
-                        style="color:rgba(255,200,100,0.45);">
-                        Devotees who have joined
-                    </span>
-                </div>
-
-                <div class="flex items-stretch justify-center sm:justify-start gap-1 mb-2"
-                    id="wolDevDigits"></div>
-
-                <div class="flex items-center gap-3">
-                    <div class="flex-1 rounded-full overflow-hidden"
-                        style="height:4px; background:rgba(255,255,255,0.08);">
-                        <div id="wolDevBar" class="h-full rounded-full"
-                            style="width:0%; background:linear-gradient(90deg,#C8590A,#FFD580); transition:width 2.2s cubic-bezier(0.23,1,0.32,1);">
-                        </div>
-                    </div>
-                    <span style="font-size:11px; color:rgba(255,200,100,0.6); white-space:nowrap;">
-                        <span id="wolDevPct" style="color:#FFD580; font-weight:700;">0%</span> of 100,000
-                    </span>
-                </div>
-
-            </div> -->
 
             {{-- Button --}}
             <div class="flex justify-center sm:justify-start">
@@ -223,66 +279,6 @@
             }, 500);
         })();
     </script>
-
-    {{-- ─── SLIDE 2: ORIGINAL HERO ─────────────────────────── --}}
-    <div class="absolute inset-0 flex flex-col transition-opacity duration-700 opacity-0 pointer-events-none z-10"
-        id="slide-1">
-
-        {{-- Background --}}
-        <div class="absolute inset-0 z-0 overflow-hidden bg-stone-900">
-            <img
-                src="{{ asset('images/temple-background.png') }}"
-                alt="Temple Background"
-                class="w-full h-full object-cover object-center animate-slow-zoom opacity-85" />
-            {{-- Gradient only at bottom for readability --}}
-            <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 25%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.65) 75%, rgba(0,0,0,0.85) 100%);"></div>
-            <div class="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/noise.png')]"></div>
-        </div>
-
-        {{-- BOTTOM — Title left, buttons right --}}
-        <div class="absolute bottom-0 left-0 right-0 z-20
-                flex items-end justify-between flex-wrap gap-4
-                px-6 sm:px-10 pb-10 sm:pb-14
-                opacity-0"
-            style="animation: s2FadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;">
-
-            {{-- Title + tagline --}}
-            <div>
-                <span class="text-white/85 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.2em]">
-                    Sri Sri Radha Krishna Temple
-                </span>
-                <h1 class="font-bold leading-tight drop-shadow-2xl mb-2"
-                    style="font-family:'Cinzel','Georgia',serif; font-size:clamp(28px,5vw,58px);">
-                    <span class="text-white block">Manifesting a</span>
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-200 to-amber-400">
-                        Sacred Vision
-                    </span>
-                </h1>
-                <p class="text-white/60 font-light italic tracking-wide"
-                    style="font-size:clamp(12px,1.4vw,15px);">
-                    Fulfilling the long‑standing desire of Srila Prabhupada
-                </p>
-            </div>
-
-            {{-- Buttons --}}
-            <div class="flex gap-3 flex-wrap items-center pb-1">
-                <a href="/donation"
-                    class="inline-flex items-center gap-2 text-white font-bold uppercase tracking-wider rounded-full border border-white/15 transition-all transform hover:-translate-y-1"
-                    style="background:linear-gradient(135deg,#C8590A,#E8760A); padding:12px 26px; font-size:12px; letter-spacing:1px; text-decoration:none; box-shadow:0 4px 20px rgba(200,90,10,0.45);">
-                    <i class="fa-solid fa-hands-praying"></i>
-                    Help Build the Temple
-                </a>
-                <a href="#about"
-                    class="inline-flex items-center gap-2 text-white font-bold uppercase tracking-wider rounded-full transition-all transform hover:-translate-y-1"
-                    style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.35); padding:12px 26px; font-size:12px; letter-spacing:1px; text-decoration:none; backdrop-filter:blur(4px);">
-                    Learn History
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-        </div>
-
-    </div>
 
     <style>
         @keyframes s2FadeUp {

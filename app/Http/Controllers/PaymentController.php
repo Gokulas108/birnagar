@@ -2,27 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Donation;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class PaymentController extends Controller
 {
     private $merchantId;
+
     private $aggregatorId;
+
     private $secretKey;
+
     private $initiateSaleUrl;
+
     private $statusCheckUrl;
+
     private $refundUrl;
 
     public function __construct()
     {
-        $this->merchantId     = config('services.icici.merchant_id');
-        $this->aggregatorId   = config('services.icici.aggregator_id');
-        $this->secretKey      = config('services.icici.secret_key');
+        $this->merchantId = config('services.icici.merchant_id');
+        $this->aggregatorId = config('services.icici.aggregator_id');
+        $this->secretKey = config('services.icici.secret_key');
         $this->initiateSaleUrl = config('services.icici.initiate_sale_url');
     }
 
@@ -40,19 +45,20 @@ class PaymentController extends Controller
         Log::info('Initiating Sale', ['request' => $request->all(), 'is_api' => $isApi]);
 
         $request->validate([
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|email|max:255',
-            'mobile'   => 'required|string|max:15',
-            'amount'   => 'required|numeric|min:1',
-            'pan'      => 'nullable|string|max:10',
-            'address'  => 'nullable|string|max:500',
-            'city'     => 'nullable|string|max:255',
-            'state'    => 'nullable|string|max:255',
-            'pincode'  => 'nullable|string|max:10',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'mobile' => 'required|string|max:15',
+            'amount' => 'required|numeric|min:1',
+            'pan' => 'nullable|string|max:10',
+            'address' => 'nullable|string|max:500',
+            'city' => 'nullable|string|max:255',
+            'state' => 'nullable|string|max:255',
+            'pincode' => 'nullable|string|max:10',
+            'donation_type' => 'nullable|string|max:255',
         ]);
 
-        $merchantTxnNo = 'DON' . now()->format('YmdHis') . rand(100, 999);
-        $amount  = number_format($request->amount, 2, '.', '');
+        $merchantTxnNo = 'DON'.now()->format('YmdHis').rand(100, 999);
+        $amount = number_format($request->amount, 2, '.', '');
         $txnDate = now()->format('YmdHis');
 
         $donation = Donation::create([
@@ -67,55 +73,56 @@ class PaymentController extends Controller
             'city' => $request->city,
             'state' => $request->state,
             'source' => $isApi ? $request->api_key : 'web',
-            'pincode' => $request->pincode
+            'pincode' => $request->pincode,
+            'donation_type' => $request->donation_type,
         ]);
 
-        $hashText = ($request->addlParam1 ?? '') .
-                    ($request->addlParam2 ?? '') .
-                    $this->aggregatorId .
-                    $amount .
-                    '356' .
-                    $request->email .
-                    $request->name .
-                    $this->merchantId .
-                    $merchantTxnNo .
-                    '0' .
-                    route('payment.advice') .
-                    'SALE' .
+        $hashText = ($request->addlParam1 ?? '').
+                    ($request->addlParam2 ?? '').
+                    $this->aggregatorId.
+                    $amount.
+                    '356'.
+                    $request->email.
+                    $request->name.
+                    $this->merchantId.
+                    $merchantTxnNo.
+                    '0'.
+                    route('payment.advice').
+                    'SALE'.
                     $txnDate;
 
         $secureHash = $this->generateSecureHash($hashText);
 
         $payload = [
-            "merchantId"      => $this->merchantId,
-            "aggregatorID"    => $this->aggregatorId,
-            "merchantTxnNo"   => $merchantTxnNo,
-            "amount"          => $amount,
-            "currencyCode"    => "356",
-            "payType"         => "0",
-            "customerEmailID" => $request->email,
-            "transactionType" => "SALE",
-            "returnURL"       => route('payment.advice'),
-            "txnDate"         => $txnDate,
-            "customerName"    => $request->name,
-            "secureHash"      => $secureHash
+            'merchantId' => $this->merchantId,
+            'aggregatorID' => $this->aggregatorId,
+            'merchantTxnNo' => $merchantTxnNo,
+            'amount' => $amount,
+            'currencyCode' => '356',
+            'payType' => '0',
+            'customerEmailID' => $request->email,
+            'transactionType' => 'SALE',
+            'returnURL' => route('payment.advice'),
+            'txnDate' => $txnDate,
+            'customerName' => $request->name,
+            'secureHash' => $secureHash,
         ];
 
         $response = $this->curlPost($this->initiateSaleUrl, $payload);
 
-
-        if (!$response || !isset($response['redirectURI'])) {
+        if (! $response || ! isset($response['redirectURI'])) {
             Log::error('Invalid Gateway Response', ['response' => $response]);
+
             return back()->withErrors(['msg' => 'Payment gateway error.']);
         }
 
-        $redirectUrl = $response['redirectURI'] . '?tranCtx=' . $response['tranCtx'];
+        $redirectUrl = $response['redirectURI'].'?tranCtx='.$response['tranCtx'];
 
         // Normal Laravel web flow
         // return redirect($redirectUrl);
         return view('payment.auto_redirect', [
-        'redirectUrl' => $redirectUrl
-    ]);
+            'redirectUrl' => $redirectUrl,
+        ]);
     }
 
     /**
@@ -128,11 +135,12 @@ class PaymentController extends Controller
 
         $donation = Donation::where('merchant_txn_no', $request->merchantTxnNo)->first();
 
-        if (!$donation) {
+        if (! $donation) {
             Log::error('Unknown transaction', [
                 'merchant_txn_no' => $request->merchantTxnNo,
-                'payload' => $request->all()
+                'payload' => $request->all(),
             ]);
+
             return null;
         }
 
@@ -142,8 +150,9 @@ class PaymentController extends Controller
                 'merchant_txn_no' => $donation->merchant_txn_no,
                 'existing_status' => $donation->status,
                 'incoming_status' => $txnStatus,
-                'hit_from' => request()->path()
+                'hit_from' => request()->path(),
             ]);
+
             return $donation;
         }
 
@@ -153,8 +162,9 @@ class PaymentController extends Controller
                 'merchant_txn_no' => $donation->merchant_txn_no,
                 'existing_status' => $donation->status,
                 'incoming_status' => $txnStatus,
-                'hit_from' => request()->path()
+                'hit_from' => request()->path(),
             ]);
+
             return $donation;
         }
 
@@ -191,7 +201,7 @@ class PaymentController extends Controller
         Log::info('Donation updated successfully', [
             'merchant_txn_no' => $donation->merchant_txn_no,
             'status' => $txnStatus,
-            'updated_from' => request()->path()
+            'updated_from' => request()->path(),
         ]);
 
         return $donation;
@@ -203,14 +213,14 @@ class PaymentController extends Controller
     public function handleWebhook(Request $request)
     {
         Log::info('Webhook Received', [
-            'payload' => $request->all()
+            'payload' => $request->all(),
         ]);
 
         $this->updateDonationFromGateway($request);
 
         // Always return success quickly
         return response()->json([
-            'status' => 'OK'
+            'status' => 'OK',
         ]);
     }
 
@@ -220,12 +230,12 @@ class PaymentController extends Controller
     public function handleCallback(Request $request)
     {
         Log::info('Callback Received', [
-            'payload' => $request->all()
+            'payload' => $request->all(),
         ]);
 
         $donation = $this->updateDonationFromGateway($request);
 
-        if (!$donation) {
+        if (! $donation) {
             return view('donation.callback_error');
         }
 
@@ -236,12 +246,12 @@ class PaymentController extends Controller
 
         if ($isApi) {
             return redirect()->away(
-                'https://wall.birnagar.org/payment/result?' . http_build_query([
-                    'status'   => $donation->status,
-                    'txnID'    => $donation->txn_id,
-                    'amount'   => $donation->amount,
-                    'message'  => $donation->response_description,
-                    'api_key'  => $donation->source,
+                'https://wall.birnagar.org/payment/result?'.http_build_query([
+                    'status' => $donation->status,
+                    'txnID' => $donation->txn_id,
+                    'amount' => $donation->amount,
+                    'message' => $donation->response_description,
+                    'api_key' => $donation->source,
                 ])
             );
         }
@@ -250,10 +260,9 @@ class PaymentController extends Controller
             'status' => $txnStatus,
             'txnID' => $donation->txn_id,
             'amount' => $donation->amount,
-            'respDescription' => $donation->response_description
+            'respDescription' => $donation->response_description,
         ]);
     }
-
 
     // ICICI callback
     // public function handleCallback(Request $request)
@@ -310,7 +319,7 @@ class PaymentController extends Controller
 
         if ($validator->fails()) {
             return redirect()->away(
-                'https://wall.birnagar.org/payment/result?' . http_build_query([
+                'https://wall.birnagar.org/payment/result?'.http_build_query([
                     'status' => 'failed',
                     'message' => 'Invalid Transaction details',
                 ])
@@ -365,7 +374,7 @@ class PaymentController extends Controller
     // Helper: curl POST
     private function curlPost($url, $payload)
     {
-        Log::info("Executing curlPost", ['url' => $url]);
+        Log::info('Executing curlPost', ['url' => $url]);
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
@@ -374,12 +383,12 @@ class PaymentController extends Controller
         $response = curl_exec($ch);
 
         if (curl_errno($ch)) {
-             Log::error('Curl Error', ['error' => curl_error($ch)]);
+            Log::error('Curl Error', ['error' => curl_error($ch)]);
         }
 
         curl_close($ch);
-        Log::info("Curl Raw Response: " . $response);
+        Log::info('Curl Raw Response: '.$response);
+
         return json_decode($response, true);
     }
-
 }
