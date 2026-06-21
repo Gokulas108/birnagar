@@ -140,7 +140,7 @@
           </div>
         </div>
 
-        <divs
+        <div
           class="space-y-4 text-stone-700 leading-relaxed text-sm text-justify">
           <p>Dear Devotees,</p>
           <p>
@@ -153,7 +153,7 @@
             amount. Let us build this sanctuary together for the
             pleasure of Guru and Gauranga.
           </p>
-        </divs>
+        </div>
 
         <div
           class="mt-8 pt-6 border-t border-stone-100 flex justify-between items-end">
@@ -243,155 +243,162 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <div
-            @click="setSeva('sqft', '7501')"
+            @click="setSeva('tulasi', '5000')"
             class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
-            :class="selectedSeva === 'sqft' ? 'selected' : 'border-stone-200'">
+            :class="selectedSeva === 'tulasi' ? 'selected' : 'border-stone-200'">
             <div class="flex items-start justify-between mb-2">
-              <div class="flex items-center gap-3">
-                <div
-                  class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
-                  <i class="fas fa-th"></i>
-                </div>
-                <div>
-                  <span class="block text-stone-800 font-bold text-sm">Pādapadma</span>
-                  <span class="block text-saffron-600 font-bold text-xs">₹7,501</span>
-                </div>
+              <div>
+                <span class="block text-stone-800 font-bold text-sm">Tulasi Seva (½ Sq.Ft)</span>
+                <span class="block text-saffron-600 font-bold text-xs">₹5,000</span>
               </div>
-              <div
-                x-show="selectedSeva === 'sqft'"
-                class="text-saffron-500">
+              <div x-show="selectedSeva === 'tulasi'" class="text-saffron-500">
                 <i class="fas fa-check-circle"></i>
               </div>
             </div>
-            <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
-              Sponsor one square foot of sacred ground to build the foundation.
+            <p class="text-xs text-stone-500 leading-snug">
+              Sponsor a half square foot of sacred ground.
             </p>
           </div>
 
           <div
-            @click="setSeva('land', '25001')"
+            @click="setSeva('kamadenu', '10000')"
             class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
-            :class="selectedSeva === 'land' ? 'selected' : 'border-stone-200'">
+            :class="selectedSeva === 'kamadenu' ? 'selected' : 'border-stone-200'">
             <div class="flex items-start justify-between mb-2">
-              <div class="flex items-center gap-3">
-                <div
-                  class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
-                  <i class="fas fa-utensils"></i>
-                </div>
-                <div>
-                  <span class="block text-stone-800 font-bold text-sm">Bhūmi-Dāna</span>
-                  <span class="block text-saffron-600 font-bold text-xs">₹25,001</span>
-                </div>
+              <div>
+                <span class="block text-stone-800 font-bold text-sm">Kamadenu Seva (1 Sq.Ft)</span>
+                <span class="block text-saffron-600 font-bold text-xs">₹10,000</span>
               </div>
-              <div
-                x-show="selectedSeva === 'land'"
-                class="text-saffron-500">
+              <div x-show="selectedSeva === 'kamadenu'" class="text-saffron-500">
                 <i class="fas fa-check-circle"></i>
               </div>
             </div>
-            <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
-              Help prepare and sanctify the sacred soil for the temple manifestation.
+            <p class="text-xs text-stone-500 leading-snug">
+              Sponsor one square foot of sacred ground.
             </p>
           </div>
 
           <div
-            @click="setSeva('foundation', '50001')"
+            @click="setSeva('gajendra', '25000')"
             class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
-            :class="selectedSeva === 'foundation' ? 'selected' : 'border-stone-200'">
+            :class="selectedSeva === 'gajendra' ? 'selected' : 'border-stone-200'">
             <div class="flex items-start justify-between mb-2">
-              <div class="flex items-center gap-3">
-                <div
-                  class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
-                  <i class="fas fa-ruler-combined"></i>
-                </div>
-                <div>
-                  <span class="block text-stone-800 font-bold text-sm">Sthāpana</span>
-                  <span class="block text-saffron-600 font-bold text-xs">₹50,001</span>
-                </div>
+              <div>
+                <span class="block text-stone-800 font-bold text-sm">Gajendra Seva (2.5 Sq.Ft)</span>
+                <span class="block text-saffron-600 font-bold text-xs">₹25,000</span>
               </div>
-              <div
-                x-show="selectedSeva === 'foundation'"
-                class="text-saffron-500">
+              <div x-show="selectedSeva === 'gajendra'" class="text-saffron-500">
                 <i class="fas fa-check-circle"></i>
               </div>
             </div>
-            <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
-              Establish the spiritual roots of the library and memorial hall.
+            <p class="text-xs text-stone-500 leading-snug">
+              Sponsor two and a half square feet of sacred ground.
             </p>
           </div>
 
           <div
-            @click="setSeva('temple','100001')"
+            @click="setSeva('surabhi', '50000')"
             class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
-            :class="selectedSeva === 'temple' ? 'selected' : 'border-stone-200'">
+            :class="selectedSeva === 'surabhi' ? 'selected' : 'border-stone-200'">
             <div class="flex items-start justify-between mb-2">
-              <div class="flex items-center gap-3">
-                <div
-                  class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
-                  <i class="fas fa-heart"></i>
-                </div>
-                <div>
-                  <span class="block text-stone-800 font-bold text-sm">Pratiṣṭhā</span>
-                  <span class="block text-saffron-600 font-bold text-xs">₹1,00,001</span>
-                </div>
+              <div>
+                <span class="block text-stone-800 font-bold text-sm">Surabhi Seva (5 Sq.Ft)</span>
+                <span class="block text-saffron-600 font-bold text-xs">₹50,000</span>
               </div>
-              <div
-                x-show="selectedSeva === 'temple'"
-                class="text-saffron-500">
+              <div x-show="selectedSeva === 'surabhi'" class="text-saffron-500">
                 <i class="fas fa-check-circle"></i>
               </div>
             </div>
-            <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
-              A transformative vow to fulfill the vision of the Ācāryas for future generations.
+            <p class="text-xs text-stone-500 leading-snug">
+              Sponsor five square feet of sacred ground.
             </p>
           </div>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div
+            @click="setSeva('hanumanta', '100000')"
+            class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
+            :class="selectedSeva === 'hanumanta' ? 'selected' : 'border-stone-200'">
+            <div class="flex items-start justify-between mb-2">
+              <div>
+                <span class="block text-stone-800 font-bold text-sm">Hanumanta Seva (10 Sq.Ft)</span>
+                <span class="block text-saffron-600 font-bold text-xs">₹1,00,000</span>
+              </div>
+              <div x-show="selectedSeva === 'hanumanta'" class="text-saffron-500">
+                <i class="fas fa-check-circle"></i>
+              </div>
+            </div>
+            <p class="text-xs text-stone-500 leading-snug">
+              Sponsor ten square feet of sacred ground.
+            </p>
+          </div>
+
+          <div
+            @click="setSeva('garuda', '200000')"
+            class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
+            :class="selectedSeva === 'garuda' ? 'selected' : 'border-stone-200'">
+            <div class="flex items-start justify-between mb-2">
+              <div>
+                <span class="block text-stone-800 font-bold text-sm">Garuda Seva (20 Sq.Ft)</span>
+                <span class="block text-saffron-600 font-bold text-xs">₹2,00,000</span>
+              </div>
+              <div x-show="selectedSeva === 'garuda'" class="text-saffron-500">
+                <i class="fas fa-check-circle"></i>
+              </div>
+            </div>
+            <p class="text-xs text-stone-500 leading-snug">
+              Sponsor twenty square feet of sacred ground.
+            </p>
+          </div>
+
+          <div
+            @click="setSeva('ananta', '500000')"
+            class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
+            :class="selectedSeva === 'ananta' ? 'selected' : 'border-stone-200'">
+            <div class="flex items-start justify-between mb-2">
+              <div>
+                <span class="block text-stone-800 font-bold text-sm">Ananta Sesa (50 Sq.Ft)</span>
+                <span class="block text-saffron-600 font-bold text-xs">₹5,00,000</span>
+              </div>
+              <div x-show="selectedSeva === 'ananta'" class="text-saffron-500">
+                <i class="fas fa-check-circle"></i>
+              </div>
+            </div>
+            <p class="text-xs text-stone-500 leading-snug">
+              Sponsor fifty square feet of sacred ground.
+            </p>
+          </div>
+
           <div
             @click="setCustom()"
-            class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white md:col-span-2"
+            class="seva-option border rounded-xl p-4 cursor-pointer relative bg-white"
             :class="selectedSeva === 'custom' ? 'selected' : 'border-stone-200'">
             <div class="flex items-start justify-between mb-2">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center">
-                  <i class="fas fa-hand-holding-heart"></i>
-                </div>
-                <div>
-                  <span class="block text-stone-800 font-bold text-sm">General Donation</span>
-                  <span class="block text-saffron-600 font-bold text-xs">Any Amount</span>
-                </div>
+              <div>
+                <span class="block text-stone-800 font-bold text-sm">General Donation</span>
+                <span class="block text-saffron-600 font-bold text-xs">Any Amount</span>
               </div>
               <div x-show="selectedSeva === 'custom'" class="text-saffron-500">
                 <i class="fas fa-check-circle"></i>
               </div>
             </div>
-            <p class="text-xs text-stone-500 leading-snug pl-[3.25rem]">
+            <p class="text-xs text-stone-500 leading-snug">
               Contribute any amount towards the Birnagar Temple Project. Every rupee counts.
             </p>
           </div>
-
+        </div>
+        <label class="text-[10px] font-bold text-stone-400 uppercase tracking-wider mb-2 block">Donation Amount (INR)</label>
+        <div class="relative group">
+          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 font-bold text-xl group-focus-within:text-saffron-500 transition">₹</span>
+          <input
+            x-ref="customInput"
+            type="number"
+            name="amount"
+            x-model="amount"
+            class="w-full bg-stone-50 border border-stone-200 rounded-xl py-4 pl-10 pr-4 text-2xl font-bold text-stone-800 focus:ring-2 focus:ring-saffron-500 outline-none transition shadow-inner"
+            placeholder="Enter Amount" />
         </div>
 
-
-
-        <div class="relative mb-6">
-          <label
-            class="text-[10px] font-bold text-stone-400 uppercase tracking-wider mb-2 block">Donation Amount (INR)</label>
-          <div class="relative group">
-            <span
-              class="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 font-bold text-xl group-focus-within:text-saffron-500 transition">₹</span>
-            <input
-              x-ref="customInput"
-              type="number"
-              name="amount"
-              x-model="amount"
-              class="w-full bg-stone-50 border border-stone-200 rounded-xl py-4 pl-10 pr-4 text-2xl font-bold text-stone-800 focus:ring-2 focus:ring-saffron-500 outline-none transition shadow-inner"
-              placeholder="Enter Amount" />
-          </div>
-        </div>
-
-        <div class="space-y-4 mb-6">
+        <div class="space-y-4 mb-6 mt-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label
@@ -507,26 +514,29 @@
         </div>
 
 
-        <div x-show="amount > 10000"
-          x-collapse class="mt-3 mb-8">
+        <div x-show="Number(amount) >= 10000" x-collapse class="mt-3 mb-8">
           <label
-            class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">PAN Card Number</label>
+            class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">PAN Card Number <span x-show="Number(amount) >= 10000" class="text-red-500">*</span></label>
           <input
             type="text"
             name="pan"
+            x-bind:required="Number(amount) >= 10000"
             class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 uppercase tracking-widest placeholder:normal-case transition"
             placeholder="ABCDE1234F" />
           <p class="text-[10px] text-stone-400 mt-1 italic">
             Make sure the name matches with the one on your PAN card.
           </p>
+        </div>
 
+        <div class="mt-3 mb-8">
           <div class="mt-4 space-y-4">
             <div>
               <label
-                class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">Complete Address</label>
+                class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">Complete Address <span class="text-red-500">*</span></label>
               <textarea
                 name="address"
                 rows="2"
+                required
                 class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition resize-none"
                 placeholder="Street Address, Apartment, Building"></textarea>
             </div>
@@ -534,18 +544,20 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label
-                  class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">City</label>
+                  class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">City <span class="text-red-500">*</span></label>
                 <input
                   type="text"
                   name="city"
+                  required
                   class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
                   placeholder="e.g. Kolkata" />
               </div>
               <div>
                 <label
-                  class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">State</label>
+                  class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">State <span class="text-red-500">*</span></label>
                 <select
                   name="state"
+                  required
                   class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition">
                   <option value="">Select State</option>
                   <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -590,10 +602,11 @@
 
             <div>
               <label
-                class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">PIN Code</label>
+                class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">PIN Code <span class="text-red-500">*</span></label>
               <input
                 type="text"
                 name="pincode"
+                required
                 maxlength="6"
                 class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
                 placeholder="700001" />
@@ -631,22 +644,6 @@
             class="text-[10px] bg-white/20 px-2 py-0.5 rounded"
             x-text="'(' + frequency + ')'"></span>
         </button>
-
-        <div
-          class="flex justify-center gap-4 mt-6 opacity-40 grayscale hover:grayscale-0 transition duration-500">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
-            class="h-5" />
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
-            class="h-5" />
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
-            class="h-5" />
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg"
-            class="h-5" />
-        </div>
       </form>
     </div>
 
