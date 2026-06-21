@@ -179,6 +179,16 @@
     amount: '',
     selectedSeva: '',
     customAmount: false,
+    sevaLabels: {
+        tulasi:    'Tulasi Seva (½ Sq.Ft)',
+        kamadenu:  'Kamadenu Seva (1 Sq.Ft)',
+        gajendra:  'Gajendra Seva (2.5 Sq.Ft)',
+        surabhi:   'Surabhi Seva (5 Sq.Ft)',
+        hanumanta: 'Hanumanta Seva (10 Sq.Ft)',
+        garuda:    'Garuda Seva (20 Sq.Ft)',
+        ananta:    'Ananta Sesa (50 Sq.Ft)',
+        custom:    'General Donation',
+    },
 
     init() {
         // Read URL parameters
@@ -236,6 +246,8 @@
       </div>
       <form method="POST" action="{{ route('payment.initiate') }}" class="p-6 md:p-8">
         @csrf
+        <input type="hidden" name="donation_type" :value="sevaLabels[selectedSeva] || 'General Donation'">
+
         <p
           class="text-[10px] font-bold text-stone-400 uppercase tracking-wider mb-3">
           Select your Seva
