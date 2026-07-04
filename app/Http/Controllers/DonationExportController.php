@@ -49,6 +49,12 @@ class DonationExportController extends Controller
             'amount',
             'status',
             'created_at',
+            'address',
+            'city',
+            'state',
+            'pincode',
+            'pan',
+            'donation_type',
         ]);
 
         $hasMore = $rows->count() > self::PAGE_SIZE;
@@ -64,6 +70,12 @@ class DonationExportController extends Controller
             'amount' => (string) $d->amount,
             'status' => $d->status,
             'created_at' => optional($d->created_at)->toIso8601String(),
+            'address' => $d->address,
+            'city' => $d->city,
+            'state' => $d->state,
+            'pincode' => $d->pincode,
+            'pan' => $d->pan,
+            'donation_type' => $d->donation_type,
         ])->values();
 
         return response()->json([
