@@ -40,10 +40,10 @@
         district, Bengal) and passed away in 1914. He was a householder,
         magistrate, scholar, poet and preacher in the line of the
         Gaudiya Vaishnava tradition, and is regarded as one of the
-        prominent acharyas of the disciplic succession from Lord
+        prominent acharyas in the disciplic succession from Lord
         Krishna. He re-introduced the full teachings of Sri Chaitanya
         Mahaprabhu, wrote extensively, composed devotional songs, and
-        laid foundations for modern Krishna-consciousness.
+        laid foundations for Krishna-consciousness in the modern world.
       </p>
       <p>
         According to the Gaudiya Vaishnava sources, Srila Bhaktivinoda Thakura’s eternal form is that of a direct
@@ -94,15 +94,15 @@
           The Golden Light Across the Jalangi
         </h2>
         <p class="text-lg font-light leading-relaxed mb-6 opacity-90">
-          While residing at Svananda Sukhada Kunja, Bhaktivinoda Thakura
+          While residing at Svananda Sukhada Kunja, Srila Bhaktivinoda Thakura
           beheld Sri Chaitanya and Nityananda Prabhu dancing in a
-          brilliant golden light[cite: 20].
+          brilliant golden light.
         </p>
         <p class="text-lg font-light leading-relaxed opacity-90">
           This led to the identification of the
-          <strong>Yoga Pitha</strong>, the true birthplace of Lord
+          <strong>Yoga Pitha</strong>, the actual birthplace of Lord
           Chaitanya, which he later confirmed with Jagannatha Dasa
-          Babaji Maharaj[cite: 21, 22].
+          Babaji Maharaja.
         </p>
       </div>
       <div class="border-l border-saffron-500/30 pl-8">
@@ -182,27 +182,45 @@
       </h3>
       <ul class="space-y-4">
         <li class="flex gap-4">
+          <span class="text-amber-800 font-bold">1886</span>
+          <div>
+            <strong class="block text-stone-950">Sri Caitanya Siksamrta</strong>
+          </div>
+        </li>
+        <li class="flex gap-4">
           <span class="text-amber-800 font-bold">1896</span>
           <div>
-            <strong class="block text-stone-950">Jaiva-Dharma</strong>
-            <span class="text-sm text-amber-950/70">A novel-style devotional work explaining the soul's
-              nature[cite: 27].</span>
+            <strong class="block text-stone-950">Jaiva Dharma</strong>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="text-amber-800 font-bold">1880</span>
+          <div>
+            <strong class="block text-stone-950">Sri Krishna Samhita</strong>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="text-amber-800 font-bold">1900</span>
+          <div>
+            <strong class="block text-stone-950">Sri Harinama Chintamani</strong>
           </div>
         </li>
         <li class="flex gap-4">
           <span class="text-amber-800 font-bold">1893</span>
           <div>
-            <strong class="block text-stone-950">Tattva-Viveka</strong>
-            <span class="text-sm text-amber-950/70">A concise work awakening intelligence in absolute
-              truth[cite: 26].</span>
+            <strong class="block text-stone-950">Bhakti Tattva Viveka</strong>
           </div>
         </li>
         <li class="flex gap-4">
-          <span class="text-amber-800 font-bold">Songs</span>
+          <span class="text-amber-800 font-bold">1895</span>
           <div>
-            <strong class="block text-stone-950">Kalyana-Kalpataru & Saranagati</strong>
-            <span class="text-sm text-amber-950/70">Hundreds of devotional songs that nourish the heart[cite:
-              29].</span>
+            <strong class="block text-stone-950">Amrita Pravaha Bhashya of Sri Caitanya Caritamrta</strong>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="text-amber-800 font-bold">1881-1893</span>
+          <div>
+            <strong class="block text-stone-950">Sharanagati, Kalyana Kalpataru (song collections)</strong>
           </div>
         </li>
       </ul>
@@ -218,12 +236,12 @@
         <p>
           "Give up all false pride. Always think yourself to be
           worthless, destitute, lower and more humble than straw in the
-          street." [cite: 35]
+          street."
         </p>
         <p>
           "Practice forgiveness like the tree. Knowing that Lord Sri
           Krishna lives within all living beings, you should respect and
-          honor everyone at all times." [cite: 35]
+          honor everyone at all times."
         </p>
       </blockquote>
       <div class="mt-8 pt-6 border-t border-stone-800">
@@ -231,9 +249,8 @@
           Preaching Legacy
         </p>
         <p class="text-sm mt-2">
-          His 7th son,
           <strong>Srila Bhaktisiddhanta Saraswati Thakura</strong>,
-          carried this mission forward[cite: 13].
+          carried this mission forward.
         </p>
       </div>
     </div>
@@ -251,7 +268,7 @@
   <div class="mt-8 flex justify-center items-center gap-4">
     <div class="h-px w-12 bg-saffron/50"></div>
     <span
-      class="text-saffron font-bold tracking-widest uppercase text-xs">A Tribute by his son</span>
+      class="text-saffron font-bold tracking-widest uppercase text-xs">A Tribute by his son SRILA BHAKTISIDDHANTA SARASWATI THAKUR</span>
     <div class="h-px w-12 bg-saffron/50"></div>
   </div>
 </div>

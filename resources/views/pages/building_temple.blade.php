@@ -32,7 +32,7 @@
       <p class="text-stone-600 font-light leading-relaxed">
         Śrīla Bhaktivinoda Ṭhākura revived lost teachings, authored
         timeless spiritual works, and envisioned a global spiritual
-        movement. Building a temple in birnagar, his birthplace, stands as an act
+        movement. Building a temple in Birnagar, his birthplace, stands as an act
         of gratitude and devotion to the pioneer who ignited bhakti in modern times.
       </p>
     </div>
@@ -103,11 +103,7 @@
           </p>
         </div>
         <ul class="mt-8 space-y-2">
-          <li
-            class="flex items-center gap-3 text-stone-800 text-sm font-medium">
-            <i class="fas fa-check-circle text-saffron-500"></i> Restore
-            Sanctity
-          </li>
+
           <li
             class="flex items-center gap-3 text-stone-800 text-sm font-medium">
             <i class="fas fa-check-circle text-saffron-500"></i> Create
@@ -117,6 +113,10 @@
             class="flex items-center gap-3 text-stone-800 text-sm font-medium">
             <i class="fas fa-check-circle text-saffron-500"></i>
             Preserve History
+          </li>
+          <li
+            class="flex items-center gap-3 text-stone-800 text-sm font-medium">
+            <i class="fas fa-check-circle text-saffron-500"></i> Broadcast the glories of the Acarya
           </li>
         </ul>
       </div>

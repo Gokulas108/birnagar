@@ -173,7 +173,7 @@
                     Vision
                 </a>
 
-                <a href="/campaign"
+                <!-- <a href="/campaign"
                     class="text-sm font-semibold transition-colors uppercase
                         @if(request()->is('campaign'))
                             text-orange-300 hover:text-orange-300 border-b-2 border-orange-300
@@ -181,7 +181,7 @@
                             text-stone-300 hover:text-saffron-400
                         @else
                             text-amber-950 hover:text-saffron-600
-                        @endif">Campaign</a>
+                        @endif">Campaign</a> -->
 
                 @unless(request()->is('campaign'))
                 <a href="/donation"
@@ -301,18 +301,18 @@
                             </div> -->
                     </div>
 
-                    <a href="/campaign" class="py-3 px-4 rounded-lg transition-colors
+                    <!-- <a href="/campaign" class="py-3 px-4 rounded-lg transition-colors
                             @if(request()->is('campaign'))
                                 font-semibold text-orange-300 bg-orange-500/20
                             @elseif(request()->path() === '/')
                                 text-stone-300 hover:bg-saffron-500/10 hover:text-saffron-300
                             @else
                                 text-amber-950 hover:bg-orange-100
-                            @endif">Campaign</a>
+                            @endif">Campaign</a> -->
 
-                    @unless(request()->is('campaign'))
+                    <!-- @unless(request()->is('campaign'))
                     <a href="/donation" class="mt-2 text-white font-bold bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-red-600 hover:to-red-500 px-6 py-3 rounded-full text-center transition-all transform hover:scale-105 shadow-lg text-sm uppercase tracking-wider">Donate Now</a>
-                    @endunless
+                    @endunless -->
                 </div>
             </div>
         </div>
