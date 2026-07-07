@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donation;
+use App\Services\WhatsAppReceiptSender;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -48,6 +49,7 @@ class PaymentController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'mobile' => 'required|string|max:15',
+            'country_code' => 'nullable|string|max:8',
             'amount' => 'required|numeric|min:1',
             'pan' => 'nullable|string|max:10',
             'address' => 'nullable|string|max:500',
@@ -61,10 +63,17 @@ class PaymentController extends Controller
         $amount = number_format($request->amount, 2, '.', '');
         $txnDate = now()->format('YmdHis');
 
+        // Merge the form's country code into the stored mobile as digits-only
+        // (e.g. 919876543210) — the format Doubletick's `to` field expects. The
+        // API/wall flow sends no country_code, so its mobile is stored as-is.
+        $mobileDigits = preg_replace('/\D/', '', (string) $request->mobile);
+        $ccDigits = preg_replace('/\D/', '', (string) $request->country_code);
+        $mobile = $ccDigits !== '' ? $ccDigits.$mobileDigits : $mobileDigits;
+
         $donation = Donation::create([
             'name' => $request->name,
             'email' => $request->email,
-            'mobile' => $request->mobile,
+            'mobile' => $mobile,
             'amount' => $amount,
             'merchant_txn_no' => $merchantTxnNo,
             'status' => 'initiated',
@@ -179,6 +188,12 @@ class PaymentController extends Controller
         $donation->payment_datetime = $request->paymentDateTime ?? null;
 
         $donation->save();
+
+        // Send the WhatsApp receipt for completed web donations (best-effort;
+        // the sender swallows its own errors so this never breaks the callback).
+        if ($donation->status === 'success' && $donation->source === 'web') {
+            app(WhatsAppReceiptSender::class)->send($donation);
+        }
 
         // Notify API client system after status update for API initiated flows.
         if ($donation->source && Str::startsWith($donation->source, 'api_')) {

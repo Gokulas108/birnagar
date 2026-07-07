@@ -512,7 +512,7 @@
                 </select>
               </div>
               <div class="md:col-span-2">
-                <label class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">Mobile Number <span class="text-red-500">*</span></label>
+                <label class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">WhatsApp Number <span class="text-red-500">*</span></label>
                 <input
                   type="tel"
                   name="mobile"
@@ -521,7 +521,7 @@
             </div>
           </div>
           <p class="text-[10px] text-stone-400 mt-1 italic">
-            Please enter your mobile number without the country code (e.g., 9876543210).
+            Your donation receipt will be sent to this WhatsApp number. Please enter it without the country code (e.g., 9876543210).
           </p>
         </div>
 
