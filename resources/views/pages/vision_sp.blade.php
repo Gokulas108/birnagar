@@ -18,7 +18,7 @@
             Srila Prabhupada placed great importance on the construction of a temple at Birnagar,
             repeatedly expressing his desire that this sacred site be properly developed and honored.
             Standing firmly in the Gauḍīya Vaiṣṇava paramparā, he carried forward Bhaktivinoda
-            Ṭhākura’s vision of a revived, pure, and world-embracing bhakti, presenting the message of
+            Ṭhākura’s vision of a revived, pure, and world-embracing bhakti movement, presenting the message of
             Śrī Caitanya Mahāprabhu with courage, and compassion.
             For Śrīla Prabhupāda, this was not merely a building project—it was a vital service, meant
             to preserve the legacy of the Gauḍīya Vaiṣṇava tradition and to provide a spiritual center
@@ -92,7 +92,7 @@
             <!-- TEXT COLUMN -->
             <div class="w-full md:w-1/2">
                 <h2 class="text-3xl md:text-4xl text-stone-900 mb-6">
-                    HH Jayapataka Swami Maharaja's Vision
+                    HH Jayapataka Swami's Vision
                 </h2>
 
                 <p class="text-lg text-stone-600 leading-relaxed mb-8">
@@ -144,7 +144,7 @@
                 </a>
 
             </button> -->
-            <a href="/campaign" class="inline-block bg-amber-800 text-orange-50 px-8 py-3 rounded-full font-semibold hover:bg-amber-900 transition shadow-lg hover:shadow-orange-600/20">
+            <a href="/donation" class="inline-block bg-amber-800 text-orange-50 px-8 py-3 rounded-full font-semibold hover:bg-amber-900 transition shadow-lg hover:shadow-orange-600/20">
                 Support the Vision
             </a>
 

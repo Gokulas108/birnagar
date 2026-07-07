@@ -92,237 +92,232 @@
         }
     </style>
 
-    {{-- ─── SLIDE 2: WALL OF LEGACY (moved back) ─────────────────── --}}
+    {{-- ─── SLIDE 2: WALL OF LEGACY (moved back) ───────────────────
     <div class="absolute inset-0 flex flex-col transition-opacity duration-700 opacity-0 pointer-events-none z-10"
         id="slide-1">
 
         <div class="absolute inset-0 bg-stone-950">
             <img
                 src="{{ asset('images/campaign-background.png') }}"
-                alt="Wall of Legacy"
-                class="w-full h-full object-cover object-center opacity-100" />
-        </div>
+    alt="Wall of Legacy"
+    class="w-full h-full object-cover object-center opacity-100" />
+</div>
 
-        <div class="absolute right-0 top-0 bottom-0 w-full sm:w-[56%] lg:w-[50%]
+<div class="absolute right-0 top-0 bottom-0 w-full sm:w-[56%] lg:w-[50%]
                 flex flex-col justify-center items-center sm:items-start opacity-0
                 px-6 sm:px-10 lg:px-14 xl:px-16 gap-2 sm:gap-3"
-            id="wol-panel"
-            style="animation: wolSlideIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;">
+    id="wol-panel"
+    style="animation: wolSlideIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;">
 
-            {{-- Cursive name --}}
-            <p class="mb-0 text-center sm:text-left"
-                style="font-family: 'Dancing Script', cursive;
+    <p class="mb-0 text-center sm:text-left"
+        style="font-family: 'Dancing Script', cursive;
                   font-size: clamp(20px, 2.5vw, 32px);
                   color: rgba(255, 210, 120, 0.75);
                   font-weight: 600;
                   line-height: 1.1;">
-                Srila Bhaktivinoda Thakur's
-            </p>
+        Srila Bhaktivinoda Thakur's
+    </p>
 
-            {{-- Title --}}
-            <h1 class="font-black leading-[1.0] mb-1 text-center sm:text-left"
-                style="font-family:'Cinzel','Georgia',serif;
+    <h1 class="font-black leading-[1.0] mb-1 text-center sm:text-left"
+        style="font-family:'Cinzel','Georgia',serif;
                    font-size:clamp(38px,5vw,60px);
                    color:#FFD580;
                    text-shadow:0 0 40px rgba(200,90,0,0.35);">
-                Wall of Legacy
-            </h1>
+        Wall of Legacy
+    </h1>
 
-            {{-- Campaign subtitle --}}
-            <div class="flex items-center justify-center sm:justify-start gap-3 mb-3">
-                <div class="w-7 h-px bg-orange-600"></div>
-                <span class="text-[10px] sm:text-[13px] uppercase tracking-[0.15em] sm:tracking-[0.22em] font-semibold"
-                    style="color: rgba(255,190,80,0.6);">
-                    3-Month Fundraising Campaign 2026
-                </span>
-            </div>
+    <div class="flex items-center justify-center sm:justify-start gap-3 mb-3">
+        <div class="w-7 h-px bg-orange-600"></div>
+        <span class="text-[10px] sm:text-[13px] uppercase tracking-[0.15em] sm:tracking-[0.22em] font-semibold"
+            style="color: rgba(255,190,80,0.6);">
+            3-Month Fundraising Campaign 2026
+        </span>
+    </div>
 
-            {{-- Date pill --}}
-            <div class="inline-flex items-center gap-2 mb-3 self-center sm:self-start px-3 py-1 rounded-md"
-                style="background:rgba(200,90,0,0.15); border:1px solid rgba(200,110,0,0.28);">
-                <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-                <span class="text-[17px] tracking-wide"
-                    style="color:rgba(255,200,120,0.78);">
-                    March 29 — June 30, 2026
-                </span>
-            </div>
+    <div class="inline-flex items-center gap-2 mb-3 self-center sm:self-start px-3 py-1 rounded-md"
+        style="background:rgba(200,90,0,0.15); border:1px solid rgba(200,110,0,0.28);">
+        <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+        <span class="text-[17px] tracking-wide"
+            style="color:rgba(255,200,120,0.78);">
+            March 29 — June 30, 2026
+        </span>
+    </div>
 
-            {{-- Body --}}
-            <p class="mb-4 font-light leading-relaxed text-center sm:text-left"
-                style="font-size:clamp(12px,1.25vw,14px);
+    <p class="mb-4 font-light leading-relaxed text-center sm:text-left"
+        style="font-size:clamp(12px,1.25vw,14px);
           color:rgba(255,235,200,0.8);
           max-width:400px;">
-                Join the <span style="color:#FFD580;font-weight:700;">100,000 devotee mission,</span><br class="sm:hidden">
-                and become the first to get<br class="sm:hidden">
-                your name etched on the <span style="color:#FFD580;font-weight:700;">Wall of Legacy.</span>
-            </p>
+        Join the <span style="color:#FFD580;font-weight:700;">100,000 devotee mission,</span><br class="sm:hidden">
+        and become the first to get<br class="sm:hidden">
+        your name etched on the <span style="color:#FFD580;font-weight:700;">Wall of Legacy.</span>
+    </p>
 
-            {{-- Button --}}
-            <div class="flex justify-center sm:justify-start">
-                <a href="/campaign"
-                    class="inline-flex items-center gap-3 font-bold uppercase rounded-full transition-all transform hover:-translate-y-1"
-                    style="color:#FFD580;
+    <div class="flex justify-center sm:justify-start">
+        <a href="/campaign"
+            class="inline-flex items-center gap-3 font-bold uppercase rounded-full transition-all transform hover:-translate-y-1"
+            style="color:#FFD580;
                       border:1.5px solid rgba(255,190,60,0.38);
                       padding:11px 28px;
                       font-size:12px;
                       letter-spacing:2px;
                       background:transparent;
                       text-decoration:none;">
-                    Join Now!
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                        stroke="#FFD580" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                </a>
-            </div>
-
-        </div>
+            Join Now!
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                stroke="#FFD580" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+        </a>
     </div>
 
-    <style>
-        @keyframes wolSlideIn {
-            from {
-                opacity: 0;
-                transform: translateX(56px);
-            }
+</div>
+</div>
+--}}
 
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+<style>
+    @keyframes wolSlideIn {
+        from {
+            opacity: 0;
+            transform: translateX(56px);
         }
 
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .wol-digit-box {
+        background: rgba(0, 0, 0, 0.45);
+        border: 1px solid rgba(255, 180, 40, 0.2);
+        border-radius: 8px;
+        width: 28px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Cinzel', 'Georgia', serif;
+        font-weight: 700;
+        font-size: 20px;
+        color: #FFD580;
+        position: relative;
+    }
+
+    .wol-digit-box::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 1px;
+        background: rgba(255, 180, 40, 0.1);
+    }
+
+    .wol-digit-comma {
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 5px;
+        color: rgba(255, 180, 40, 0.35);
+        font-size: 14px;
+        font-weight: 700;
+        font-family: 'Cinzel', 'Georgia', serif;
+    }
+
+    @media(min-width: 640px) {
         .wol-digit-box {
-            background: rgba(0, 0, 0, 0.45);
-            border: 1px solid rgba(255, 180, 40, 0.2);
-            border-radius: 8px;
-            width: 28px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cinzel', 'Georgia', serif;
-            font-weight: 700;
-            font-size: 20px;
-            color: #FFD580;
-            position: relative;
-        }
-
-        .wol-digit-box::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 50%;
-            height: 1px;
-            background: rgba(255, 180, 40, 0.1);
+            width: 40px;
+            height: 52px;
+            font-size: 28px;
         }
 
         .wol-digit-comma {
-            display: flex;
-            align-items: flex-end;
-            padding-bottom: 5px;
-            color: rgba(255, 180, 40, 0.35);
-            font-size: 14px;
-            font-weight: 700;
-            font-family: 'Cinzel', 'Georgia', serif;
+            font-size: 20px;
+            padding-bottom: 8px;
         }
+    }
+</style>
 
-        @media(min-width: 640px) {
-            .wol-digit-box {
-                width: 40px;
-                height: 52px;
-                font-size: 28px;
-            }
+<script>
+    (function() {
+        var CURRENT = 0;
+        var TARGET = 100000;
 
-            .wol-digit-comma {
-                font-size: 20px;
-                padding-bottom: 8px;
-            }
-        }
-    </style>
-
-    <script>
-        (function() {
-            var CURRENT = 0;
-            var TARGET = 100000;
-
-            function buildDigits(num) {
-                var container = document.getElementById('wolDevDigits');
-                if (!container) return;
-                var str = num.toLocaleString('en-IN');
-                container.innerHTML = '';
-                for (var i = 0; i < str.length; i++) {
-                    if (str[i] === ',') {
-                        var comma = document.createElement('span');
-                        comma.className = 'wol-digit-comma';
-                        comma.textContent = ',';
-                        container.appendChild(comma);
-                    } else {
-                        var box = document.createElement('div');
-                        box.className = 'wol-digit-box';
-                        box.textContent = str[i];
-                        container.appendChild(box);
-                    }
+        function buildDigits(num) {
+            var container = document.getElementById('wolDevDigits');
+            if (!container) return;
+            var str = num.toLocaleString('en-IN');
+            container.innerHTML = '';
+            for (var i = 0; i < str.length; i++) {
+                if (str[i] === ',') {
+                    var comma = document.createElement('span');
+                    comma.className = 'wol-digit-comma';
+                    comma.textContent = ',';
+                    container.appendChild(comma);
+                } else {
+                    var box = document.createElement('div');
+                    box.className = 'wol-digit-box';
+                    box.textContent = str[i];
+                    container.appendChild(box);
                 }
             }
-
-            buildDigits(CURRENT);
-
-            setTimeout(function() {
-                var pct = Math.round((CURRENT / TARGET) * 100);
-                var bar = document.getElementById('wolDevBar');
-                var lbl = document.getElementById('wolDevPct');
-                if (bar) bar.style.width = pct + '%';
-                if (lbl) lbl.textContent = pct + '%';
-            }, 500);
-        })();
-    </script>
-
-    <style>
-        @keyframes s2FadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(28px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
-        @keyframes s2FadeDown {
-            from {
-                opacity: 0;
-                transform: translateY(-16px);
-            }
+        buildDigits(CURRENT);
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        setTimeout(function() {
+            var pct = Math.round((CURRENT / TARGET) * 100);
+            var bar = document.getElementById('wolDevBar');
+            var lbl = document.getElementById('wolDevPct');
+            if (bar) bar.style.width = pct + '%';
+            if (lbl) lbl.textContent = pct + '%';
+        }, 500);
+    })();
+</script>
+
+<style>
+    @keyframes s2FadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(28px);
         }
-    </style>
 
-    <style>
-        @keyframes s1SlideRight {
-            from {
-                opacity: 0;
-                transform: translateX(60px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
-    </style>
+    }
 
-    {{-- ─── SLIDER CONTROLS ────────────────────────────────── --}}
+    @keyframes s2FadeDown {
+        from {
+            opacity: 0;
+            transform: translateY(-16px);
+        }
 
-    {{-- Dot navigation --}}
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<style>
+    @keyframes s1SlideRight {
+        from {
+            opacity: 0;
+            transform: translateX(60px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+</style>
+
+{{-- ─── SLIDER CONTROLS ────────────────────────────────── --}}
+
+{{--
     <div class="absolute bottom-10 sm:bottom-12 left-1/2 -translate-x-1/2 flex gap-2.5 z-30">
         <button onclick="heroGoTo(0)" id="dot-0"
             class="w-2.5 h-2.5 rounded-full bg-amber-400 scale-125 transition-all"></button>
@@ -330,28 +325,27 @@
             class="w-2.5 h-2.5 rounded-full bg-white/30 transition-all"></button>
     </div>
 
-    {{-- Arrow left --}}
     <button onclick="heroPrev()"
         class="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/30 border border-amber-400/25 text-amber-300 flex items-center justify-center text-xl hover:bg-orange-800/50 transition-all">
         &#8249;
     </button>
 
-    {{-- Arrow right --}}
     <button onclick="heroNext()"
         class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/30 border border-amber-400/25 text-amber-300 flex items-center justify-center text-xl hover:bg-orange-800/50 transition-all">
         &#8250;
     </button>
+    --}}
 
-    {{-- Progress bar --}}
-    <div class="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-orange-600 to-amber-400 z-30"
-        id="heroTimerBar" style="width:100%; transition:none;"></div>
+{{-- Progress bar --}}
+<div class="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-orange-600 to-amber-400 z-30"
+    id="heroTimerBar" style="width:100%; transition:none;"></div>
 
-    {{-- Scroll indicator --}}
-    <div class="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 mx-auto w-fit text-white/60 hover:text-saffron-400 flex flex-col items-center gap-1 sm:gap-2 cursor-pointer transition-colors z-20"
-        style="animation: scrollPulse 2.5s ease-in-out infinite;">
-        <span class="text-[9px] sm:text-[10px] uppercase tracking-widest font-light">Scroll</span>
-        <i class="fas fa-chevron-down text-base sm:text-lg"></i>
-    </div>
+{{-- Scroll indicator --}}
+<div class="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 mx-auto w-fit text-white/60 hover:text-saffron-400 flex flex-col items-center gap-1 sm:gap-2 cursor-pointer transition-colors z-20"
+    style="animation: scrollPulse 2.5s ease-in-out infinite;">
+    <span class="text-[9px] sm:text-[10px] uppercase tracking-widest font-light">Scroll</span>
+    <i class="fas fa-chevron-down text-base sm:text-lg"></i>
+</div>
 
 </div>{{-- end slider wrapper --}}
 
@@ -426,7 +420,7 @@
 
 <script>
     (function() {
-        const TOTAL = 2;
+        const TOTAL = 1;
         const INTERVAL = 20000;
         let current = 0;
         let autoTimer = null;
@@ -435,20 +429,30 @@
             // Hide current
             const prevSlide = document.getElementById('slide-' + current);
             const prevDot = document.getElementById('dot-' + current);
+            if (!prevSlide) {
+                return;
+            }
             prevSlide.classList.remove('opacity-100');
             prevSlide.classList.add('opacity-0', 'pointer-events-none');
-            prevDot.classList.remove('bg-amber-400', 'scale-125');
-            prevDot.classList.add('bg-white/30');
+            if (prevDot) {
+                prevDot.classList.remove('bg-amber-400', 'scale-125');
+                prevDot.classList.add('bg-white/30');
+            }
 
             current = idx;
 
             // Show next
             const nextSlide = document.getElementById('slide-' + current);
             const nextDot = document.getElementById('dot-' + current);
+            if (!nextSlide) {
+                return;
+            }
             nextSlide.classList.remove('opacity-0', 'pointer-events-none');
             nextSlide.classList.add('opacity-100');
-            nextDot.classList.remove('bg-white/30');
-            nextDot.classList.add('bg-amber-400', 'scale-125');
+            if (nextDot) {
+                nextDot.classList.remove('bg-white/30');
+                nextDot.classList.add('bg-amber-400', 'scale-125');
+            }
 
             // Reset progress bar
             const bar = document.getElementById('heroTimerBar');

@@ -201,7 +201,7 @@
   </div>
   <div class="w-full md:w-2/3">
     <p class="text-xs font-bold tracking-widest uppercase text-orange-700 mb-2">Spiritual Leadership</p>
-    <h2 class="text-3xl md:text-4xl font-bold text-heading mb-2" style="font-family:'Cinzel',serif;">HH Jayapataka Swami Maharaj</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-heading mb-2" style="font-family:'Cinzel',serif;">His Holiness Jayapataka Swami</h2>
     <p class="text-xs text-stone-500 uppercase tracking-wider font-bold border-b border-stone-200 pb-4 mb-6 inline-block">
       Inspirational Founder &amp; Spiritual Guide
     </p>
