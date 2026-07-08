@@ -48,4 +48,18 @@ return [
         'export_key' => env('WALL_EXPORT_KEY'),
     ],
 
+    // Doubletick WhatsApp (used to send the donation receipt on a completed web
+    // donation). Same account/key as the-wall-next app.
+    'doubletick' => [
+        'api_key' => env('DOUBLETICK_API_KEY'),
+        'waba_number' => env('DOUBLETICK_WABA_NUMBER', '919002977288'),
+        'language' => env('DOUBLETICK_TEMPLATE_LANGUAGE', 'en'),
+        'receipt_template' => env('DOUBLETICK_RECEIPT_TEMPLATE', 'general_donation_receipt'),
+    ],
+
+    // Stateless pdf-server (Heroku) that fills the receipt AcroForm template.
+    'pdf' => [
+        'receipt_url' => env('PDF_RECEIPT_URL', 'https://sbvt-pdf-gen-13a632ead426.herokuapp.com/generate-reciept'),
+    ],
+
 ];
