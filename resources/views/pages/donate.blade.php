@@ -220,7 +220,7 @@
     }
 }"
     @load="init()">
-    <div class="mb-4">
+    <!-- <div class="mb-4">
       <a
         href="/campaign"
         class="legacy-campaign-btn relative isolate overflow-hidden w-full inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400 px-6 py-4 text-xs md:text-sm font-extrabold uppercase tracking-wider text-white shadow-[0_14px_30px_rgba(249,115,22,0.35)] transition duration-300 hover:-translate-y-0.5 hover:scale-[1.01] hover:shadow-[0_18px_36px_rgba(249,115,22,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 focus-visible:ring-offset-2">
@@ -228,7 +228,7 @@
         <span>Click here to join the Wall Of Legacy Campaign</span>
         <i class="fas fa-arrow-right text-base"></i>
       </a>
-    </div>
+    </div> -->
 
     <div
       class="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-stone-100 mb-8">
