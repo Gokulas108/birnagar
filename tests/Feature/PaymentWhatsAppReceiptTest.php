@@ -15,9 +15,11 @@ beforeEach(function () {
         'services.pdf.receipt_url' => 'https://pdf.example.test/generate-reciept',
     ]);
 
-    // Catch-all fake so no test ever hits the network.
-    Http::fake(['*' => Http::response(['ok' => true], 200)]);
 });
+
+// Each test registers its own Http::fake() so a test can choose a failing
+// Doubletick response without the catch-all here always winning (the first
+// registered stub wins, so a beforeEach catch-all can't be overridden).
 
 function completeWebhook(Donation $donation): void
 {
@@ -32,6 +34,8 @@ function completeWebhook(Donation $donation): void
 }
 
 it('sends the general_donation_receipt template with the receipt PDF for a completed web donation', function () {
+    Http::fake(['*' => Http::response(['ok' => true], 200)]);
+
     $donation = Donation::create([
         'name' => 'Test Donor',
         'email' => 'donor@example.com',
@@ -46,8 +50,9 @@ it('sends the general_donation_receipt template with the receipt PDF for a compl
     completeWebhook($donation);
 
     expect($donation->fresh()->status)->toBe('success');
+    expect($donation->fresh()->receipt_sent)->toBeTrue();
 
-    Http::assertSent(function ($request) {
+    Http::assertSent(function ($request) use ($donation) {
         if ($request->url() !== 'https://public.doubletick.io/v2/whatsapp/message/template') {
             return false;
         }
@@ -55,18 +60,44 @@ it('sends the general_donation_receipt template with the receipt PDF for a compl
         $content = $request->data()['messages'][0]['content'];
         $templateData = $content['templateData'];
 
+        $query = [];
+        parse_str(parse_url($templateData['header']['mediaUrl'], PHP_URL_QUERY), $query);
+
         return $request['messages'][0]['to'] === '919876543210'
             && $content['templateName'] === 'general_donation_receipt'
             && $content['language'] === 'en'
             && $templateData['header']['type'] === 'DOCUMENT'
             && str_contains($templateData['header']['mediaUrl'], 'pdf.example.test/generate-reciept')
+            && ($query['receipt_no'] ?? null) === 'PG'.$donation->id
             && $templateData['header']['filename'] === 'Donation-Receipt.pdf'
             && $templateData['body']['placeholders'][0] === ['name' => 'Test Donor']
             && $templateData['body']['placeholders'][1] === ['amount' => '15,000'];
     });
 });
 
+it('marks receipt_sent false when Doubletick rejects the send', function () {
+    Http::fake(['*' => Http::response('nope', 500)]);
+
+    $donation = Donation::create([
+        'name' => 'Test Donor',
+        'email' => 'donor@example.com',
+        'mobile' => '919876543210',
+        'amount' => '15000.00',
+        'merchant_txn_no' => 'DONTEST127',
+        'status' => 'initiated',
+        'source' => 'web',
+        'donation_type' => 'General Donation',
+    ]);
+
+    completeWebhook($donation);
+
+    expect($donation->fresh()->status)->toBe('success');
+    expect($donation->fresh()->receipt_sent)->toBeFalse();
+});
+
 it('passes donation_type as the receipt notes and spells the amount in words', function () {
+    Http::fake(['*' => Http::response(['ok' => true], 200)]);
+
     $donation = Donation::create([
         'name' => 'Abhay Charan',
         'email' => 'abhay@example.com',
@@ -96,6 +127,8 @@ it('passes donation_type as the receipt notes and spells the amount in words', f
 });
 
 it('does not send a WhatsApp receipt for api (wall) donations', function () {
+    Http::fake(['*' => Http::response(['ok' => true], 200)]);
+
     $donation = Donation::create([
         'name' => 'Wall Donor',
         'email' => 'wall@example.com',
@@ -109,9 +142,12 @@ it('does not send a WhatsApp receipt for api (wall) donations', function () {
     completeWebhook($donation);
 
     Http::assertNotSent(fn ($request) => str_contains($request->url(), 'message/template'));
+    expect($donation->fresh()->receipt_sent)->toBeNull();
 });
 
 it('does not send a WhatsApp receipt for a failed donation', function () {
+    Http::fake(['*' => Http::response(['ok' => true], 200)]);
+
     $donation = Donation::create([
         'name' => 'Test Donor',
         'email' => 'donor@example.com',
@@ -130,4 +166,5 @@ it('does not send a WhatsApp receipt for a failed donation', function () {
 
     expect($donation->fresh()->status)->toBe('failed');
     Http::assertNotSent(fn ($request) => str_contains($request->url(), 'message/template'));
+    expect($donation->fresh()->receipt_sent)->toBeNull();
 });

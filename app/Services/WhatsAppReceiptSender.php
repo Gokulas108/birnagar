@@ -62,18 +62,41 @@ class WhatsAppReceiptSender
                 ]);
 
             if ($response->failed()) {
+                $this->markReceiptSent($donation, false);
+
                 Log::error('WhatsApp receipt send failed', [
                     'merchant_txn_no' => $donation->merchant_txn_no,
                     'status' => $response->status(),
                     'body' => $response->body(),
                 ]);
             } else {
+                $this->markReceiptSent($donation, true);
+
                 Log::info('WhatsApp receipt sent', [
                     'merchant_txn_no' => $donation->merchant_txn_no,
                 ]);
             }
         } catch (\Throwable $e) {
+            $this->markReceiptSent($donation, false);
+
             Log::error('WhatsApp receipt dispatch threw', [
+                'merchant_txn_no' => $donation->merchant_txn_no,
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    /**
+     * Record whether the WhatsApp receipt was delivered. Best-effort: a failure to
+     * persist this flag must never bubble up into the payment callback/webhook.
+     */
+    private function markReceiptSent(Donation $donation, bool $sent): void
+    {
+        try {
+            $donation->receipt_sent = $sent;
+            $donation->save();
+        } catch (\Throwable $e) {
+            Log::error('Failed to persist receipt_sent flag', [
                 'merchant_txn_no' => $donation->merchant_txn_no,
                 'error' => $e->getMessage(),
             ]);
@@ -105,7 +128,7 @@ class WhatsAppReceiptSender
             ->implode(', ');
 
         $params = [
-            'receipt_no' => $donation->merchant_txn_no,
+            'receipt_no' => 'PG'.$donation->id,
             'receipt_date' => now()->format('Y-m-d'),
             'legal_name' => $donation->name,
             'address' => $address,

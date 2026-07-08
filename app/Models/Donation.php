@@ -28,5 +28,10 @@ class Donation extends Model
         'pincode',
         'source',
         'donation_type',
+        'receipt_sent',
+    ];
+
+    protected $casts = [
+        'receipt_sent' => 'boolean',
     ];
 }
