@@ -7,7 +7,7 @@
 <div class="relative w-full h-screen overflow-hidden font-googleSans">
 
     {{-- ─── SLIDE 1: ORIGINAL HERO (moved forward) ─────────────────── --}}
-    <div class="absolute inset-0 flex flex-col transition-opacity duration-700 opacity-100 z-10"
+    <div class="absolute inset-0 flex flex-col transition-opacity duration-100 opacity-100 z-10"
         id="slide-0">
 
         {{-- Background --}}
@@ -93,7 +93,7 @@
     </style>
 
     {{-- ─── SLIDE 2 ───────────────────────────────────────────────── --}}
-    <div class="absolute inset-0 flex flex-col transition-opacity duration-700 opacity-0 pointer-events-none z-10"
+    <div class="absolute inset-0 flex flex-col transition-opacity duration-100 opacity-0 pointer-events-none z-10"
         id="slide-1">
 
         <picture class="absolute inset-0 z-0 block h-full w-full bg-stone-950">
@@ -230,7 +230,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- Tablet View: Centered Content -->
         <div class="hidden md:flex lg:hidden absolute inset-0 z-20 items-center justify-center px-5 sm:px-6">
             <div class="w-full max-w-4xl rounded-[1.75rem] border border-white/10 bg-black/35 p-4 text-white shadow-[0_14px_44px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-5">
                 <div class="mb-4 text-center">
@@ -364,34 +364,25 @@
                 </div>
             </div>
         </div>
-
+        <!-- Mobile View: Dark Overlay -->
         <div class="md:hidden absolute inset-0 z-10 bg-black/35"></div>
 
-        <div class="md:hidden absolute inset-0 z-20 flex items-center justify-center px-4 pt-16 pb-4 sm:pt-20">
+        <div class="md:hidden absolute inset-0 z-20 flex items-center justify-center px-4 pt-20 pb-4 sm:pt-24">
             <div class="w-full rounded-[1.5rem] border border-white/10 bg-black/40 p-3 text-white shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl">
                 <!-- Centered Heading -->
-                <div class="mb-4 text-center">
-                    <p class="text-[9px] uppercase tracking-[0.3em] text-amber-100/70">
-                        Support the Temple
-                    </p>
+                <div class="mb-3 text-center">
 
-                    <h2 class="mt-2 leading-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
+                    <h2 class="mt-1 leading-none text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
                         <span
-                            class="block text-[20px] font-bold"
+                            class="block text-[14px] font-bold leading-none"
                             style="font-family:'Cinzel','Georgia',serif;">
                             Join hands to build a
                         </span>
 
                         <span
-                            class="block mt-1 text-[34px] text-amber-200"
+                            class="block text-[26px] text-amber-200 leading-none"
                             style="font-family:'Great Vibes',cursive;">
                             Preaching Centre
-                        </span>
-
-                        <span
-                            class="block mt-1 text-[20px] font-bold"
-                            style="font-family:'Cinzel','Georgia',serif;">
-                            at Birnagar
                         </span>
                     </h2>
                 </div>
@@ -606,19 +597,15 @@
 </button>
 
 
-{{-- Progress bar --}}
+<!-- {{-- Progress bar --}}
 <div class="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-orange-600 to-amber-400 z-30"
-    id="heroTimerBar" style="width:100%; transition:none;"></div>
-
-{{-- Scroll indicator --}}
-<div class="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 mx-auto w-fit text-white/60 hover:text-saffron-400 flex flex-col items-center gap-1 sm:gap-2 cursor-pointer transition-colors z-20"
-    style="animation: scrollPulse 2.5s ease-in-out infinite;">
-    <span class="text-[9px] sm:text-[10px] uppercase tracking-widest font-light">Scroll</span>
-    <i class="fas fa-chevron-down text-base sm:text-lg"></i>
-</div>
+    id="heroTimerBar" style="width:100%; transition:none;"></div> -->
 
 </div>{{-- end slider wrapper --}}
 
+{{-- Progress bar --}}
+<!-- <div class="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-orange-600 to-amber-400 z-30"
+    id="heroTimerBar" style="width:100%; transition:none;"></div> -->
 
 <style>
     @keyframes slowZoom {
@@ -691,7 +678,7 @@
 <script>
     (function() {
         const TOTAL = 2;
-        const INTERVAL = 20000;
+        const INTERVAL = 7000;
         let current = 0;
         let autoTimer = null;
 
@@ -724,14 +711,16 @@
                 nextDot.classList.add('bg-amber-400', 'scale-125');
             }
 
-            // Reset progress bar
+            // Animate progress bar (OPTIONAL - works even if removed)
             const bar = document.getElementById('heroTimerBar');
-            bar.style.transition = 'none';
-            bar.style.width = '100%';
-            setTimeout(() => {
-                bar.style.transition = 'width ' + INTERVAL + 'ms linear';
-                bar.style.width = '0%';
-            }, 40);
+            if (bar) {
+                bar.style.transition = 'none';
+                bar.style.width = '100%';
+                setTimeout(() => {
+                    bar.style.transition = 'width ' + INTERVAL + 'ms linear';
+                    bar.style.width = '0%';
+                }, 40);
+            }
 
             // Restart auto-advance
             clearInterval(autoTimer);
