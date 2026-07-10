@@ -57,6 +57,7 @@ class PaymentController extends Controller
             'state' => 'nullable|string|max:255',
             'pincode' => 'nullable|string|max:10',
             'donation_type' => 'nullable|string|max:255',
+            'notes' => 'nullable|string|max:1000',
         ]);
 
         $merchantTxnNo = 'DON'.now()->format('YmdHis').rand(100, 999);
@@ -84,6 +85,7 @@ class PaymentController extends Controller
             'source' => $isApi ? $request->api_key : 'web',
             'pincode' => $request->pincode,
             'donation_type' => $request->donation_type,
+            'notes' => $request->notes,
         ]);
 
         $hashText = ($request->addlParam1 ?? '').
