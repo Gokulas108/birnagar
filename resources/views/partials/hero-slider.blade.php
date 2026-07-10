@@ -92,88 +92,231 @@
         }
     </style>
 
-    {{-- ─── SLIDE 2: WALL OF LEGACY (moved back) ───────────────────
+    {{-- ─── SLIDE 2 ───────────────────────────────────────────────── --}}
     <div class="absolute inset-0 flex flex-col transition-opacity duration-700 opacity-0 pointer-events-none z-10"
         id="slide-1">
 
-        <div class="absolute inset-0 bg-stone-950">
+        <picture class="absolute inset-0 z-0 block h-full w-full bg-stone-950">
+            <source media="(min-width: 640px)" srcset="{{ asset('images/hall_desktop.png') }}">
             <img
-                src="{{ asset('images/campaign-background.png') }}"
-    alt="Wall of Legacy"
-    class="w-full h-full object-cover object-center opacity-100" />
-</div>
+                src="{{ asset('images/hall_desktop.png') }}"
+                alt="Preaching Hall"
+                class="absolute inset-0 h-full w-full object-cover object-center opacity-100" />
+        </picture>
 
-<div class="absolute right-0 top-0 bottom-0 w-full sm:w-[56%] lg:w-[50%]
-                flex flex-col justify-center items-center sm:items-start opacity-0
-                px-6 sm:px-10 lg:px-14 xl:px-16 gap-2 sm:gap-3"
-    id="wol-panel"
-    style="animation: wolSlideIn 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;">
+        <div class="hidden md:flex absolute inset-y-0 right-0 w-full md:w-[42%] lg:w-[38%] z-20 overflow-hidden items-end justify-end">
+            <!-- Darker background overlay for content area -->
+            <div class="absolute inset-0 bg-gradient-to-l from-[#2a160b]/65 via-[#3d210f]/60 to-transparent"></div>
 
-    <p class="mb-0 text-center sm:text-left"
-        style="font-family: 'Dancing Script', cursive;
-                  font-size: clamp(20px, 2.5vw, 32px);
-                  color: rgba(255, 210, 120, 0.75);
-                  font-weight: 600;
-                  line-height: 1.1;">
-        Srila Bhaktivinoda Thakur's
-    </p>
+            <!-- Extended blur fade from right to left -->
+            <div class="absolute inset-y-0 -left-24 right-0 bg-gradient-to-l from-[#2a160b]/90 via-[#3d210f]/60 to-transparent blur-2xl"></div>
 
-    <h1 class="font-black leading-[1.0] mb-1 text-center sm:text-left"
-        style="font-family:'Cinzel','Georgia',serif;
-                   font-size:clamp(38px,5vw,60px);
-                   color:#FFD580;
-                   text-shadow:0 0 40px rgba(200,90,0,0.35);">
-        Wall of Legacy
-    </h1>
+            <!-- Additional soft dark layer for better readability -->
+            <div class="absolute inset-0 bg-black/10"></div>
 
-    <div class="flex items-center justify-center sm:justify-start gap-3 mb-3">
-        <div class="w-7 h-px bg-orange-600"></div>
-        <span class="text-[10px] sm:text-[13px] uppercase tracking-[0.15em] sm:tracking-[0.22em] font-semibold"
-            style="color: rgba(255,190,80,0.6);">
-            3-Month Fundraising Campaign 2026
-        </span>
+            <div class="absolute inset-y-0 left-0 w-px bg-white/10"></div>
+
+            <div class="relative flex h-full w-full flex-col justify-end px-5 pb-3 pt-4 sm:px-6 sm:pb-4 sm:pt-6 lg:px-8 lg:pb-5 lg:pt-8 text-white">
+                <div class="space-y-1.5 max-h-full overflow-y-auto pr-1">
+                    <div class="pt-1">
+                        <h2 class="leading-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">
+                            <span
+                                class="block text-lg lg:text-xl font-bold"
+                                style="font-family:'Cinzel','Georgia',serif;">
+                                Join hands to build a
+                            </span>
+
+                            <span
+                                class="block mt-0.5 text-3xl lg:text-4xl text-amber-200"
+                                style="font-family:'Great Vibes',cursive;">
+                                Preaching Centre
+                            </span>
+
+                            <span
+                                class="block mt-0.5 text-lg lg:text-xl font-bold"
+                                style="font-family:'Cinzel','Georgia',serif;">
+                                at Birnagar
+                            </span>
+                        </h2>
+                    </div>
+
+                    <div class="space-y-1.5">
+                        <p class="text-[10px] uppercase tracking-[0.35em] text-amber-100/70">
+                            Support the Temple
+                        </p>
+                        <p class="mt-1 text-xs leading-relaxed text-white/75 max-w-[30rem] lg:text-sm">
+                            Become a sponsor or dedicate a specific part of the preaching hall.
+                            Every contribution moves the project forward.
+                        </p>
+                    </div>
+
+                    <div class="relative overflow-hidden rounded-3xl border border-white/10 p-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.12)]">
+                        <div class="relative grid gap-2">
+                            <div class="rounded-2xl border border-white/10 bg-black/10 p-3 shadow-lg backdrop-blur-xl">
+                                <div class="flex items-center gap-2">
+                                    <span class="flex h-8 w-8 items-center justify-center rounded-full border border-amber-200/20 bg-amber-300/15 text-sm font-bold text-amber-200">
+                                        1
+                                    </span>
+
+                                    <div>
+                                        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-amber-50/90">
+                                            Become a Sponsor
+                                        </p>
+                                        <p class="text-xs text-white/70">
+                                            Choose the level that best fits your seva.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="mt-2.5 grid grid-cols-2 gap-2 text-[11px] lg:grid-cols-3">
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                                        <span class="block text-white/60">Devotee</span>
+                                        <span class="block mt-1 text-sm font-semibold text-amber-100">5,000</span>
+                                    </div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                                        <span class="block text-white/60">Brick</span>
+                                        <span class="block mt-1 text-sm font-semibold text-amber-100">10,000</span>
+                                    </div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                                        <span class="block text-white/60">Silver</span>
+                                        <span class="block mt-1 text-sm font-semibold text-amber-100">25,000</span>
+                                    </div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                                        <span class="block text-white/60">Gold</span>
+                                        <span class="block mt-1 text-sm font-semibold text-amber-100">50,000</span>
+                                    </div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 col-span-2 lg:col-span-1">
+                                        <span class="block text-white/60">Diamond</span>
+                                        <span class="block mt-1 text-sm font-semibold text-amber-100">1,00,000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rounded-2xl border border-white/10 bg-black/15 p-3 shadow-lg backdrop-blur-sm">
+                                <div class="flex items-center gap-2">
+                                    <span class="flex h-8 w-8 items-center justify-center rounded-full bg-amber-300/15 text-amber-200 text-sm font-bold border border-amber-200/20">
+                                        2
+                                    </span>
+                                    <div>
+                                        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-amber-50/90">
+                                            Specific Component Sponsorship
+                                        </p>
+                                        <p class="text-xs text-white/55">
+                                            Dedicate your offering to a visible part of the hall.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="mt-2.5 grid grid-cols-2 gap-2 text-[11px] lg:grid-cols-3">
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Ceiling</span><span class="block mt-1 text-sm font-semibold text-amber-100">88,000</span></div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Roof</span><span class="block mt-1 text-sm font-semibold text-amber-100">1,44,000</span></div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Electrical</span><span class="block mt-1 text-sm font-semibold text-amber-100">40,000</span></div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Stage</span><span class="block mt-1 text-sm font-semibold text-amber-100">1,20,000</span></div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Altar</span><span class="block mt-1 text-sm font-semibold text-amber-100">40,000</span></div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Pavement</span><span class="block mt-1 text-sm font-semibold text-amber-100">42,000</span></div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Flooring</span><span class="block mt-1 text-sm font-semibold text-amber-100">52,000</span></div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Foundation</span><span class="block mt-1 text-sm font-semibold text-amber-100">86,000</span></div>
+                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Structure</span><span class="block mt-1 text-sm font-semibold text-amber-100">1,24,000</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between gap-4 border-t border-white/10 pt-2.5 mt-2.5">
+                    <div>
+                        <p class="text-[10px] uppercase tracking-[0.25em] text-amber-100/60">Ready to give?</p>
+                        <p class="text-sm text-white/80">Tap donate now to continue to the donation page.</p>
+                    </div>
+                    <a href="/donation"
+                        class="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-transform hover:-translate-y-0.5"
+                        style="background:linear-gradient(135deg,#C8590A,#E8760A); box-shadow:0 4px 20px rgba(200,90,10,0.45); text-decoration:none;">
+                        Donate now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:hidden absolute inset-0 z-10 bg-black/35"></div>
+
+        <div class="md:hidden absolute inset-0 z-20 flex items-center justify-center px-4 pt-16 pb-4 sm:pt-20">
+            <div class="w-full rounded-[1.5rem] border border-white/10 bg-black/40 p-3 text-white shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl">
+                <!-- Centered Heading -->
+                <div class="mb-4 text-center">
+                    <p class="text-[9px] uppercase tracking-[0.3em] text-amber-100/70">
+                        Support the Temple
+                    </p>
+
+                    <h2 class="mt-2 leading-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
+                        <span
+                            class="block text-[20px] font-bold"
+                            style="font-family:'Cinzel','Georgia',serif;">
+                            Join hands to build a
+                        </span>
+
+                        <span
+                            class="block mt-1 text-[34px] text-amber-200"
+                            style="font-family:'Great Vibes',cursive;">
+                            Preaching Centre
+                        </span>
+
+                        <span
+                            class="block mt-1 text-[20px] font-bold"
+                            style="font-family:'Cinzel','Georgia',serif;">
+                            at Birnagar
+                        </span>
+                    </h2>
+                </div>
+
+                <!-- Sponsor Cards -->
+                <div class="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-black/30 p-2 shadow-[0_8px_24px_rgba(0,0,0,0.25)] backdrop-blur-md">
+                    <!-- <div class="absolute inset-0 bg-black/20"></div> -->
+                    <div class="relative grid gap-2">
+                        <div class="rounded-2xl border border-white/10 bg-white/5 p-2.5">
+                            <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-amber-50/90">
+                                Become a Sponsor
+                            </p>
+                            <div class="mt-2 grid grid-cols-3 gap-1.5 text-[10px] leading-none">
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Devotee</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">5,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Brick</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">10,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Silver</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">25,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Gold</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">50,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 col-span-2"><span class="block text-white/55">Diamond</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,00,000</span></div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-white/10 bg-white/5 p-2.5">
+                            <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-amber-50/90">
+                                Specific Component Sponsorship
+                            </p>
+                            <div class="mt-2 grid grid-cols-3 gap-1.5 text-[10px] leading-none">
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Ceiling</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">88,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Roof</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,44,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Electrical</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">40,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Stage</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,20,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Altar</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">40,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Pavement</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">42,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Flooring</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">52,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Foundation</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">86,000</span></div>
+                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 col-span-3"><span class="block text-white/55">Structure</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,24,000</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between gap-3 border-t border-white/10 pt-2">
+                    <p class="text-[10px] uppercase tracking-[0.24em] text-amber-100/60">Ready to give?</p>
+                    <a href="/donation"
+                        class="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-white transition-transform hover:-translate-y-0.5"
+                        style="background:linear-gradient(135deg,#C8590A,#E8760A); box-shadow:0 4px 20px rgba(200,90,10,0.45); text-decoration:none;">
+                        Donate now
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="inline-flex items-center gap-2 mb-3 self-center sm:self-start px-3 py-1 rounded-md"
-        style="background:rgba(200,90,0,0.15); border:1px solid rgba(200,110,0,0.28);">
-        <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
-        <span class="text-[17px] tracking-wide"
-            style="color:rgba(255,200,120,0.78);">
-            March 29 — June 30, 2026
-        </span>
-    </div>
-
-    <p class="mb-4 font-light leading-relaxed text-center sm:text-left"
-        style="font-size:clamp(12px,1.25vw,14px);
-          color:rgba(255,235,200,0.8);
-          max-width:400px;">
-        Join the <span style="color:#FFD580;font-weight:700;">100,000 devotee mission,</span><br class="sm:hidden">
-        and become the first to get<br class="sm:hidden">
-        your name etched on the <span style="color:#FFD580;font-weight:700;">Wall of Legacy.</span>
-    </p>
-
-    <div class="flex justify-center sm:justify-start">
-        <a href="/campaign"
-            class="inline-flex items-center gap-3 font-bold uppercase rounded-full transition-all transform hover:-translate-y-1"
-            style="color:#FFD580;
-                      border:1.5px solid rgba(255,190,60,0.38);
-                      padding:11px 28px;
-                      font-size:12px;
-                      letter-spacing:2px;
-                      background:transparent;
-                      text-decoration:none;">
-            Join Now!
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                stroke="#FFD580" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg>
-        </a>
-    </div>
-
 </div>
-</div>
---}}
 
 <style>
     @keyframes wolSlideIn {
@@ -325,16 +468,18 @@
             class="w-2.5 h-2.5 rounded-full bg-white/30 transition-all"></button>
     </div>
 
-    <button onclick="heroPrev()"
-        class="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/30 border border-amber-400/25 text-amber-300 flex items-center justify-center text-xl hover:bg-orange-800/50 transition-all">
-        &#8249;
-    </button>
-
-    <button onclick="heroNext()"
-        class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/30 border border-amber-400/25 text-amber-300 flex items-center justify-center text-xl hover:bg-orange-800/50 transition-all">
-        &#8250;
-    </button>
     --}}
+
+<button onclick="heroPrev()"
+    class="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/30 border border-amber-400/25 text-amber-300 flex items-center justify-center text-xl hover:bg-orange-800/50 transition-all">
+    &#8249;
+</button>
+
+<button onclick="heroNext()"
+    class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/30 border border-amber-400/25 text-amber-300 flex items-center justify-center text-xl hover:bg-orange-800/50 transition-all">
+    &#8250;
+</button>
+
 
 {{-- Progress bar --}}
 <div class="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-orange-600 to-amber-400 z-30"
@@ -420,7 +565,7 @@
 
 <script>
     (function() {
-        const TOTAL = 1;
+        const TOTAL = 2;
         const INTERVAL = 20000;
         let current = 0;
         let autoTimer = null;
