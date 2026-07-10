@@ -71,7 +71,7 @@
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-orange-600"></span>
           </span>
-          <span class="text-orange-900 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em]">2027 Milestone</span>
+          <span class="text-orange-900 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em]">2026 Milestone</span>
         </div>
       </div>
 
@@ -84,7 +84,7 @@
       </p>
 
       <p class="text-base sm:text-lg md:text-xl text-orange-800 mb-8 sm:mb-10 md:mb-12 font-light leading-relaxed max-w-3xl mx-auto px-4">
-        Join us in fulfilling our 2027 milestone. Every contribution echoes in the foundation of this sacred project.
+        Join us in fulfilling our 2026 milestone. Every contribution echoes in the foundation of this sacred project.
       </p>
     </div>
 

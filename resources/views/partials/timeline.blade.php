@@ -125,12 +125,12 @@
                   class="bg-gradient-to-br from-saffron-500/15 to-stone-950/50 border border-saffron-500/40 p-4 sm:p-5 rounded-xl text-left hover:border-saffron-500/60 transition-all duration-300 group/item">
                   <div class="flex justify-between mb-2 sm:mb-3">
                     <span class="text-sm sm:text-base font-bold text-white">Preaching Hall</span>
-                    <span class="text-sm sm:text-base text-orange-400 font-semibold">20%</span>
+                    <span class="text-sm sm:text-base text-orange-400 font-semibold">90%</span>
                   </div>
                   <div
                     class="w-full bg-stone-800 h-2 rounded-full overflow-hidden">
                     <div
-                      class="bg-gradient-to-r from-saffron-500 to-orange-500 h-full w-[20%] shadow-[0_0_12px_#f59e0b] rounded-full transition-all duration-500 group-hover/item:shadow-[0_0_16px_#f59e0b]"></div>
+                      class="bg-gradient-to-r from-saffron-500 to-orange-500 h-full w-[90%] shadow-[0_0_12px_#f59e0b] rounded-full transition-all duration-500 group-hover/item:shadow-[0_0_16px_#f59e0b]"></div>
                   </div>
                 </div>
                 <div
