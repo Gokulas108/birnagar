@@ -104,7 +104,7 @@
                 class="absolute inset-0 h-full w-full object-cover object-center opacity-100" />
         </picture>
 
-        <div class="hidden md:flex absolute inset-y-0 right-0 w-full md:w-[42%] lg:w-[38%] z-20 overflow-hidden items-end justify-end">
+        <div class="hidden lg:flex absolute inset-y-0 right-0 w-full md:w-[42%] lg:w-[38%] z-20 overflow-hidden items-center justify-end">
             <!-- Darker background overlay for content area -->
             <div class="absolute inset-0 bg-gradient-to-l from-[#2a160b]/65 via-[#3d210f]/60 to-transparent"></div>
 
@@ -116,7 +116,7 @@
 
             <div class="absolute inset-y-0 left-0 w-px bg-white/10"></div>
 
-            <div class="relative flex h-full w-full flex-col justify-end px-5 pb-3 pt-4 sm:px-6 sm:pb-4 sm:pt-6 lg:px-8 lg:pb-5 lg:pt-8 text-white">
+            <div class="relative flex h-full w-full flex-col justify-center px-5 pb-3 pt-4 sm:px-6 sm:pb-4 sm:pt-6 lg:px-8 lg:py-8 text-white">
                 <div class="space-y-1.5 max-h-full overflow-y-auto pr-1">
                     <div class="pt-1">
                         <h2 class="leading-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.45)]">
@@ -169,26 +169,26 @@
                                 </div>
 
                                 <div class="mt-2.5 grid grid-cols-2 gap-2 text-[11px] lg:grid-cols-3">
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                                    <a href="{{ url('/donation?seva=custom&amount=5000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
                                         <span class="block text-white/60">Devotee</span>
-                                        <span class="block mt-1 text-sm font-semibold text-amber-100">5,000</span>
-                                    </div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                                        <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹5,000</span>
+                                    </a>
+                                    <a href="{{ url('/donation?seva=custom&amount=10000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
                                         <span class="block text-white/60">Brick</span>
-                                        <span class="block mt-1 text-sm font-semibold text-amber-100">10,000</span>
-                                    </div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                                        <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹10,000</span>
+                                    </a>
+                                    <a href="{{ url('/donation?seva=custom&amount=25000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
                                         <span class="block text-white/60">Silver</span>
-                                        <span class="block mt-1 text-sm font-semibold text-amber-100">25,000</span>
-                                    </div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                                        <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹25,000</span>
+                                    </a>
+                                    <a href="{{ url('/donation?seva=custom&amount=50000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
                                         <span class="block text-white/60">Gold</span>
-                                        <span class="block mt-1 text-sm font-semibold text-amber-100">50,000</span>
-                                    </div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2 col-span-2 lg:col-span-1">
+                                        <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹50,000</span>
+                                    </a>
+                                    <a href="{{ url('/donation?seva=custom&amount=100000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 col-span-2 lg:col-span-1 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
                                         <span class="block text-white/60">Diamond</span>
-                                        <span class="block mt-1 text-sm font-semibold text-amber-100">1,00,000</span>
-                                    </div>
+                                        <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹1,00,000</span>
+                                    </a>
                                 </div>
                             </div>
 
@@ -208,31 +208,159 @@
                                 </div>
 
                                 <div class="mt-2.5 grid grid-cols-2 gap-2 text-[11px] lg:grid-cols-3">
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Ceiling</span><span class="block mt-1 text-sm font-semibold text-amber-100">88,000</span></div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Roof</span><span class="block mt-1 text-sm font-semibold text-amber-100">1,44,000</span></div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Electrical</span><span class="block mt-1 text-sm font-semibold text-amber-100">40,000</span></div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Stage</span><span class="block mt-1 text-sm font-semibold text-amber-100">1,20,000</span></div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Altar</span><span class="block mt-1 text-sm font-semibold text-amber-100">40,000</span></div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Pavement</span><span class="block mt-1 text-sm font-semibold text-amber-100">42,000</span></div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Flooring</span><span class="block mt-1 text-sm font-semibold text-amber-100">52,000</span></div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Foundation</span><span class="block mt-1 text-sm font-semibold text-amber-100">86,000</span></div>
-                                    <div class="rounded-xl border border-white/10 bg-white/5 px-3 py-2"><span class="block text-white/60">Structure</span><span class="block mt-1 text-sm font-semibold text-amber-100">1,24,000</span></div>
+                                    <a href="{{ url('/donation?seva=custom&amount=88000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/60">Ceiling</span><span class="block mt-1 text-sm font-semibold text-amber-100"> ₹88,000</span></a>
+                                    <a href="{{ url('/donation?seva=custom&amount=144000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/60">Roof</span><span class="block mt-1 text-sm font-semibold text-amber-100"> ₹1,44,000</span></a>
+                                    <a href="{{ url('/donation?seva=custom&amount=40000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/60">Electrical</span><span class="block mt-1 text-sm font-semibold text-amber-100"> ₹40,000</span></a>
+                                    <a href="{{ url('/donation?seva=custom&amount=120000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/60">Stage</span><span class="block mt-1 text-sm font-semibold text-amber-100"> ₹1,20,000</span></a>
+                                    <a href="{{ url('/donation?seva=custom&amount=40000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/60">Altar</span><span class="block mt-1 text-sm font-semibold text-amber-100"> ₹40,000</span></a>
+                                    <a href="{{ url('/donation?seva=custom&amount=42000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/60">Pavement</span><span class="block mt-1 text-sm font-semibold text-amber-100"> ₹42,000</span></a>
+                                    <a href="{{ url('/donation?seva=custom&amount=52000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/60">Flooring</span><span class="block mt-1 text-sm font-semibold text-amber-100"> ₹52,000</span></a>
+                                    <a href="{{ url('/donation?seva=custom&amount=86000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/60">Foundation</span><span class="block mt-1 text-sm font-semibold text-amber-100"> ₹86,000</span></a>
+                                    <a href="{{ url('/donation?seva=custom&amount=124000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/60">Structure</span><span class="block mt-1 text-sm font-semibold text-amber-100"> ₹1,24,000</span></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between gap-4 border-t border-white/10 pt-2.5 mt-2.5">
-                    <div>
-                        <p class="text-[10px] uppercase tracking-[0.25em] text-amber-100/60">Ready to give?</p>
-                        <p class="text-sm text-white/80">Tap donate now to continue to the donation page.</p>
+                <div class="flex justify-center border-t border-white/10 pt-2.5 mt-2.5 text-center">
+                    <p class="text-[10px] uppercase tracking-[0.25em] text-amber-100/70">
+                        Click on any donation option to donate for this cause.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden md:flex lg:hidden absolute inset-0 z-20 items-center justify-center px-5 sm:px-6">
+            <div class="w-full max-w-4xl rounded-[1.75rem] border border-white/10 bg-black/35 p-4 text-white shadow-[0_14px_44px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-5">
+                <div class="mb-4 text-center">
+                    <p class="text-[10px] uppercase tracking-[0.3em] text-amber-100/70">
+                        Support the Temple
+                    </p>
+
+                    <h2 class="mt-2 leading-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.55)]">
+                        <span
+                            class="block text-[18px] font-bold sm:text-[20px]"
+                            style="font-family:'Cinzel','Georgia',serif;">
+                            Join hands to build a
+                        </span>
+
+                        <span
+                            class="block mt-1 text-[30px] text-amber-200 sm:text-[34px]"
+                            style="font-family:'Great Vibes',cursive;">
+                            Preaching Centre
+                        </span>
+
+                        <span
+                            class="block mt-1 text-[18px] font-bold sm:text-[20px]"
+                            style="font-family:'Cinzel','Georgia',serif;">
+                            at Birnagar
+                        </span>
+                    </h2>
+                </div>
+
+                <div class="grid gap-3 lg:grid-cols-2">
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-3 shadow-lg backdrop-blur-sm">
+                        <div class="flex items-center gap-2">
+                            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-amber-200/20 bg-amber-300/15 text-sm font-bold text-amber-200">
+                                1
+                            </span>
+
+                            <div>
+                                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-amber-50/90">
+                                    Become a Sponsor
+                                </p>
+                                <p class="text-xs text-white/70">
+                                    Choose the level that best fits your seva.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-2.5 grid grid-cols-2 gap-2 text-[11px]">
+                            <a href="{{ url('/donation?seva=custom&amount=5000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Devotee</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹5,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=10000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Brick</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹10,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=25000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Silver</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹25,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=50000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Gold</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹50,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=100000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 col-span-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Diamond</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹1,00,000</span>
+                            </a>
+                        </div>
                     </div>
-                    <a href="/donation"
-                        class="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white transition-transform hover:-translate-y-0.5"
-                        style="background:linear-gradient(135deg,#C8590A,#E8760A); box-shadow:0 4px 20px rgba(200,90,10,0.45); text-decoration:none;">
-                        Donate now
-                    </a>
+
+                    <div class="rounded-2xl border border-white/10 bg-white/5 p-3 shadow-lg backdrop-blur-sm">
+                        <div class="flex items-center gap-2">
+                            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-amber-200/20 bg-amber-300/15 text-sm font-bold text-amber-200">
+                                2
+                            </span>
+
+                            <div>
+                                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-amber-50/90">
+                                    Specific Component Sponsorship
+                                </p>
+                                <p class="text-xs text-white/70">
+                                    Dedicate your offering to a visible part of the hall.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-2.5 grid grid-cols-2 gap-2 text-[11px]">
+                            <a href="{{ url('/donation?seva=custom&amount=88000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Ceiling</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹88,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=144000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Roof</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹1,44,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=40000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Electrical</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹40,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=120000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Stage</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹1,20,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=40000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Altar</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹40,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=42000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Pavement</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹42,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=52000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Flooring</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹52,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=86000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Foundation</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹86,000</span>
+                            </a>
+                            <a href="{{ url('/donation?seva=custom&amount=124000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 col-span-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]">
+                                <span class="block text-white/60">Structure</span>
+                                <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹1,24,000</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3 border-t border-white/10 pt-2.5 text-center">
+                    <p class="text-[10px] uppercase tracking-[0.24em] text-amber-100/70">
+                        Click on any donation option to donate for this cause.
+                    </p>
                 </div>
             </div>
         </div>
@@ -277,11 +405,11 @@
                                 Become a Sponsor
                             </p>
                             <div class="mt-2 grid grid-cols-3 gap-1.5 text-[10px] leading-none">
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Devotee</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">5,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Brick</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">10,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Silver</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">25,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Gold</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">50,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 col-span-2"><span class="block text-white/55">Diamond</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,00,000</span></div>
+                                <a href="{{ url('/donation?seva=custom&amount=5000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Devotee</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">5,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=10000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Brick</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">10,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=25000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Silver</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">25,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=50000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Gold</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">50,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=100000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 col-span-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Diamond</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,00,000</span></a>
                             </div>
                         </div>
 
@@ -290,27 +418,24 @@
                                 Specific Component Sponsorship
                             </p>
                             <div class="mt-2 grid grid-cols-3 gap-1.5 text-[10px] leading-none">
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Ceiling</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">88,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Roof</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,44,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Electrical</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">40,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Stage</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,20,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Altar</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">40,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Pavement</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">42,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Flooring</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">52,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5"><span class="block text-white/55">Foundation</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">86,000</span></div>
-                                <div class="rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 col-span-3"><span class="block text-white/55">Structure</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,24,000</span></div>
+                                <a href="{{ url('/donation?seva=custom&amount=88000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Ceiling</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">88,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=144000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Roof</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,44,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=40000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Electrical</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">40,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=120000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Stage</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,20,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=40000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Altar</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">40,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=42000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Pavement</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">42,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=52000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Flooring</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">52,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=86000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Foundation</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">86,000</span></a>
+                                <a href="{{ url('/donation?seva=custom&amount=124000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 col-span-3 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Structure</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,24,000</span></a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="flex items-center justify-between gap-3 border-t border-white/10 pt-2">
-                    <p class="text-[10px] uppercase tracking-[0.24em] text-amber-100/60">Ready to give?</p>
-                    <a href="/donation"
-                        class="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-white transition-transform hover:-translate-y-0.5"
-                        style="background:linear-gradient(135deg,#C8590A,#E8760A); box-shadow:0 4px 20px rgba(200,90,10,0.45); text-decoration:none;">
-                        Donate now
-                    </a>
+                <div class="flex justify-center border-t border-white/10 pt-2 text-center">
+                    <p class="text-[10px] uppercase tracking-[0.24em] text-amber-100/70">
+                        Click on any donation option to donate for this cause.
+                    </p>
                 </div>
             </div>
         </div>
