@@ -28,6 +28,7 @@ class Donation extends Model
         'pincode',
         'source',
         'donation_type',
+        'notes',
         'receipt_sent',
     ];
 
