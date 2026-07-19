@@ -47,6 +47,8 @@ class PaymentController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:255',
+            'initiated_name' => 'nullable|string|max:255',
+            'birthdate' => 'nullable|date',
             'email' => 'required|email|max:255',
             'mobile' => 'required|string|max:15',
             'country_code' => 'nullable|string|max:8',
@@ -60,7 +62,7 @@ class PaymentController extends Controller
             'notes' => 'nullable|string|max:1000',
         ]);
 
-        $merchantTxnNo = 'DON'.now()->format('YmdHis').rand(100, 999);
+        $merchantTxnNo = 'DON' . now()->format('YmdHis') . rand(100, 999);
         $amount = number_format($request->amount, 2, '.', '');
         $txnDate = now()->format('YmdHis');
 
@@ -69,10 +71,12 @@ class PaymentController extends Controller
         // API/wall flow sends no country_code, so its mobile is stored as-is.
         $mobileDigits = preg_replace('/\D/', '', (string) $request->mobile);
         $ccDigits = preg_replace('/\D/', '', (string) $request->country_code);
-        $mobile = $ccDigits !== '' ? $ccDigits.$mobileDigits : $mobileDigits;
+        $mobile = $ccDigits !== '' ? $ccDigits . $mobileDigits : $mobileDigits;
 
         $donation = Donation::create([
             'name' => $request->name,
+            'initiated_name' => $request->initiated_name,
+            'birthdate' => $request->birthdate,
             'email' => $request->email,
             'mobile' => $mobile,
             'amount' => $amount,
@@ -88,19 +92,19 @@ class PaymentController extends Controller
             'notes' => $request->notes,
         ]);
 
-        $hashText = ($request->addlParam1 ?? '').
-                    ($request->addlParam2 ?? '').
-                    $this->aggregatorId.
-                    $amount.
-                    '356'.
-                    $request->email.
-                    $request->name.
-                    $this->merchantId.
-                    $merchantTxnNo.
-                    '0'.
-                    route('payment.advice').
-                    'SALE'.
-                    $txnDate;
+        $hashText = ($request->addlParam1 ?? '') .
+            ($request->addlParam2 ?? '') .
+            $this->aggregatorId .
+            $amount .
+            '356' .
+            $request->email .
+            $request->name .
+            $this->merchantId .
+            $merchantTxnNo .
+            '0' .
+            route('payment.advice') .
+            'SALE' .
+            $txnDate;
 
         $secureHash = $this->generateSecureHash($hashText);
 
@@ -127,7 +131,7 @@ class PaymentController extends Controller
             return back()->withErrors(['msg' => 'Payment gateway error.']);
         }
 
-        $redirectUrl = $response['redirectURI'].'?tranCtx='.$response['tranCtx'];
+        $redirectUrl = $response['redirectURI'] . '?tranCtx=' . $response['tranCtx'];
 
         // Normal Laravel web flow
         // return redirect($redirectUrl);
@@ -263,7 +267,7 @@ class PaymentController extends Controller
 
         if ($isApi) {
             return redirect()->away(
-                'https://wall.birnagar.org/payment/result?'.http_build_query([
+                'https://wall.birnagar.org/payment/result?' . http_build_query([
                     'status' => $donation->status,
                     'txnID' => $donation->txn_id,
                     'amount' => $donation->amount,
@@ -336,7 +340,7 @@ class PaymentController extends Controller
 
         if ($validator->fails()) {
             return redirect()->away(
-                'https://wall.birnagar.org/payment/result?'.http_build_query([
+                'https://wall.birnagar.org/payment/result?' . http_build_query([
                     'status' => 'failed',
                     'message' => 'Invalid Transaction details',
                 ])
@@ -404,7 +408,7 @@ class PaymentController extends Controller
         }
 
         curl_close($ch);
-        Log::info('Curl Raw Response: '.$response);
+        Log::info('Curl Raw Response: ' . $response);
 
         return json_decode($response, true);
     }

@@ -44,6 +44,8 @@ class DonationExportController extends Controller
             'source',
             'txn_id',
             'name',
+            'initiated_name',
+            'birthdate',
             'email',
             'mobile',
             'amount',
@@ -60,11 +62,13 @@ class DonationExportController extends Controller
         $hasMore = $rows->count() > self::PAGE_SIZE;
         $page = $rows->take(self::PAGE_SIZE);
 
-        $donations = $page->map(fn (Donation $d) => [
+        $donations = $page->map(fn(Donation $d) => [
             'id' => $d->id,
             'source' => $d->source,
             'txn_id' => $d->txn_id,
             'name' => $d->name,
+            'initiated_name' => $d->initiated_name,
+            'birthdate' => optional($d->birthdate)->toDateString(),
             'email' => $d->email,
             'phone' => $d->mobile,
             'amount' => (string) $d->amount,
