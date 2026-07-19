@@ -411,44 +411,52 @@
         </div>
 
         <div class="space-y-4 mb-6 mt-6">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="mb-4">
+            <label class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">
+              Full Name (As Per Aadhaar card)<span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="name"
+              required
+              class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
+              placeholder="e.g. Rahul Kumar" />
+          </div>
+
+          <!-- Initiated Name -->
+          <div class="mb-4">
+            <label class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">
+              Initiated Name
+            </label>
+            <input
+              type="text"
+              name="initiated_name"
+              class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
+              placeholder="Optional" />
+          </div>
+
+          <!-- Email & Birthdate -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label
-                class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">Full Name <span class="text-red-500">*</span></label>
+              <label class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">
+                Email Address <span class="text-red-500">*</span>
+              </label>
               <input
-                type="text"
-                name="name"
+                type="email"
+                name="email"
                 required
                 class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
-                placeholder="e.g. Rahul Kumar" />
+                placeholder="name@example.com" />
             </div>
+
             <div>
-              <label
-                class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">Initiated Name</label>
-              <input
-                type="text"
-                name="initiated_name"
-                class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
-                placeholder="Optional" />
-            </div>
-            <div>
-              <label
-                class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">Birthdate</label>
+              <label class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">
+                Birthdate
+              </label>
               <input
                 type="date"
                 name="birthdate"
                 class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition" />
-            </div>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label
-                class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">Email Address <span class="text-red-500">*</span></label>
-              <input
-                type="email"
-                name="email"
-                class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition"
-                placeholder="name@example.com" />
             </div>
           </div>
           <div>
