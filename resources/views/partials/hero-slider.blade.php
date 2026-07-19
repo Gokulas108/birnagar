@@ -129,7 +129,7 @@
                             <span
                                 class="block mt-0.5 text-3xl lg:text-4xl text-amber-200"
                                 style="font-family:'Great Vibes',cursive;">
-                                Preaching Centre
+                                Preaching Center
                             </span>
 
                             <span
@@ -248,7 +248,7 @@
                         <span
                             class="block mt-1 text-[30px] text-amber-200 sm:text-[34px]"
                             style="font-family:'Great Vibes',cursive;">
-                            Preaching Centre
+                            Preaching Center
                         </span>
 
                         <span
@@ -382,7 +382,7 @@
                         <span
                             class="block text-[26px] text-amber-200 leading-none"
                             style="font-family:'Great Vibes',cursive;">
-                            Preaching Centre
+                            Preaching Center
                         </span>
                     </h2>
                 </div>

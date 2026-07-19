@@ -646,6 +646,17 @@
           </div>
         </div>
 
+        <div class="mb-8">
+          <label
+            class="text-[10px] font-bold text-stone-400 uppercase mb-1 block">Notes <span class="text-stone-300 normal-case font-normal">(Optional)</span></label>
+          <textarea
+            name="notes"
+            rows="3"
+            maxlength="1000"
+            class="w-full bg-white border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-saffron-400 focus:ring-1 focus:ring-saffron-400 transition resize-none"
+            placeholder="Any message or instructions you'd like to share with us"></textarea>
+        </div>
+
         <div class="mb-6">
           <label class="flex items-start gap-3 cursor-pointer group">
             <input
