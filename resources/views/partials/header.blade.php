@@ -274,32 +274,16 @@
                         </div>
                     </div>
 
-                    <div x-data="{ visionOpen: false }" class="@if(request()->path() === '/' || request()->path() === 'campaign') text-stone-300 @else text-amber-950 @endif">
-                        <button @click="visionOpen = !visionOpen" class="w-full text-left py-3 px-4 rounded-lg flex items-center justify-between hover:bg-saffron-500/10 transition-colors">
-                            <span>Vision</span>
-                            <i class="fas fa-chevron-down text-xs transition-transform duration-300" :class="{ 'rotate-180': visionOpen }"></i>
-                        </button>
-                        <!-- <div x-show="visionOpen" x-transition class="pl-4 space-y-1 mt-1">
-                                <a href="#" class="block py-2.5 px-4 rounded-lg text-sm transition-colors
-                                    @if(request()->path() === '/' || request()->path() === 'campaign')
-                                        text-stone-400 hover:bg-saffron-500/10 hover:text-saffron-300
-                                    @else
-                                        text-amber-900 hover:bg-orange-100
-                                    @endif">Srila Prabhupada's Vision</a>
-                                <a href="#" class="block py-2.5 px-4 rounded-lg text-sm transition-colors
-                                    @if(request()->path() === '/' || request()->path() === 'campaign')
-                                        text-stone-400 hover:bg-saffron-500/10 hover:text-saffron-300
-                                    @else
-                                        text-amber-900 hover:bg-orange-100
-                                    @endif">JPS Vision</a>
-                                <a href="#" class="block py-2.5 px-4 rounded-lg text-sm transition-colors
-                                    @if(request()->path() === '/' || request()->path() === 'campaign')
-                                        text-stone-400 hover:bg-saffron-500/10 hover:text-saffron-300
-                                    @else
-                                        text-amber-900 hover:bg-orange-100
-                                    @endif">Founders Vision</a>
-                            </div> -->
-                    </div>
+                    <a href="/srila-prabhupad-vision" class="py-3 px-4 rounded-lg transition-colors
+    @if(request()->is('vision'))
+        font-bold text-saffron-500 bg-saffron-500/10
+    @elseif(request()->path() === '/' || request()->path() === 'campaign')
+        text-stone-300 hover:bg-saffron-500/10 hover:text-saffron-300
+    @else
+        text-amber-950 hover:bg-orange-100
+    @endif">
+                        Vision
+                    </a>
 
                     <!-- <a href="/campaign" class="py-3 px-4 rounded-lg transition-colors
                             @if(request()->is('campaign'))
@@ -313,6 +297,17 @@
                     <!-- @unless(request()->is('campaign'))
                     <a href="/donation" class="mt-2 text-white font-bold bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-red-600 hover:to-red-500 px-6 py-3 rounded-full text-center transition-all transform hover:scale-105 shadow-lg text-sm uppercase tracking-wider">Donate Now</a>
                     @endunless -->
+                    <a href="/donation"
+                        class="relative overflow-hidden group mt-2 w-full text-center text-white text-sm font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 border border-white/10
+        @if(request()->is('donation'))
+            bg-gradient-to-r from-red-600 via-red-500 to-red-600 shadow-[0_0_15px_rgba(220,38,38,0.4)]
+        @else
+            bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 hover:from-red-600 hover:via-red-500 hover:to-red-600 hover:shadow-[0_0_25px_rgba(220,38,38,0.6)] shadow-[0_0_15px_rgba(34,211,238,0.4)]
+        @endif">
+                        <span class="relative z-10 tracking-widest uppercase">
+                            Donate Now
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
