@@ -47,6 +47,8 @@ class PaymentController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:255',
+            'initiated_name' => 'nullable|string|max:255',
+            'birthdate' => 'nullable|date',
             'email' => 'required|email|max:255',
             'mobile' => 'required|string|max:15',
             'country_code' => 'nullable|string|max:8',
@@ -72,6 +74,8 @@ class PaymentController extends Controller
 
         $donation = Donation::create([
             'name' => $request->name,
+            'initiated_name' => $request->initiated_name,
+            'birthdate' => $request->birthdate,
             'email' => $request->email,
             'mobile' => $mobile,
             'amount' => $amount,

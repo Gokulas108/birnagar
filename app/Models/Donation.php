@@ -9,6 +9,8 @@ class Donation extends Model
     //
     protected $fillable = [
         'name',
+        'initiated_name',
+        'birthdate',
         'email',
         'mobile',
         'amount',
@@ -33,5 +35,6 @@ class Donation extends Model
 
     protected $casts = [
         'receipt_sent' => 'boolean',
+        'birthdate' => 'date',
     ];
 }
