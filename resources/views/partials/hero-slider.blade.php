@@ -145,8 +145,7 @@
                             Support the Temple
                         </p>
                         <p class="mt-1 text-xs leading-relaxed text-white/75 max-w-[30rem] lg:text-sm">
-                            Become a sponsor or dedicate a specific part of the preaching hall.
-                            Every contribution moves the project forward.
+                            Following the successful inauguration of the new Preaching Hall, the next phase has begun with the construction of two new rooms.
                         </p>
                     </div>
 
@@ -154,9 +153,9 @@
                         <div class="relative grid gap-2">
                             <div class="rounded-2xl border border-white/10 bg-black/10 p-3 shadow-lg backdrop-blur-xl">
                                 <div class="flex items-center gap-2">
-                                    <span class="flex h-8 w-8 items-center justify-center rounded-full border border-amber-200/20 bg-amber-300/15 text-sm font-bold text-amber-200">
+                                    <!-- <span class="flex h-8 w-8 items-center justify-center rounded-full border border-amber-200/20 bg-amber-300/15 text-sm font-bold text-amber-200">
                                         1
-                                    </span>
+                                    </span> -->
 
                                     <div>
                                         <p class="text-sm font-semibold uppercase tracking-[0.18em] text-amber-50/90">
@@ -192,7 +191,7 @@
                                 </div>
                             </div>
 
-                            <div class="rounded-2xl border border-white/10 bg-black/15 p-3 shadow-lg backdrop-blur-sm">
+                            <!-- <div class="rounded-2xl border border-white/10 bg-black/15 p-3 shadow-lg backdrop-blur-sm">
                                 <div class="flex items-center gap-2">
                                     <span class="flex h-8 w-8 items-center justify-center rounded-full bg-amber-300/15 text-amber-200 text-sm font-bold border border-amber-200/20">
                                         2
@@ -218,7 +217,7 @@
                                     <a href="{{ url('/donation?seva=custom&amount=86000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/60">Foundation</span><span class="block mt-1 text-sm font-semibold text-amber-100"> ₹86,000</span></a>
                                     <a href="{{ url('/donation?seva=custom&amount=124000') }}" class="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-white/10 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/60">Structure</span><span class="block mt-1 text-sm font-semibold text-amber-100"> ₹1,24,000</span></a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -258,13 +257,23 @@
                         </span>
                     </h2>
                 </div>
+                <div class="space-y-1.5 justify-center text-center">
+                    <p class="text-[10px] uppercase tracking-[0.35em] text-amber-100/70">
+                        Support the Temple
+                    </p>
+                    <p class="mt-1 text-xs leading-relaxed text-white/75 lg:text-sm">
+                        Following the successful inauguration of the new Preaching Hall,
+                        </br>
+                        the next phase has begun with the construction of two new rooms.
+                    </p>
+                </div>
 
                 <div class="grid gap-3 lg:grid-cols-2">
                     <div class="rounded-2xl border border-white/10 bg-white/5 p-3 shadow-lg backdrop-blur-sm">
                         <div class="flex items-center gap-2">
-                            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-amber-200/20 bg-amber-300/15 text-sm font-bold text-amber-200">
+                            <!-- <span class="flex h-8 w-8 items-center justify-center rounded-full border border-amber-200/20 bg-amber-300/15 text-sm font-bold text-amber-200">
                                 1
-                            </span>
+                            </span> -->
 
                             <div>
                                 <p class="text-sm font-semibold uppercase tracking-[0.18em] text-amber-50/90">
@@ -300,7 +309,7 @@
                         </div>
                     </div>
 
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-3 shadow-lg backdrop-blur-sm">
+                    <!-- <div class="rounded-2xl border border-white/10 bg-white/5 p-3 shadow-lg backdrop-blur-sm">
                         <div class="flex items-center gap-2">
                             <span class="flex h-8 w-8 items-center justify-center rounded-full border border-amber-200/20 bg-amber-300/15 text-sm font-bold text-amber-200">
                                 2
@@ -354,7 +363,7 @@
                                 <span class="block mt-1 text-sm font-semibold text-amber-100"> ₹1,24,000</span>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="mt-3 border-t border-white/10 pt-2.5 text-center">
@@ -386,6 +395,16 @@
                         </span>
                     </h2>
                 </div>
+                <div class="space-y-1.5 justify-center text-center">
+                    <p class="text-[10px] uppercase tracking-[0.35em] text-amber-100/70">
+                        Support the Temple
+                    </p>
+                    <p class="mt-1 text-xs leading-relaxed text-white/75 lg:text-sm">
+                        Following the successful inauguration of the new Preaching Hall,
+                        </br>
+                        the next phase has begun with the construction of two new rooms.
+                    </p>
+                </div>
 
                 <!-- Sponsor Cards -->
                 <div class="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-black/30 p-2 shadow-[0_8px_24px_rgba(0,0,0,0.25)] backdrop-blur-md">
@@ -404,22 +423,7 @@
                             </div>
                         </div>
 
-                        <div class="rounded-2xl border border-white/10 bg-white/5 p-2.5">
-                            <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-amber-50/90">
-                                Specific Component Sponsorship
-                            </p>
-                            <div class="mt-2 grid grid-cols-3 gap-1.5 text-[10px] leading-none">
-                                <a href="{{ url('/donation?seva=custom&amount=88000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Ceiling</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">88,000</span></a>
-                                <a href="{{ url('/donation?seva=custom&amount=144000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Roof</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,44,000</span></a>
-                                <a href="{{ url('/donation?seva=custom&amount=40000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Electrical</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">40,000</span></a>
-                                <a href="{{ url('/donation?seva=custom&amount=120000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Stage</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,20,000</span></a>
-                                <a href="{{ url('/donation?seva=custom&amount=40000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Altar</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">40,000</span></a>
-                                <a href="{{ url('/donation?seva=custom&amount=42000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Pavement</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">42,000</span></a>
-                                <a href="{{ url('/donation?seva=custom&amount=52000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Flooring</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">52,000</span></a>
-                                <a href="{{ url('/donation?seva=custom&amount=86000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Foundation</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">86,000</span></a>
-                                <a href="{{ url('/donation?seva=custom&amount=124000') }}" class="block rounded-xl border border-white/10 bg-black/10 px-2 py-1.5 col-span-3 transition-transform hover:-translate-y-0.5 hover:border-amber-200/40 hover:bg-black/5 hover:ring-1 hover:ring-amber-200/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200/60 active:scale-[0.99]"><span class="block text-white/55">Structure</span><span class="block mt-1 text-[11px] font-semibold text-amber-100">1,24,000</span></a>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
 
