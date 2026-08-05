@@ -36,7 +36,7 @@ Route::get('/about/gbc', function () {
 
 Route::get('/gallery', function () {
     return view('pages.gallery');
-});
+})->name('gallery');
 
 Route::get('/songs', function () {
     return view('pages.songs');
