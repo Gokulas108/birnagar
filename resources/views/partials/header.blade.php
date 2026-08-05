@@ -173,7 +173,16 @@
                     Vision
                 </a>
 
-                <!-- <a href="/campaign"
+                <a href="/gallery"
+                    class="text-sm font-semibold transition-colors uppercase tracking-wide py-2
+                        @if(request()->path() === '/' || request()->path() === 'campaign')
+                            text-stone-300 hover:text-saffron-400
+                        @else
+                            text-amber-950 hover:text-saffron-600
+                        @endif">
+                    Gallery
+
+                    <!-- <a href="/campaign"
                     class="text-sm font-semibold transition-colors uppercase
                         @if(request()->is('campaign'))
                             text-orange-300 hover:text-orange-300 border-b-2 border-orange-300
@@ -183,17 +192,17 @@
                             text-amber-950 hover:text-saffron-600
                         @endif">Campaign</a> -->
 
-                @unless(request()->is('campaign'))
-                <a href="/donation"
-                    class="relative overflow-hidden group text-white text-xs font-bold px-6 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 border border-white/10
+                    @unless(request()->is('campaign'))
+                    <a href="/donation"
+                        class="relative overflow-hidden group text-white text-xs font-bold px-6 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 border border-white/10
                             @if(request()->is('donation'))
                                 bg-gradient-to-r from-red-600 via-red-500 to-red-600 shadow-[0_0_15px_rgba(220,38,38,0.4)]
                             @else
                                 bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 hover:from-red-600 hover:via-red-500 hover:to-red-600 hover:shadow-[0_0_25px_rgba(220,38,38,0.6)] shadow-[0_0_15px_rgba(34,211,238,0.4)]
                             @endif">
-                    <span class="relative z-10 tracking-widest uppercase">Donate Now</span>
-                </a>
-                @endunless
+                        <span class="relative z-10 tracking-widest uppercase">Donate Now</span>
+                    </a>
+                    @endunless
             </div>
 
             <div class="md:hidden flex items-center" x-data="{ open: false }">
@@ -283,6 +292,17 @@
         text-amber-950 hover:bg-orange-100
     @endif">
                         Vision
+                    </a>
+
+                    <a href="/gallery" class="py-3 px-4 rounded-lg transition-colors
+    @if(request()->is('gallery'))
+        font-bold text-saffron-500 bg-saffron-500/10
+    @elseif(request()->path() === '/' || request()->path() === 'campaign')
+        text-stone-300 hover:bg-saffron-500/10 hover:text-saffron-300
+    @else
+        text-amber-950 hover:bg-orange-100
+    @endif">
+                        Gallery
                     </a>
 
                     <!-- <a href="/campaign" class="py-3 px-4 rounded-lg transition-colors

@@ -40,6 +40,9 @@
             <a href="/about/gbc" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">ISKCON GBC Resolution</a>
           </li>
           <li>
+            <a href="/gallery" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">Gallery</a>
+          </li>
+          <li>
             <a href="/donation" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">Donate</a>
           </li>
         </ul>
@@ -63,15 +66,19 @@
               Sree Mayapur PS-Nabadwip, Nadia, West Bengal, India, 741313
             </span>
           </li>
-          <li class="flex items-start group w-full">
+          <!-- <li class="flex items-start group w-full">
             <i class="fas fa-map-marker-alt w-7 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
             <span class="text-stone-400 text-sm group-hover:text-stone-300 transition-colors text-left">
               Ward No. 3, Mustafipara Road, Birnagar, Nadia. Pin - 741127
             </span>
-          </li>
+          </li> -->
           <li class="flex items-start group w-full">
             <i class="fas fa-phone w-7 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
             <a href="tel:+918167562119" class="text-stone-400 text-sm hover:text-saffron-500 transition-colors text-left">+91 81675 62119</a>
+          </li>
+          <li class="flex items-start group w-full">
+            <i class="fab fa-whatsapp w-7 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
+            <a href="tel:+918167562119" class="text-stone-400 text-sm hover:text-saffron-500 transition-colors text-left">+91 90029 77288</a>
           </li>
           <li class="flex items-start group w-full">
             <i class="fas fa-envelope w-7 min-w-[1.25rem] text-saffron-500 mr-3 mt-0.5 flex-shrink-0"></i>
