@@ -213,150 +213,39 @@
   <!-- EVENTS/CATEGORIES SECTION -->
   <div class="py-12 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <!-- EVENTS GRID -->
-      <div class="space-y-16">
-
-        <!-- EVENT 1: PREACHING HALL 2026 -->
-        <div>
-          <div class="mb-6">
-            <h2 class="text-3xl font-bold text-stone-900 mb-2">Preaching Hall Inauguration 2026</h2>
-            <p class="text-stone-600">The grand openning of our new preaching hall in Birnagar</p>
+      <div class="space-y-12 md:space-y-16">
+        @foreach ($galleryEventGroups as $event)
+        <section>
+          <div class="mb-5 sm:mb-6">
+            <h2 class="text-2xl sm:text-3xl font-bold text-stone-900 mb-2">{{ $event['title'] }}</h2>
+            <p class="text-stone-600">{{ $event['description'] }}</p>
           </div>
-          <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <!-- Image 1 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/preaching_hall_1.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+
+          <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 sm:gap-4">
+            @foreach ($event['images'] as $image)
+            <div
+              class="group relative aspect-square overflow-hidden rounded-2xl bg-stone-200 cursor-pointer shadow-lg ring-1 ring-black/5"
+              @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img
+                src="{{ asset($image['src']) }}"
+                data-gallery-image
+                alt="{{ $image['alt'] }}"
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-transparent opacity-0 transition group-hover:opacity-100"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 transition group-hover:opacity-100">
+                <span class="flex h-12 w-12 items-center justify-center rounded-full bg-white/15 backdrop-blur text-white ring-1 ring-white/30">
+                  <i class="fas fa-expand"></i>
+                </span>
+              </div>
+              <div class="absolute inset-x-0 bottom-0 p-3">
+                <p class="text-xs font-medium text-white/90 drop-shadow">{{ $image['alt'] }}</p>
               </div>
             </div>
-            <!-- Image 2 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/preaching_hall_2.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-            <!-- Image 3 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/preaching_hall_3.png" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-            <!-- Image 4 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/preaching_hall_4.png" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-            <!-- Image 5 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/preaching_hall_5.png" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-            <!-- Image 6 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/preaching_hall_6.png" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
+            @endforeach
           </div>
-        </div>
-
-        <!-- EVENT 2: Bhumi Puja 2025 -->
-        <div>
-          <div class="mb-6">
-            <h2 class="text-3xl font-bold text-stone-900 mb-2">Bhumi Puja 2025</h2>
-            <p class="text-stone-600">The grand celebration of Land Innauguration (Silanyasa Festival)</p>
-          </div>
-          <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <!-- Image 1 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/image_2.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-            <!-- Image 2 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/image_3.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-            <!-- Image 3 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/image_4.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-            <!-- Image 4 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/image_5.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-            <!-- Image 5 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/image_6.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- EVENT 3: Land Registration 2025 -->
-
-        <div>
-          <div class="mb-6">
-            <h2 class="text-3xl font-bold text-stone-900 mb-2">Land Registration 2025</h2>
-            <p class="text-stone-600">HH Jayapataka Swami blessing the Land registartion papers</p>
-          </div>
-          <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <!-- Image 1 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/image_1a.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-            <!-- Image 2 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/image_1b.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-            <!-- Image 3 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/image_1c.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-            <!-- Image 4 -->
-            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
-              <img src="images/heritage.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
-              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
-                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
+        </section>
+        @endforeach
       </div>
-
     </div>
   </div>
 </div>
