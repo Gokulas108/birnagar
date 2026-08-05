@@ -76,15 +76,15 @@
       </div>
 
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-orange-400 to-orange-600 px-4">
-        The Preaching Hall
+        The Preaching Hall Expansion
       </h2>
 
       <p class="text-lg sm:text-xl md:text-2xl text-orange-600 font-light mb-6 sm:mb-7 md:mb-8 px-4">
-        Our First Milestone
+        November 1, 2026 marks a pivotal moment in out journey.
       </p>
 
       <p class="text-base sm:text-lg md:text-xl text-orange-800 mb-8 sm:mb-10 md:mb-12 font-light leading-relaxed max-w-3xl mx-auto px-4">
-        Join us in fulfilling our 2026 milestone. Every contribution echoes in the foundation of this sacred project.
+        The countdown in on, and your support is key to our success.
       </p>
     </div>
 

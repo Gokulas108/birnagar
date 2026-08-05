@@ -1,518 +1,363 @@
 @extends('layouts.common_page')
 @section('page-content')
- <style>
-      /* Saffron 500 Background */
-      body {
-        color: #0c0a09;
-      }
-      .text-heading {
-        color: oklch(37.4% 0.01 67.558);
-      }
-      .bg-stone-card {
-        background-color: #ffffff;
-      }
-      /* Custom Scrollbar for horizontal scrolling */
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
 
-        <div
-          class="mb-12"
-          x-data="{ 
-            activeSlide: 0,
-            slides: [
-                { img: 'https://placehold.co/1200x500/FB923C/FFF?text=Gaura+Purnima+Festival', title: 'Gaura Purnima 2024', subtitle: 'The Golden Avatar\'s Appearance' },
-                { img: 'https://placehold.co/1200x500/B45309/FFF?text=Foundation+Laying+Ceremony', title: 'Foundation Stone', subtitle: 'A Historic Beginning' },
-                { img: 'https://placehold.co/1200x500/78350F/FFF?text=Kirtan+Mela', title: '24 Hour Kirtan', subtitle: 'Chanting for World Peace' }
-            ],
-            next() { this.activeSlide = (this.activeSlide === this.slides.length - 1) ? 0 : this.activeSlide + 1 },
-            prev() { this.activeSlide = (this.activeSlide === 0) ? this.slides.length - 1 : this.activeSlide - 1 },
-            init() { setInterval(() => this.next(), 5000) }
-        }"
-        >
-          <div
-            class="relative rounded-3xl overflow-hidden shadow-2xl h-[400px] md:h-[500px] border border-stone-200"
-          >
-            <template x-for="(slide, index) in slides" :key="index">
-              <div
-                x-show="activeSlide === index"
-                x-transition:enter="transition ease-out duration-700"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                x-transition:leave="transition ease-in duration-300"
-                x-transition:leave-start="opacity-100 scale-100"
-                x-transition:leave-end="opacity-0 scale-105"
-                class="absolute inset-0 w-full h-full"
-              >
-                <img
-                  :src="slide.img"
-                  :alt="slide.title"
-                  class="w-full h-full object-cover brightness-75"
-                />
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 
-                <div
-                  class="absolute bottom-0 left-0 p-8 md:p-16 w-full bg-gradient-to-t from-stone-900/90 to-transparent"
-                >
-                  <span
-                    class="text-saffron-400 font-bold tracking-widest uppercase text-xs mb-2 block"
-                    >Featured Gallery</span
-                  >
-                  <h2
-                    class="text-4xl md:text-5xl  text-white mb-2"
-                    x-text="slide.title"
-                  ></h2>
-                  <p
-                    class="text-stone-300 text-lg font-light italic"
-                    x-text="slide.subtitle"
-                  ></p>
-                </div>
-              </div>
-            </template>
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
 
-            <button
-              @click="prev()"
-              class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 backdrop-blur-md text-white p-4 rounded-full transition"
-            >
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button
-              @click="next()"
-              class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 backdrop-blur-md text-white p-4 rounded-full transition"
-            >
-              <i class="fas fa-chevron-right"></i>
-            </button>
 
-            <div class="absolute bottom-6 right-6 flex gap-2">
-              <template x-for="(slide, index) in slides" :key="index">
-                <button
-                  @click="activeSlide = index"
-                  class="h-1 rounded-full transition-all duration-300"
-                  :class="activeSlide === index ? 'w-8 bg-saffron-500' : 'w-4 bg-white/50'"
-                ></button>
-              </template>
-            </div>
+
+<!-- HERO SECTION - AUTO SCROLLING SLIDER -->
+<div x-data="{ 
+    lightbox: false,
+    currentImage: null,
+    currentIndex: 0,
+    allImages: [],
+
+    activeSlide:0,
+
+        slides:[
+
+            {
+
+                img:'images/preaching_hall_1.jpg',
+
+                title:'Preaching Hall Inauguration 2026',
+
+                desc:'The grand opening of our new preaching hall in Birnagar'
+
+            },
+
+            {
+
+                img:'images/preaching_hall_2.jpg',
+
+                title:'Gaura Purnima 2024',
+
+                desc:'Appearance of Lord Chaitanya Mahaprabhu'
+
+            }
+
+        ],
+
+        next() {
+            console.log(this.activeSlide);
+            this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+            console.log(this.activeSlide);
+        },
+
+        prev() {
+            this.activeSlide =
+                (this.activeSlide - 1 + this.slides.length) % this.slides.length;
+        },
+
+    openLightbox(src,index) {
+    this.currentImage = src;
+    this.currentIndex = this.allImages.indexOf(src);
+    this.lightbox = true;
+    document.body.style.overflow = 'hidden';
+    },
+    closeLightbox() {
+        this.lightbox = false;
+        document.body.style.overflow = 'auto';
+    },
+    nextImage() {
+        if (this.currentIndex < this.allImages.length - 1) {
+            this.currentIndex++;
+            this.currentImage = this.allImages[this.currentIndex];
+        }
+    },
+    prevImage() {
+        if (this.currentIndex > 0) {
+            this.currentIndex--;
+            this.currentImage = this.allImages[this.currentIndex];
+        }
+    },
+    init() {
+    console.log('init running');
+  this.allImages=Array.from(
+  document.querySelectorAll('[data-gallery-image]')
+  ).map(el=> el.src);
+
+  setInterval(() => {
+  this.next();
+  }, 6000);
+  },
+  }" x-init="init()" @keydown.escape="closeLightbox()" @keydown.arrow-right="nextImage()" @keydown.arrow-left="prevImage()">
+
+  <!-- LIGHTBOX MODAL -->
+  <div
+    x-show="lightbox"
+    @click="closeLightbox()"
+    x-transition
+    class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
+    <!-- CLOSE BUTTON -->
+    <button
+      @click="closeLightbox()"
+      class="absolute top-6 right-6 text-white text-4xl z-50 hover:text-amber-400 transition">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- IMAGE CONTAINER -->
+    <div @click.stop class="relative w-full h-full flex items-center justify-center px-4">
+      <img :src="currentImage" class="max-w-full max-h-full object-contain" />
+
+      <!-- PREV BUTTON -->
+      <button @click="prevImage()" x-show="currentIndex > 0" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 backdrop-blur text-white transition flex items-center justify-center">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <!-- NEXT BUTTON -->
+      <button @click="nextImage()" x-show="currentIndex < allImages.length - 1" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 backdrop-blur text-white transition flex items-center justify-center">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- IMAGE COUNTER -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-full text-sm font-semibold">
+        <span x-text="currentIndex + 1"></span> / <span x-text="allImages.length"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[350px] md:h-[500px] bg-stone-900">
+
+    <!-- SLIDES -->
+    <!-- <template x-for="(slide, index) in slides" :key="index">
+      <div
+        x-show="activeSlide === index"
+        x-transition:enter="transition ease-out duration-700"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="absolute inset-0 w-full h-full">
+        <img
+          :src="slide.img"
+          :alt="slide.title"
+          class="w-full h-full object-cover brightness-50" /> -->
+
+    <!-- TEXT OVERLAY -->
+    <!-- <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent flex flex-col items-center justify-center">
+          <div class="text-center px-6">
+            <p class="text-amber-400 text-sm font-bold uppercase tracking-[0.2em] mb-4">Featured Gallery</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-3" x-text="slide.title"></h2>
+            <p class="text-amber-100/80 text-lg" x-text="slide.desc"></p>
           </div>
         </div>
+      </div>
+    </template> -->
 
-        <div
-          class="bg-white p-4 rounded-2xl shadow-sm border border-stone-200 mb-8"
-        >
-          <div
-            class="flex flex-col md:flex-row justify-between items-center gap-4"
-          >
-            <div
-              class="flex items-center gap-2 text-stone-500 text-sm w-full md:w-auto overflow-hidden"
-            >
-              <a href="#" class="hover:text-saffron-600"
-                ><i class="fas fa-home"></i
-              ></a>
-              <i class="fas fa-chevron-right text-[10px] opacity-50"></i>
-              <span class="font-bold text-stone-800 whitespace-nowrap"
-                >Media Gallery</span
-              >
-              <i class="fas fa-chevron-right text-[10px] opacity-50"></i>
-              <span class="bg-stone-100 px-2 py-1 rounded text-xs"
-                >All Folders</span
-              >
-            </div>
+    <template x-for="(slide, index) in slides" :key="index">
+      <div
+        x-show="activeSlide === index"
+        class="absolute inset-0 w-full h-full">
+        <img
+          :src="slide.img"
+          :alt="slide.title"
+          class="w-full h-full object-cover brightness-50" />
 
-            <div class="relative w-full md:w-96">
-              <i
-                class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"
-              ></i>
-              <input
-                type="text"
-                placeholder="Search events, years, or tags..."
-                class="w-full bg-stone-100 border-none rounded-full py-2.5 pl-10 pr-4 text-stone-800 text-sm focus:ring-2 focus:ring-saffron-400 focus:bg-white transition-all"
-              />
-            </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent flex flex-col items-center justify-center">
+          <div class="text-center px-6">
+            <p class="text-amber-400 text-sm font-bold uppercase tracking-[0.2em] mb-4">
+              Featured Gallery
+            </p>
 
-            <div class="hidden md:flex gap-1 bg-stone-100 p-1 rounded-lg">
-              <button
-                class="px-3 py-1 bg-white shadow-sm rounded text-stone-800 text-xs font-bold"
-              >
-                <i class="fas fa-th-large mr-1"></i> Grid
-              </button>
-              <button
-                class="px-3 py-1 text-stone-500 hover:text-stone-800 text-xs font-bold"
-              >
-                <i class="fas fa-list mr-1"></i> List
-              </button>
-            </div>
-          </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-3"
+              x-text="slide.title"></h2>
 
-          <div class="flex gap-2 mt-4 overflow-x-auto no-scrollbar pb-1">
-            <button
-              class="px-4 py-1.5 bg-stone-800 text-white rounded-lg text-xs font-bold border border-stone-800 whitespace-nowrap"
-            >
-              All
-            </button>
-            <button
-              class="px-4 py-1.5 bg-white text-stone-600 hover:bg-stone-50 rounded-lg text-xs font-bold border border-stone-200 whitespace-nowrap"
-            >
-              Festivals
-            </button>
-            <button
-              class="px-4 py-1.5 bg-white text-stone-600 hover:bg-stone-50 rounded-lg text-xs font-bold border border-stone-200 whitespace-nowrap"
-            >
-              Construction
-            </button>
-            <button
-              class="px-4 py-1.5 bg-white text-stone-600 hover:bg-stone-50 rounded-lg text-xs font-bold border border-stone-200 whitespace-nowrap"
-            >
-              Deity Worship
-            </button>
-            <button
-              class="px-4 py-1.5 bg-white text-stone-600 hover:bg-stone-50 rounded-lg text-xs font-bold border border-stone-200 whitespace-nowrap"
-            >
-              Historical
-            </button>
+            <p class="text-amber-100/80 text-lg"
+              x-text="slide.desc"></p>
           </div>
         </div>
+      </div>
+    </template>
 
-        <div class="mb-12">
-          <h3
-            class="text-stone-500 text-xs font-bold uppercase tracking-widest mb-4"
-          >
-            Event Albums
-          </h3>
+    <!-- NAVIGATION BUTTONS -->
+    <button
+      @click="prev()"
+      class="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 backdrop-blur text-white transition duration-300 flex items-center justify-center">
+      <i class="fas fa-chevron-left text-xl"></i>
+    </button>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="group cursor-pointer">
-              <div
-                class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 relative"
-              >
-                <div
-                  class="absolute top-0 left-0 bg-stone-100 w-full h-8 border-b border-stone-100 z-10 flex items-center px-4"
-                >
-                  <i class="fas fa-folder text-amber-500 mr-2"></i>
-                  <span class="text-[10px] text-stone-400 font-bold uppercase"
-                    >245 Items</span
-                  >
-                </div>
+    <button
+      @click="next()"
+      class="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 backdrop-blur text-white transition duration-300 flex items-center justify-center">
+      <i class="fas fa-chevron-right text-xl"></i>
+    </button>
 
-                <div class="grid grid-cols-2 gap-0.5 mt-8 h-48 bg-stone-100">
-                  <img
-                    src="https://placehold.co/200x200/222/FFF"
-                    class="w-full h-full object-cover"
-                  />
-                  <img
-                    src="https://placehold.co/200x200/333/FFF"
-                    class="w-full h-full object-cover"
-                  />
-                  <img
-                    src="https://placehold.co/200x200/444/FFF"
-                    class="w-full h-full object-cover"
-                  />
-                  <div class="relative">
-                    <img
-                      src="https://placehold.co/200x200/555/FFF"
-                      class="w-full h-full object-cover blur-[1px]"
-                    />
-                    <div
-                      class="absolute inset-0 flex items-center justify-center bg-black/30 text-white font-bold text-lg"
-                    >
-                      +241
-                    </div>
-                  </div>
-                </div>
+    <!-- DOTS -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <template x-for="(slide, index) in slides" :key="index">
+        <button
+          @click="activeSlide = index"
+          class="rounded-full transition-all duration-300"
+          :class="activeSlide === index ? 'w-8 h-2 bg-amber-500' : 'w-2 h-2 bg-white/40 hover:bg-white/60'"></button>
+      </template>
+    </div>
 
-                <div class="p-4">
-                  <h4
-                    class=" font-bold text-lg text-stone-800 group-hover:text-saffron-600 transition"
-                  >
-                    Janmashtami 2024
-                  </h4>
-                  <p class="text-xs text-stone-500 mt-1">Aug 15 • Festival</p>
-                </div>
+    <!-- PROGRESS BAR -->
+    <div class="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-amber-600 to-amber-400 z-10"
+      :style="{ width: ((activeSlide + 1) / slides.length * 100) + '%' }"
+      style="transition: width 6s linear;">
+    </div>
+  </div>
+
+  <!-- EVENTS/CATEGORIES SECTION -->
+  <div class="py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- EVENTS GRID -->
+      <div class="space-y-16">
+
+        <!-- EVENT 1: PREACHING HALL 2026 -->
+        <div>
+          <div class="mb-6">
+            <h2 class="text-3xl font-bold text-stone-900 mb-2">Preaching Hall Inauguration 2026</h2>
+            <p class="text-stone-600">The grand openning of our new preaching hall in Birnagar</p>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Image 1 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/preaching_hall_1.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
             </div>
-
-            <div class="group cursor-pointer">
-              <div
-                class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 relative"
-              >
-                <div
-                  class="absolute top-0 left-0 bg-stone-100 w-full h-8 border-b border-stone-100 z-10 flex items-center px-4"
-                >
-                  <i class="fas fa-folder text-amber-500 mr-2"></i>
-                  <span class="text-[10px] text-stone-400 font-bold uppercase"
-                    >42 Items</span
-                  >
-                </div>
-                <div class="h-48 mt-8 relative overflow-hidden">
-                  <img
-                    src="https://placehold.co/400x300/D97706/FFF?text=Land"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div class="p-4">
-                  <h4
-                    class=" font-bold text-lg text-stone-800 group-hover:text-saffron-600 transition"
-                  >
-                    Land Acquisition
-                  </h4>
-                  <p class="text-xs text-stone-500 mt-1">
-                    Feb 10 • Construction
-                  </p>
-                </div>
+            <!-- Image 2 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/preaching_hall_2.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
             </div>
-
-            <div class="group cursor-pointer">
-              <div
-                class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 relative"
-              >
-                <div
-                  class="absolute top-0 left-0 bg-stone-100 w-full h-8 border-b border-stone-100 z-10 flex items-center px-4"
-                >
-                  <i class="fas fa-folder text-amber-500 mr-2"></i>
-                  <span class="text-[10px] text-stone-400 font-bold uppercase"
-                    >108 Items</span
-                  >
-                </div>
-                <div class="h-48 mt-8 relative overflow-hidden">
-                  <img
-                    src="https://placehold.co/400x300/78350F/FFF?text=Deity"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div class="p-4">
-                  <h4
-                    class=" font-bold text-lg text-stone-800 group-hover:text-saffron-600 transition"
-                  >
-                    Daily Darshan
-                  </h4>
-                  <p class="text-xs text-stone-500 mt-1">Ongoing • Worship</p>
-                </div>
+            <!-- Image 3 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/preaching_hall_3.png" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
             </div>
-
-            <div class="group cursor-pointer">
-              <div
-                class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 relative"
-              >
-                <div
-                  class="absolute top-0 left-0 bg-stone-100 w-full h-8 border-b border-stone-100 z-10 flex items-center px-4"
-                >
-                  <i class="fas fa-folder text-amber-500 mr-2"></i>
-                  <span class="text-[10px] text-stone-400 font-bold uppercase"
-                    >15 Items</span
-                  >
-                </div>
-                <div class="h-48 mt-8 relative overflow-hidden">
-                  <img
-                    src="https://placehold.co/400x300/555/FFF?text=Sketches"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-                <div class="p-4">
-                  <h4
-                    class=" font-bold text-lg text-stone-800 group-hover:text-saffron-600 transition"
-                  >
-                    Architectural Plans
-                  </h4>
-                  <p class="text-xs text-stone-500 mt-1">Jan 01 • Planning</p>
-                </div>
+            <!-- Image 4 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/preaching_hall_4.png" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+              </div>
+            </div>
+            <!-- Image 5 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/preaching_hall_5.png" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
+              </div>
+            </div>
+            <!-- Image 6 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/preaching_hall_6.png" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="mb-12">
-          <h3
-            class="text-stone-500 text-xs font-bold uppercase tracking-widest mb-4"
-          >
-            Recent Highlights
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            <div
-              class="aspect-square rounded-xl overflow-hidden relative group"
-            >
-              <img
-                src="https://placehold.co/300x300/111/FFF"
-                class="w-full h-full object-cover"
-              />
-              <div
-                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"
-              >
-                <i class="fas fa-download text-white"></i>
+        <!-- EVENT 2: Bhumi Puja 2025 -->
+        <div>
+          <div class="mb-6">
+            <h2 class="text-3xl font-bold text-stone-900 mb-2">Bhumi Puja 2025</h2>
+            <p class="text-stone-600">The grand celebration of Land Innauguration (Silanyasa Festival)</p>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Image 1 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/image_2.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
             </div>
-            <div
-              class="aspect-square rounded-xl overflow-hidden relative group"
-            >
-              <img
-                src="https://placehold.co/300x300/222/FFF"
-                class="w-full h-full object-cover"
-              />
-              <div
-                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"
-              >
-                <i class="fas fa-download text-white"></i>
+            <!-- Image 2 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/image_3.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
             </div>
-            <div
-              class="aspect-square rounded-xl overflow-hidden relative group"
-            >
-              <img
-                src="https://placehold.co/300x300/333/FFF"
-                class="w-full h-full object-cover"
-              />
-              <div
-                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"
-              >
-                <i class="fas fa-download text-white"></i>
+            <!-- Image 3 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/image_4.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
             </div>
-            <div
-              class="aspect-square rounded-xl overflow-hidden relative group"
-            >
-              <img
-                src="https://placehold.co/300x300/444/FFF"
-                class="w-full h-full object-cover"
-              />
-              <div
-                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"
-              >
-                <i class="fas fa-download text-white"></i>
+            <!-- Image 4 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/image_5.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
             </div>
-            <div
-              class="aspect-square rounded-xl overflow-hidden relative group"
-            >
-              <img
-                src="https://placehold.co/300x300/555/FFF"
-                class="w-full h-full object-cover"
-              />
-              <div
-                class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"
-              >
-                <i class="fas fa-download text-white"></i>
+            <!-- Image 5 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/image_6.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
-            </div>
-            <div
-              class="aspect-square rounded-xl border-2 border-dashed border-stone-300 flex flex-col items-center justify-center text-stone-400 cursor-pointer hover:border-saffron-400 hover:text-saffron-500 transition"
-            >
-              <i class="fas fa-arrow-right text-xl mb-1"></i>
-              <span class="text-[10px] font-bold uppercase">View All</span>
             </div>
           </div>
         </div>
 
-        <div class="bg-stone-900 rounded-[2rem] p-8 md:p-12 text-stone-200">
-          <div class="flex flex-col md:flex-row justify-between items-end mb-8">
-            <div>
-              <h2 class="text-3xl  text-white mb-2">
-                Recorded Kirtans & Lectures
-              </h2>
-              <p class="text-sm opacity-70">
-                Experience the sound vibration of Birnagar.
-              </p>
-            </div>
-            <a
-              href="#"
-              class="text-saffron-400 hover:text-white text-xs font-bold uppercase tracking-widest mt-4 md:mt-0 transition"
-            >
-              Visit YouTube Channel
-              <i class="fas fa-external-link-alt ml-1"></i>
-            </a>
+        <!-- EVENT 3: Land Registration 2025 -->
+
+        <div>
+          <div class="mb-6">
+            <h2 class="text-3xl font-bold text-stone-900 mb-2">Land Registration 2025</h2>
+            <p class="text-stone-600">HH Jayapataka Swami blessing the Land registartion papers</p>
           </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div
-              class="bg-stone-800 rounded-xl overflow-hidden group cursor-pointer hover:ring-2 hover:ring-saffron-500 transition"
-            >
-              <div class="aspect-video relative">
-                <img
-                  src="https://placehold.co/600x340/333/FFF?text=Kirtan+Video"
-                  class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition"
-                />
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center group-hover:scale-110 transition"
-                  >
-                    <i class="fas fa-play text-white"></i>
-                  </div>
-                </div>
-                <div
-                  class="absolute bottom-2 right-2 bg-black/70 px-2 py-0.5 rounded text-[10px] font-bold"
-                >
-                  12:30
-                </div>
-              </div>
-              <div class="p-4">
-                <h4 class="font-bold text-white text-sm line-clamp-1">
-                  Sunday Feast Kirtan
-                </h4>
-                <p class="text-xs text-stone-500 mt-1">2 days ago</p>
+          <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Image 1 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/image_1a.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
             </div>
-
-            <div
-              class="bg-stone-800 rounded-xl overflow-hidden group cursor-pointer hover:ring-2 hover:ring-saffron-500 transition"
-            >
-              <div class="aspect-video relative">
-                <img
-                  src="https://placehold.co/600x340/444/FFF?text=Lecture"
-                  class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition"
-                />
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center group-hover:scale-110 transition"
-                  >
-                    <i class="fas fa-play text-white"></i>
-                  </div>
-                </div>
-                <div
-                  class="absolute bottom-2 right-2 bg-black/70 px-2 py-0.5 rounded text-[10px] font-bold"
-                >
-                  45:10
-                </div>
-              </div>
-              <div class="p-4">
-                <h4 class="font-bold text-white text-sm line-clamp-1">
-                  Bhaktivinoda Thakur's Life
-                </h4>
-                <p class="text-xs text-stone-500 mt-1">1 week ago</p>
+            <!-- Image 2 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/image_1b.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
             </div>
-
-            <div
-              class="bg-stone-800 rounded-xl overflow-hidden group cursor-pointer hover:ring-2 hover:ring-saffron-500 transition"
-            >
-              <div class="aspect-video relative">
-                <img
-                  src="https://placehold.co/600x340/555/FFF?text=Update"
-                  class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition"
-                />
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div
-                    class="w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center group-hover:scale-110 transition"
-                  >
-                    <i class="fas fa-play text-white"></i>
-                  </div>
-                </div>
-                <div
-                  class="absolute bottom-2 right-2 bg-black/70 px-2 py-0.5 rounded text-[10px] font-bold"
-                >
-                  05:20
-                </div>
+            <!-- Image 3 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/image_1c.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
-              <div class="p-4">
-                <h4 class="font-bold text-white text-sm line-clamp-1">
-                  Construction Update #4
-                </h4>
-                <p class="text-xs text-stone-500 mt-1">2 weeks ago</p>
+            </div>
+            <!-- Image 4 -->
+            <div class="group relative aspect-square rounded-2xl overflow-hidden bg-stone-200 cursor-pointer" @click="openLightbox($event.currentTarget.querySelector('img').src)">
+              <img src="images/heritage.jpg" data-gallery-image alt="Preaching Hall" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition flex items-center justify-center">
+                <i class="fas fa-expand text-white text-2xl opacity-0 group-hover:opacity-100 transition"></i>
               </div>
             </div>
           </div>
         </div>
 
 
+
+      </div>
+
+    </div>
+  </div>
+</div>
 @endsection
