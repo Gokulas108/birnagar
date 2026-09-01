@@ -53,6 +53,15 @@
     @endif
     class="fixed w-full z-40 transition-all duration-500 border-b backdrop-blur-md left-0">
 
+    @php
+    $isHomePage = request()->path() === '/';
+    $isAboutSection = request()->is('about/*');
+    $isVisionPage = request()->is('srila-prabhupad-vision');
+    $isGalleryPage = request()->is('gallery');
+    $isNewsletterPage = request()->is('newsletter');
+    $isDonationPage = request()->is('donation');
+    @endphp
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
 
@@ -84,7 +93,7 @@
             <div class="hidden md:flex items-center gap-8">
                 <a href="/"
                     class="text-sm font-semibold tracking-wide transition-colors uppercase
-                        @if(request()->path() === '/')
+                        @if($isHomePage)
                             text-saffron-600 border-b-2 border-saffron-600
                         @elseif(request()->path() === 'campaign')
                             text-stone-300 hover:text-saffron-400
@@ -95,7 +104,7 @@
                 <div class="relative group" x-data="{ openDropdown: false }">
                     <button @mouseenter="openDropdown = true" @mouseleave="openDropdown = false"
                         class="text-sm font-semibold transition-colors flex items-center gap-1 uppercase tracking-wide py-2
-                               @if(request()->is('about/*'))
+                               @if($isAboutSection)
                                     text-saffron-600 hover:text-saffron-600 border-b-2 border-saffron-600 pb-1
                                 @elseif(request()->path() === '/' || request()->path() === 'campaign')
                                     text-stone-300 hover:text-saffron-400
@@ -165,7 +174,9 @@
 
                 <a href="/srila-prabhupad-vision"
                     class="text-sm font-semibold transition-colors uppercase tracking-wide py-2
-                        @if(request()->path() === '/' || request()->path() === 'campaign')
+                        @if($isVisionPage)
+                            text-saffron-600 border-b-2 border-saffron-600
+                        @elseif(request()->path() === '/' || request()->path() === 'campaign')
                             text-stone-300 hover:text-saffron-400
                         @else
                             text-amber-950 hover:text-saffron-600
@@ -175,7 +186,9 @@
 
                 <a href="/gallery"
                     class="text-sm font-semibold transition-colors uppercase tracking-wide py-2
-                        @if(request()->path() === '/' || request()->path() === 'campaign')
+                        @if($isGalleryPage)
+                            text-saffron-600 border-b-2 border-saffron-600
+                        @elseif(request()->path() === '/' || request()->path() === 'campaign')
                             text-stone-300 hover:text-saffron-400
                         @else
                             text-amber-950 hover:text-saffron-600
@@ -192,10 +205,22 @@
                             text-amber-950 hover:text-saffron-600
                         @endif">Campaign</a> -->
 
+                    <a href="/newsletter"
+                        class="text-sm font-semibold transition-colors uppercase tracking-wide py-2
+                        @if($isNewsletterPage)
+                            text-saffron-600 border-b-2 border-saffron-600
+                        @elseif(request()->path() === '/' || request()->path() === 'campaign')
+                            text-stone-300 hover:text-saffron-400
+                        @else
+                            text-amber-950 hover:text-saffron-600
+                        @endif">
+                        Newsletter
+                    </a>
+
                     @unless(request()->is('campaign'))
                     <a href="/donation"
                         class="relative overflow-hidden group text-white text-xs font-bold px-6 py-2.5 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 border border-white/10
-                            @if(request()->is('donation'))
+                            @if($isDonationPage)
                                 bg-gradient-to-r from-red-600 via-red-500 to-red-600 shadow-[0_0_15px_rgba(220,38,38,0.4)]
                             @else
                                 bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 hover:from-red-600 hover:via-red-500 hover:to-red-600 hover:shadow-[0_0_25px_rgba(220,38,38,0.6)] shadow-[0_0_15px_rgba(34,211,238,0.4)]
@@ -203,6 +228,7 @@
                         <span class="relative z-10 tracking-widest uppercase">Donate Now</span>
                     </a>
                     @endunless
+
             </div>
 
             <div class="md:hidden flex items-center" x-data="{ open: false }">
@@ -236,7 +262,7 @@
                     class="absolute top-20 left-0 right-0 w-full backdrop-blur-xl border-t border-amber-200 shadow-2xl p-4 flex flex-col space-y-1 bg-orange-50 max-h-[calc(100vh-5rem)] overflow-y-auto"
                     @endif>
                     <a href="/" class="py-3 px-4 rounded-lg transition-colors
-                            @if(request()->path() === '/')
+                            @if($isHomePage)
                                 font-bold text-saffron-500 bg-saffron-500/10
                             @elseif(request()->path() === 'campaign')
                                 text-stone-300 hover:bg-saffron-500/10
@@ -244,7 +270,7 @@
                                 text-amber-950 hover:bg-orange-100
                             @endif">Home</a>
 
-                    <div x-data="{ aboutOpen: false }" class="@if(request()->path() === '/' || request()->path() === 'campaign') text-stone-300 @else text-amber-950 @endif">
+                    <div x-data="{ aboutOpen: false }" class="@if($isAboutSection) text-saffron-600 @elseif(request()->path() === '/' || request()->path() === 'campaign') text-stone-300 @else text-amber-950 @endif">
                         <button @click="aboutOpen = !aboutOpen" class="w-full text-left py-3 px-4 rounded-lg flex items-center justify-between hover:bg-saffron-500/10 transition-colors">
                             <span>About</span>
                             <i class="fas fa-chevron-down text-xs transition-transform duration-300" :class="{ 'rotate-180': aboutOpen }"></i>
@@ -284,7 +310,7 @@
                     </div>
 
                     <a href="/srila-prabhupad-vision" class="py-3 px-4 rounded-lg transition-colors
-    @if(request()->is('vision'))
+    @if($isVisionPage)
         font-bold text-saffron-500 bg-saffron-500/10
     @elseif(request()->path() === '/' || request()->path() === 'campaign')
         text-stone-300 hover:bg-saffron-500/10 hover:text-saffron-300
@@ -295,7 +321,7 @@
                     </a>
 
                     <a href="/gallery" class="py-3 px-4 rounded-lg transition-colors
-    @if(request()->is('gallery'))
+    @if($isGalleryPage)
         font-bold text-saffron-500 bg-saffron-500/10
     @elseif(request()->path() === '/' || request()->path() === 'campaign')
         text-stone-300 hover:bg-saffron-500/10 hover:text-saffron-300
@@ -303,6 +329,17 @@
         text-amber-950 hover:bg-orange-100
     @endif">
                         Gallery
+                    </a>
+
+                    <a href="/newsletter" class="py-3 px-4 rounded-lg transition-colors
+    @if($isNewsletterPage)
+        font-bold text-saffron-500 bg-saffron-500/10
+    @elseif(request()->path() === '/' || request()->path() === 'campaign')
+        text-stone-300 hover:bg-saffron-500/10 hover:text-saffron-300
+    @else
+        text-amber-950 hover:bg-orange-100
+    @endif">
+                        Newsletter
                     </a>
 
                     <!-- <a href="/campaign" class="py-3 px-4 rounded-lg transition-colors
@@ -319,7 +356,7 @@
                     @endunless -->
                     <a href="/donation"
                         class="relative overflow-hidden group mt-2 w-full text-center text-white text-sm font-bold px-6 py-3 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 border border-white/10
-        @if(request()->is('donation'))
+        @if($isDonationPage)
             bg-gradient-to-r from-red-600 via-red-500 to-red-600 shadow-[0_0_15px_rgba(220,38,38,0.4)]
         @else
             bg-gradient-to-r from-cyan-600 via-cyan-500 to-cyan-600 hover:from-red-600 hover:via-red-500 hover:to-red-600 hover:shadow-[0_0_25px_rgba(220,38,38,0.6)] shadow-[0_0_15px_rgba(34,211,238,0.4)]

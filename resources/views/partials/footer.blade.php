@@ -43,6 +43,9 @@
             <a href="/gallery" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">Gallery</a>
           </li>
           <li>
+            <a href="/newsletter" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">Newsletter</a>
+          </li>
+          <li>
             <a href="/donation" class="text-stone-400 hover:text-saffron-500 transition-colors duration-300 inline-block">Donate</a>
           </li>
         </ul>
