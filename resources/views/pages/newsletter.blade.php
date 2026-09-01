@@ -85,7 +85,7 @@
                         <div class="relative shrink-0">
                             <div class="h-14 w-14 rounded-2xl bg-gradient-to-br shadow-lg" :class="newsletter.accent"></div>
                             <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-lg">
-                                <span x-text="index + 1"></span>
+                                <span x-text="newsletters.length - index"></span>
                             </div>
                         </div>
 
@@ -109,7 +109,7 @@
                         <div class="relative shrink-0">
                             <div class="h-14 w-14 rounded-2xl bg-gradient-to-br shadow-lg" :class="newsletter.accent"></div>
                             <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-lg">
-                                <span x-text="index + 1"></span>
+                                <span x-text="newsletters.length - index"></span>
                             </div>
                         </div>
 
