@@ -58,6 +58,10 @@ Route::get('/srila-prabhupad-vision', function () {
     return view('pages.vision_sp');
 });
 
+Route::get('/newsletter', function () {
+    return view('pages.newsletter');
+});
+
 // Route::get('/campaign', function () {
 //     return view('pages.campaign');
 // });

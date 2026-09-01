@@ -80,11 +80,11 @@
       </h2>
 
       <p class="text-lg sm:text-xl md:text-2xl text-orange-600 font-light mb-6 sm:mb-7 md:mb-8 px-4">
-        November 1, 2026 marks a pivotal moment in out journey.
+        November 1, 2026 marks a pivotal moment in our journey.
       </p>
 
       <p class="text-base sm:text-lg md:text-xl text-orange-800 mb-8 sm:mb-10 md:mb-12 font-light leading-relaxed max-w-3xl mx-auto px-4">
-        The countdown in on, and your support is key to our success.
+        The countdown is on, and your support is key to our success.
       </p>
     </div>
 
