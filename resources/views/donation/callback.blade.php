@@ -110,10 +110,6 @@
                 <i class="fab fa-whatsapp text-green-600 mr-2"></i>
                 <span>Your donation receipt has been sent to your WhatsApp number.</span>
               </p>
-              <p class="text-sm text-stone-600">
-                <i class="fas fa-check-circle text-green-600 mr-2"></i>
-                <span>Your donation will help in the sacred restoration of Birnagar.</span>
-              </p>
             </div>
 
             <div class="border-t border-stone-200 pt-6 space-y-3">
